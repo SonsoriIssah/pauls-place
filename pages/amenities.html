@@ -24,7 +24,8 @@
     .checklist{display:flex;flex-direction:column;gap:.6rem;margin:1.5rem 0 2rem}
     .checklist li{display:flex;align-items:flex-start;gap:.6rem;font-size:.9rem;color:var(--text)}
     .checklist li::before{content:'✓';color:var(--gold);font-weight:700;flex-shrink:0}
-    @media(max-width:768px){.amenity-full,.amenity-full.reverse{grid-template-columns:1fr;direction:ltr}.amenity-full.reverse>*{direction:ltr}}
+    @media(max-width:768px){.amenity-full,.amenity-full.reverse{grid-template-columns:1fr;direction:ltr}.amenity-full.reverse>*{direction:ltr}.stats-banner-grid{grid-template-columns:repeat(2,1fr)!important}.amenities-bottom-grid{grid-template-columns:repeat(2,1fr)!important}}
+    @media(max-width:480px){.stats-banner-grid{grid-template-columns:repeat(2,1fr)!important}.amenities-bottom-grid{grid-template-columns:1fr!important}}
   </style>
 </head>
 <body>
@@ -60,7 +61,7 @@
 <!-- stats -->
 <div style="background:var(--gold);padding:1.75rem 0">
   <div class="container">
-    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;text-align:center">
+    <div class="stats-banner-grid" style="display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;text-align:center">
       <div><span style="font-family:'Playfair Display',serif;font-size:2rem;font-weight:700;color:var(--dark);display:block">2 Blocks</span><span style="font-size:.62rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:rgba(0,0,0,.6)">Total Blocks</span></div>
       <div><span style="font-family:'Playfair Display',serif;font-size:2rem;font-weight:700;color:var(--dark);display:block">5 Floors</span><span style="font-size:.62rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:rgba(0,0,0,.6)">Per Block</span></div>
       <div><span style="font-family:'Playfair Display',serif;font-size:2rem;font-weight:700;color:var(--dark);display:block">10 Units</span><span style="font-size:.62rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:rgba(0,0,0,.6)">Residential</span></div>
@@ -154,7 +155,7 @@
       <h2 class="section-title" style="color:var(--white)">All Building Amenities</h2>
       <div class="divider divider-center"></div>
     </div>
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,.06)" class="reveal">
+    <div class="amenities-bottom-grid reveal" style="display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,.06)">
       <div style="background:var(--dark-2);padding:1.5rem 2rem"><span style="font-size:1.5rem;display:block;margin-bottom:.5rem">⚡</span><strong style="color:#fff;font-size:.9rem;display:block">Standby Generator</strong><span style="font-size:.8rem;color:rgba(255,255,255,.5)">24hr uninterrupted power</span></div>
       <div style="background:var(--dark-2);padding:1.5rem 2rem"><span style="font-size:1.5rem;display:block;margin-bottom:.5rem">🛗</span><strong style="color:#fff;font-size:.9rem;display:block">Elevator Access</strong><span style="font-size:.8rem;color:rgba(255,255,255,.5)">All 5 floors served</span></div>
       <div style="background:var(--dark-2);padding:1.5rem 2rem"><span style="font-size:1.5rem;display:block;margin-bottom:.5rem">🔒</span><strong style="color:#fff;font-size:.9rem;display:block">24/7 Security</strong><span style="font-size:.8rem;color:rgba(255,255,255,.5)">Gated compound &amp; CCTV</span></div>
