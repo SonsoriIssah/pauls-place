@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Restaurants &amp; Bars — Kempinski Hotel Gold Coast City</title>
+  <meta name="description" content="Eight distinctive dining venues at Kempinski Hotel Gold Coast City — ASANA Bar, Papillon Restaurant, The Gallery Bar, Café George, Cedar Garden and more." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,700&family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/styles.css" />
+  <style>
+    .page-hero { position:relative; height:55vh; min-height:400px; overflow:hidden; display:flex; align-items:flex-end; }
+    .page-hero img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
+    .page-hero-overlay { position:absolute; inset:0; background:linear-gradient(to top,rgba(0,0,0,0.65) 0%,rgba(0,0,0,0.15) 60%); }
+    .page-hero-content { position:relative; z-index:2; color:#fff; padding:3rem 2rem; max-width:1260px; margin:0 auto; width:100%; }
+    .page-hero-content h1 { font-family:'Playfair Display',serif; font-size:clamp(2rem,4vw,3.5rem); font-style:italic; margin-bottom:0.5rem; }
+    .breadcrumb { font-size:0.72rem; letter-spacing:0.1em; text-transform:uppercase; color:rgba(255,255,255,0.65); margin-bottom:1rem; }
+    .breadcrumb a { color:rgba(255,255,255,0.65); }
+    .breadcrumb span { color:var(--gold-light); }
+
+    .venue-full { display:grid; grid-template-columns:1.1fr 0.9fr; gap:0; margin-bottom:3px; min-height:500px; }
+    .venue-full.reverse { grid-template-columns:0.9fr 1.1fr; }
+    .venue-full-img { overflow:hidden; position:relative; }
+    .venue-full-img img { width:100%; height:100%; object-fit:cover; transition:transform 0.6s ease; }
+    .venue-full-img:hover img { transform:scale(1.03); }
+    .venue-full-content { padding:4rem 3.5rem; display:flex; flex-direction:column; justify-content:center; }
+    .venue-full-content.dark { background:var(--dark); }
+    .venue-full-content.dark h2,
+    .venue-full-content.dark .info-label { color:var(--white); }
+    .venue-full-content.dark p { color:rgba(255,255,255,0.75); }
+    .venue-info-row { display:flex; gap:2rem; margin:1.5rem 0; flex-wrap:wrap; }
+    .venue-info-item { }
+    .info-label { font-size:0.62rem; font-weight:700; letter-spacing:0.15em; text-transform:uppercase; color:var(--text-muted); display:block; margin-bottom:0.25rem; }
+    .info-value { font-size:0.9rem; font-weight:600; color:var(--text); }
+    .venue-full-content.dark .info-value { color:var(--white); }
+
+    @media (max-width:768px) {
+      .venue-full, .venue-full.reverse { grid-template-columns:1fr; }
+      .venue-full-img { height:280px; }
+      .venue-full-content { padding:2.5rem 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="top-bar">
+    <div class="container">
+      <div class="top-bar-left">
+        <a href="tel:+233242436030">📞 +233 242 436 030</a>
+        <a href="mailto:reservations.hotelgoldcoast@kempinski.com">✉ reservations.hotelgoldcoast@kempinski.com</a>
+      </div>
+      <div class="top-bar-right">
+        <a href="../index.html#offers">Special Offers</a>
+        <a href="meetings.html">Meetings</a>
+        <a href="../index.html#contact">Contact</a>
+      </div>
+    </div>
+  </div>
+
+  <nav class="navbar" id="navbar">
+    <div class="container">
+      <a href="../index.html" class="navbar-logo">
+        <span class="brand-name">Kempinski</span>
+        <span class="brand-sub">Hotel Gold Coast City · Accra</span>
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="rooms.html">Rooms &amp; Suites</a></li>
+        <li><a href="dining.html">Dining</a></li>
+        <li><a href="spa.html">Spa &amp; Fitness</a></li>
+        <li><a href="meetings.html">Meetings</a></li>
+        <li><a href="../index.html#offers">Offers</a></li>
+        <li><a href="../index.html#gallery">Gallery</a></li>
+        <li><a href="../index.html#contact">Contact</a></li>
+      </ul>
+      <div class="nav-actions">
+        <a href="#" class="btn-signin">Sign In</a>
+        <a href="../index.html#booking" class="btn-book">Book Now</a>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Hero -->
+  <div class="page-hero">
+    <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1800&auto=format&fit=crop&q=80" alt="Dining at Kempinski Hotel Gold Coast City" loading="eager" />
+    <div class="page-hero-overlay"></div>
+    <div class="page-hero-content">
+      <p class="breadcrumb"><a href="../index.html">Home</a> / <span>Restaurants &amp; Bars</span></p>
+      <h1>Restaurants &amp; Bars</h1>
+      <p>Eight extraordinary venues — a world of flavour in downtown Accra</p>
+    </div>
+  </div>
+
+  <!-- Intro -->
+  <section style="background:var(--cream); padding:4rem 0;">
+    <div class="container" style="text-align:center; max-width:800px;">
+      <span class="section-eyebrow">Culinary Excellence</span>
+      <h2 class="section-title">A World of Flavour</h2>
+      <div class="divider divider-center"></div>
+      <p class="section-subtitle" style="margin:0 auto;">
+        From bold Asian fusion to refined Mediterranean buffets, from poolside cocktails
+        to artisanal pastries — our eight dining venues offer a spectacular culinary
+        journey through global cuisines, all infused with the spirit of Ghana.
+        Every venue is a destination in itself.
+      </p>
+    </div>
+  </section>
+
+  <!-- Papillon Restaurant -->
+  <div class="venue-full">
+    <div class="venue-full-img">
+      <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=900&auto=format&fit=crop&q=80" alt="Papillon Restaurant" loading="lazy" />
+    </div>
+    <div class="venue-full-content reveal" style="background:var(--white);">
+      <span class="section-eyebrow">All-Day Dining</span>
+      <h2 style="font-family:'Playfair Display',serif; font-size:2rem; margin-bottom:0.75rem;">Papillon Restaurant</h2>
+      <div class="divider"></div>
+      <p style="color:var(--text-light); line-height:1.8; margin-bottom:0.5rem;">
+        Our flagship all-day dining destination features an open kitchen at its heart,
+        showcasing an enticing Mediterranean buffet alongside à la carte selections.
+        With international specialties and beloved Ghanaian regional dishes — all
+        presented amid local artwork — Papillon offers an immersive dining experience
+        that celebrates both cultures.
+      </p>
+      <div class="venue-info-row">
+        <div class="venue-info-item"><span class="info-label">Cuisine</span><span class="info-value">Mediterranean · Ghanaian</span></div>
+        <div class="venue-info-item"><span class="info-label">Style</span><span class="info-value">Buffet &amp; À la Carte</span></div>
+        <div class="venue-info-item"><span class="info-label">Dress Code</span><span class="info-value">Smart Casual</span></div>
+        <div class="venue-info-item"><span class="info-label">Hours</span><span class="info-value">6:30 AM – 11:00 PM</span></div>
+      </div>
+      <div class="dining-tags">
+        <span class="dining-tag">Breakfast</span>
+        <span class="dining-tag">Lunch</span>
+        <span class="dining-tag">Dinner</span>
+        <span class="dining-tag">Open Kitchen</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ASANA Bar & Kitchen -->
+  <div class="venue-full reverse">
+    <div class="venue-full-content dark reveal">
+      <span class="section-eyebrow">Asian Fusion</span>
+      <h2 style="font-family:'Playfair Display',serif; font-size:2rem; color:var(--white); margin-bottom:0.75rem;">ASANA Bar &amp; Kitchen</h2>
+      <div class="divider"></div>
+      <p style="color:rgba(255,255,255,0.75); line-height:1.8; margin-bottom:0.5rem;">
+        Discover our Asian-fusion bar and restaurant, where bold local flavours meet
+        artistic Asian flair in an electric social setting. ASANA is the hotel's
+        premier evening destination — perfect for vibrant cocktail sessions, intimate
+        dinners, and late-night celebrations with Accra's social elite.
+      </p>
+      <div class="venue-info-row">
+        <div class="venue-info-item"><span class="info-label">Cuisine</span><span class="info-value" style="color:#fff;">Asian Fusion</span></div>
+        <div class="venue-info-item"><span class="info-label">Style</span><span class="info-value" style="color:#fff;">À la Carte</span></div>
+        <div class="venue-info-item"><span class="info-label">Dress Code</span><span class="info-value" style="color:#fff;">Smart Casual</span></div>
+        <div class="venue-info-item"><span class="info-label">Hours</span><span class="info-value" style="color:#fff;">6:00 PM – 12:00 AM</span></div>
+      </div>
+      <div class="dining-tags">
+        <span class="dining-tag">Cocktails</span>
+        <span class="dining-tag">Dinner</span>
+        <span class="dining-tag">Late Night</span>
+        <span class="dining-tag">Live Music</span>
+      </div>
+    </div>
+    <div class="venue-full-img">
+      <img src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?w=900&auto=format&fit=crop&q=80" alt="ASANA Bar & Kitchen" loading="lazy" />
+    </div>
+  </div>
+
+  <!-- The Gallery Bar -->
+  <div class="venue-full">
+    <div class="venue-full-img">
+      <img src="https://images.unsplash.com/photo-1551024709-8f23befc6f87?w=900&auto=format&fit=crop&q=80" alt="The Gallery Bar" loading="lazy" />
+    </div>
+    <div class="venue-full-content reveal" style="background:var(--cream);">
+      <span class="section-eyebrow">Premium Bar</span>
+      <h2 style="font-family:'Playfair Display',serif; font-size:2rem; margin-bottom:0.75rem;">The Gallery Bar</h2>
+      <div class="divider"></div>
+      <p style="color:var(--text-light); line-height:1.8; margin-bottom:0.5rem;">
+        An elegant metropolitan bar specialising in premium spirits, rare whiskies, and
+        bespoke cocktail creations — each inspired by local Ghanaian ingredients and
+        crafted by our world-class mixologists. Surrounded by rotating exhibitions
+        of local and international artwork, The Gallery Bar offers culture in every glass.
+      </p>
+      <div class="venue-info-row">
+        <div class="venue-info-item"><span class="info-label">Cuisine</span><span class="info-value">European</span></div>
+        <div class="venue-info-item"><span class="info-label">Style</span><span class="info-value">À la Carte</span></div>
+        <div class="venue-info-item"><span class="info-label">Dress Code</span><span class="info-value">Smart Casual</span></div>
+        <div class="venue-info-item"><span class="info-label">Hours</span><span class="info-value">11:00 AM – 1:00 AM</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Papillon Pool Lounge -->
+  <div class="venue-full reverse">
+    <div class="venue-full-content dark reveal">
+      <span class="section-eyebrow">Poolside Dining</span>
+      <h2 style="font-family:'Playfair Display',serif; font-size:2rem; color:var(--white); margin-bottom:0.75rem;">Papillon Pool Lounge</h2>
+      <div class="divider"></div>
+      <p style="color:rgba(255,255,255,0.75); line-height:1.8; margin-bottom:0.5rem;">
+        Relax in stylish cabanas and savour light European fare with magnificent views of
+        our stunning infinity pool. The Papillon Pool Lounge is the ideal spot for a
+        leisurely lunch, refreshing cocktails, or a sun-drenched afternoon with the family.
+      </p>
+      <div class="venue-info-row">
+        <div class="venue-info-item"><span class="info-label">Cuisine</span><span class="info-value" style="color:#fff;">European</span></div>
+        <div class="venue-info-item"><span class="info-label">Style</span><span class="info-value" style="color:#fff;">À la Carte</span></div>
+        <div class="venue-info-item"><span class="info-label">Dress Code</span><span class="info-value" style="color:#fff;">Casual</span></div>
+        <div class="venue-info-item"><span class="info-label">Hours</span><span class="info-value" style="color:#fff;">10:00 AM – 7:00 PM</span></div>
+      </div>
+    </div>
+    <div class="venue-full-img">
+      <img src="https://images.unsplash.com/photo-1530268729831-4b0b9e170218?w=900&auto=format&fit=crop&q=80" alt="Papillon Pool Lounge" loading="lazy" />
+    </div>
+  </div>
+
+  <!-- Café George & Bakery -->
+  <div class="venue-full">
+    <div class="venue-full-img">
+      <img src="https://images.unsplash.com/photo-1445116572660-236099ec97a0?w=900&auto=format&fit=crop&q=80" alt="Café George & Bakery" loading="lazy" />
+    </div>
+    <div class="venue-full-content reveal" style="background:var(--white);">
+      <span class="section-eyebrow">Café &amp; Bakery</span>
+      <h2 style="font-family:'Playfair Display',serif; font-size:2rem; margin-bottom:0.75rem;">Café George &amp; Bakery</h2>
+      <div class="divider"></div>
+      <p style="color:var(--text-light); line-height:1.8; margin-bottom:0.5rem;">
+        Start your day with freshly baked pastries, artisan breads, and lovingly crafted
+        homemade treats at Café George. A casual, welcoming café with dine-in, outdoor
+        terrace, and convenient takeaway options — perfect for a quick coffee before
+        meetings or a leisurely morning bite.
+      </p>
+      <div class="venue-info-row">
+        <div class="venue-info-item"><span class="info-label">Cuisine</span><span class="info-value">Café &amp; Snacks</span></div>
+        <div class="venue-info-item"><span class="info-label">Style</span><span class="info-value">Café</span></div>
+        <div class="venue-info-item"><span class="info-label">Dress Code</span><span class="info-value">Casual</span></div>
+        <div class="venue-info-item"><span class="info-label">Hours</span><span class="info-value">7:00 AM – 8:00 PM</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Cedar Garden -->
+  <div class="venue-full reverse">
+    <div class="venue-full-content dark reveal">
+      <span class="section-eyebrow">Outdoor Dining</span>
+      <h2 style="font-family:'Playfair Display',serif; font-size:2rem; color:var(--white); margin-bottom:0.75rem;">Cedar Garden</h2>
+      <div class="divider"></div>
+      <p style="color:rgba(255,255,255,0.75); line-height:1.8; margin-bottom:0.5rem;">
+        Experience the magic of dining under the Accra sky. Cedar Garden is a lush,
+        award-winning outdoor venue accessible from the lounge and bar areas — the
+        perfect setting for intimate evening dinners, private celebrations, and
+        memorable al fresco experiences with a Mediterranean menu.
+      </p>
+      <div class="venue-info-row">
+        <div class="venue-info-item"><span class="info-label">Cuisine</span><span class="info-value" style="color:#fff;">Mediterranean</span></div>
+        <div class="venue-info-item"><span class="info-label">Style</span><span class="info-value" style="color:#fff;">À la Carte</span></div>
+        <div class="venue-info-item"><span class="info-label">Dress Code</span><span class="info-value" style="color:#fff;">Smart Casual</span></div>
+        <div class="venue-info-item"><span class="info-label">Hours</span><span class="info-value" style="color:#fff;">6:00 PM – 11:00 PM</span></div>
+      </div>
+    </div>
+    <div class="venue-full-img">
+      <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?w=900&auto=format&fit=crop&q=80" alt="Cedar Garden" loading="lazy" />
+    </div>
+  </div>
+
+  <!-- Gallery Lobby Lounge & Culinary Highlights side by side -->
+  <section style="background:var(--cream); padding:4rem 0;">
+    <div class="container">
+      <div class="dining-grid">
+        <article class="dining-card reveal">
+          <img class="dining-card-image" src="https://images.unsplash.com/photo-1560624052-449f5ddf0c31?w=600&auto=format&fit=crop&q=80" alt="Gallery Lobby Lounge" loading="lazy" />
+          <div class="dining-card-body">
+            <p class="dining-card-type">European · All-Day</p>
+            <h3 class="dining-card-name">Gallery Lobby Lounge</h3>
+            <p class="dining-card-desc">An inviting all-day lounge in the heart of the hotel's lobby, offering premium drinks, light bites, and a warm, welcoming ambience for guests and visitors alike.</p>
+            <div class="dining-card-footer">
+              <span class="dining-card-dress">Smart Casual · 8 AM – 12 AM</span>
+            </div>
+          </div>
+        </article>
+        <article class="dining-card reveal reveal-delay-1">
+          <img class="dining-card-image" src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&auto=format&fit=crop&q=80" alt="Culinary Highlights" loading="lazy" />
+          <div class="dining-card-body">
+            <p class="dining-card-type">International · Buffet</p>
+            <h3 class="dining-card-name">Culinary Highlights</h3>
+            <p class="dining-card-desc">An indulgent international buffet and à la carte experience showcasing the very best of our culinary team — from live cooking stations to signature desserts.</p>
+            <div class="dining-card-footer">
+              <span class="dining-card-dress">Smart Casual · Lunch &amp; Dinner</span>
+            </div>
+          </div>
+        </article>
+        <article class="dining-card reveal reveal-delay-2">
+          <img class="dining-card-image" src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=600&auto=format&fit=crop&q=80" alt="Spa Café" loading="lazy" />
+          <div class="dining-card-body">
+            <p class="dining-card-type">Healthy · Café</p>
+            <h3 class="dining-card-name">Spa Café</h3>
+            <p class="dining-card-desc">A serene wellness café nestled within the Resense Spa offering nutritious juices, smoothies, herbal teas, and light healthy meals to complement your spa journey.</p>
+            <div class="dining-card-footer">
+              <span class="dining-card-dress">Casual · 7 AM – 9 PM</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-top">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-brand footer-col">
+            <div class="brand-name">Kempinski</div>
+            <span class="brand-sub">Hotel Gold Coast City · Accra</span>
+            <p>Ghana's premier five-star address in the heart of Accra.</p>
+            <div class="social-links">
+              <a href="#" class="social-link">f</a><a href="#" class="social-link">in</a><a href="#" class="social-link">𝕏</a><a href="#" class="social-link">▶</a>
+            </div>
+          </div>
+          <div class="footer-col">
+            <h3 class="footer-col-title">The Hotel</h3>
+            <ul class="footer-links">
+              <li><a href="rooms.html">Rooms &amp; Suites</a></li>
+              <li><a href="dining.html">Dining</a></li>
+              <li><a href="spa.html">Spa &amp; Fitness</a></li>
+              <li><a href="meetings.html">Meetings &amp; Events</a></li>
+              <li><a href="../index.html#offers">Special Offers</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h3 class="footer-col-title">Contact</h3>
+            <ul class="footer-links">
+              <li style="color:rgba(255,255,255,0.6);font-size:0.84rem;">Independence Avenue, Ridge<br/>Accra, Ghana</li>
+              <li><a href="tel:+233242436030">+233 242 436 030</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="footer-bottom">
+        <div class="footer-legal"><a href="#">Privacy Policy</a><a href="#">Legal Notice</a></div>
+        <p class="footer-copy">&copy; 2024 Kempinski Hotels S.A. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/main.js" defer></script>
+</body>
+</html>

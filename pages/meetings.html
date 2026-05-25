@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Meetings &amp; Events — Kempinski Hotel Gold Coast City</title>
+  <meta name="description" content="Host world-class events at Kempinski Hotel Gold Coast City Accra — 1,750 m² of versatile event space including the Adlon Grand Ballroom, Cedar Garden, and premium boardrooms." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,700&family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/styles.css" />
+  <style>
+    .page-hero { position:relative; height:55vh; min-height:400px; overflow:hidden; display:flex; align-items:flex-end; }
+    .page-hero img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
+    .page-hero-overlay { position:absolute; inset:0; background:linear-gradient(to top,rgba(0,0,0,0.65) 0%,rgba(0,0,0,0.1) 60%); }
+    .page-hero-content { position:relative; z-index:2; color:#fff; padding:3rem 2rem; max-width:1260px; margin:0 auto; width:100%; }
+    .page-hero-content h1 { font-family:'Playfair Display',serif; font-size:clamp(2rem,4vw,3.5rem); font-style:italic; margin-bottom:0.5rem; }
+    .breadcrumb { font-size:0.72rem; letter-spacing:0.1em; text-transform:uppercase; color:rgba(255,255,255,0.65); margin-bottom:1rem; }
+    .breadcrumb a { color:rgba(255,255,255,0.65); }
+    .breadcrumb span { color:var(--gold-light); }
+
+    .venue-detail { display:grid; grid-template-columns:1.15fr 0.85fr; gap:0; margin-bottom:3px; }
+    .venue-detail.reverse { grid-template-columns:0.85fr 1.15fr; }
+    .venue-detail-img { overflow:hidden; height:480px; }
+    .venue-detail-img img { width:100%; height:100%; object-fit:cover; transition:transform 0.6s ease; }
+    .venue-detail-img:hover img { transform:scale(1.03); }
+    .venue-detail-content { padding:3.5rem 3rem; display:flex; flex-direction:column; justify-content:center; }
+    .venue-detail-content.light { background:var(--white); }
+    .venue-detail-content.cream { background:var(--cream); }
+    .venue-detail-content.dark { background:var(--dark); }
+    .venue-detail-content.dark h2,
+    .venue-detail-content.dark .cap-count { color:var(--white); }
+    .venue-detail-content.dark p { color:rgba(255,255,255,0.75); }
+    .capacity-row { display:flex; gap:2.5rem; margin:1.5rem 0 2rem; flex-wrap:wrap; }
+    .cap-item { text-align:center; }
+    .cap-count { font-family:'Playfair Display',serif; font-size:2rem; font-weight:700; color:var(--dark); display:block; line-height:1; }
+    .cap-label { font-size:0.62rem; font-weight:700; letter-spacing:0.15em; text-transform:uppercase; color:var(--text-muted); margin-top:0.3rem; display:block; }
+    .feature-pills { display:flex; flex-wrap:wrap; gap:0.5rem; margin-bottom:2rem; }
+    .feature-pill { font-size:0.65rem; font-weight:700; letter-spacing:0.08em; border:1px solid var(--border); color:var(--text); padding:0.3rem 0.8rem; }
+    .venue-detail-content.dark .feature-pill { border-color:rgba(255,255,255,0.2); color:rgba(255,255,255,0.7); }
+
+    .enquiry-form { background:var(--dark); padding:5rem 0; }
+    .form-grid { display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-bottom:1rem; }
+    .form-group { display:flex; flex-direction:column; gap:0.4rem; }
+    .form-group label { font-size:0.65rem; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:rgba(255,255,255,0.55); }
+    .form-group input, .form-group select, .form-group textarea {
+      background:rgba(255,255,255,0.06);
+      border:1px solid rgba(255,255,255,0.12);
+      color:var(--white);
+      padding:0.85rem 1rem;
+      font-family:inherit;
+      font-size:0.9rem;
+      outline:none;
+      transition:var(--transition);
+    }
+    .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+      border-color:var(--gold);
+      background:rgba(255,255,255,0.08);
+    }
+    .form-group input::placeholder, .form-group textarea::placeholder { color:rgba(255,255,255,0.3); }
+    .form-group select option { background:var(--dark-3); color:var(--white); }
+    .form-group textarea { resize:vertical; min-height:100px; }
+
+    @media (max-width:768px) {
+      .venue-detail, .venue-detail.reverse { grid-template-columns:1fr; }
+      .venue-detail-img { height:260px; }
+      .venue-detail-content { padding:2.5rem 1.5rem; }
+      .form-grid { grid-template-columns:1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="top-bar">
+    <div class="container">
+      <div class="top-bar-left">
+        <a href="tel:+233242436030">📞 +233 242 436 030</a>
+        <a href="mailto:reservations.hotelgoldcoast@kempinski.com">✉ reservations.hotelgoldcoast@kempinski.com</a>
+      </div>
+      <div class="top-bar-right">
+        <a href="../index.html#offers">Special Offers</a>
+        <a href="meetings.html">Meetings</a>
+        <a href="../index.html#contact">Contact</a>
+      </div>
+    </div>
+  </div>
+
+  <nav class="navbar" id="navbar">
+    <div class="container">
+      <a href="../index.html" class="navbar-logo">
+        <span class="brand-name">Kempinski</span>
+        <span class="brand-sub">Hotel Gold Coast City · Accra</span>
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="rooms.html">Rooms &amp; Suites</a></li>
+        <li><a href="dining.html">Dining</a></li>
+        <li><a href="spa.html">Spa &amp; Fitness</a></li>
+        <li><a href="meetings.html">Meetings</a></li>
+        <li><a href="../index.html#offers">Offers</a></li>
+        <li><a href="../index.html#gallery">Gallery</a></li>
+        <li><a href="../index.html#contact">Contact</a></li>
+      </ul>
+      <div class="nav-actions">
+        <a href="#" class="btn-signin">Sign In</a>
+        <a href="../index.html#booking" class="btn-book">Book Now</a>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Hero -->
+  <div class="page-hero">
+    <img src="https://images.unsplash.com/photo-1505373877841-8d25f7d46678?w=1800&auto=format&fit=crop&q=80" alt="Meetings and Events" loading="eager" />
+    <div class="page-hero-overlay"></div>
+    <div class="page-hero-content">
+      <p class="breadcrumb"><a href="../index.html">Home</a> / <span>Meetings &amp; Events</span></p>
+      <h1>Meetings &amp; Events</h1>
+      <p>1,750 m² of extraordinary event space in the heart of Accra</p>
+    </div>
+  </div>
+
+  <!-- Stats Banner -->
+  <div style="background:var(--gold); padding:1.75rem 0;">
+    <div class="container">
+      <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:1rem; text-align:center;">
+        <div>
+          <span style="font-family:'Playfair Display',serif; font-size:2rem; font-weight:700; color:var(--dark); display:block;">1,750+ m²</span>
+          <span style="font-size:0.62rem; font-weight:700; letter-spacing:0.18em; text-transform:uppercase; color:rgba(0,0,0,0.6);">Total Event Space</span>
+        </div>
+        <div>
+          <span style="font-family:'Playfair Display',serif; font-size:2rem; font-weight:700; color:var(--dark); display:block;">850</span>
+          <span style="font-size:0.62rem; font-weight:700; letter-spacing:0.18em; text-transform:uppercase; color:rgba(0,0,0,0.6);">Max Guests (Theatre)</span>
+        </div>
+        <div>
+          <span style="font-family:'Playfair Display',serif; font-size:2rem; font-weight:700; color:var(--dark); display:block;">12+</span>
+          <span style="font-size:0.62rem; font-weight:700; letter-spacing:0.18em; text-transform:uppercase; color:rgba(0,0,0,0.6);">Unique Venues</span>
+        </div>
+        <div>
+          <span style="font-family:'Playfair Display',serif; font-size:2rem; font-weight:700; color:var(--dark); display:block;">3</span>
+          <span style="font-size:0.62rem; font-weight:700; letter-spacing:0.18em; text-transform:uppercase; color:rgba(0,0,0,0.6);">Event Floors</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Intro -->
+  <section style="background:var(--white); padding:5rem 0;">
+    <div class="container">
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:5rem; align-items:center;">
+        <div class="reveal">
+          <span class="section-eyebrow">Events at Kempinski</span>
+          <h2 class="section-title">Where Every Occasion Becomes Extraordinary</h2>
+          <div class="divider"></div>
+          <p style="color:var(--text-light); line-height:1.8; margin-bottom:1.5rem;">
+            Whether you are planning a corporate conference, an intimate board meeting,
+            a lavish wedding reception, or a gala for hundreds, the Kempinski Hotel
+            Gold Coast City offers the space, expertise, and elegance to make it
+            truly unforgettable.
+          </p>
+          <p style="color:var(--text-light); line-height:1.8; margin-bottom:2rem;">
+            Our dedicated events team provides end-to-end planning support, complemented
+            by state-of-the-art audiovisual technology, award-winning catering, and the
+            flawless service you expect from Kempinski.
+          </p>
+          <div style="display:flex; gap:1rem; flex-wrap:wrap;">
+            <a href="#enquiry" class="btn-primary">Request a Proposal</a>
+            <a href="tel:+233242436030" class="btn-outline-gold" style="display:inline-block; color:var(--gold); border:1.5px solid var(--gold); padding:0.9rem 1.75rem; font-size:0.75rem; font-weight:700; letter-spacing:0.12em; text-transform:uppercase;">Call Events Team</a>
+          </div>
+        </div>
+        <img class="reveal reveal-delay-2"
+          src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&auto=format&fit=crop&q=80"
+          alt="Event planning at Kempinski" loading="lazy"
+          style="width:100%; height:460px; object-fit:cover;" />
+      </div>
+    </div>
+  </section>
+
+  <!-- Adlon Ballroom -->
+  <div class="venue-detail" id="ballroom">
+    <div class="venue-detail-img">
+      <img src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?w=900&auto=format&fit=crop&q=80" alt="Adlon Ballroom" loading="lazy" />
+    </div>
+    <div class="venue-detail-content cream reveal">
+      <span class="section-eyebrow">Flagship Venue</span>
+      <h2 style="font-family:'Playfair Display',serif; font-size:1.9rem; margin-bottom:0.75rem;">Adlon Grand Ballroom</h2>
+      <div class="divider"></div>
+      <p style="color:var(--text-light); line-height:1.8; margin-bottom:0.5rem;">
+        Our centrepiece event space — the pillarless Adlon Ballroom spans an impressive
+        1,028 m² on the ground floor, complete with a built-in stage, state-of-the-art
+        AV systems, and a dedicated pre-function area. It can be divided into three
+        independent sections (Adlon 1, 2 &amp; 3) to suit your exact requirements.
+      </p>
+      <div class="capacity-row">
+        <div class="cap-item"><span class="cap-count">850</span><span class="cap-label">Theatre</span></div>
+        <div class="cap-item"><span class="cap-count">600</span><span class="cap-label">Banquet</span></div>
+        <div class="cap-item"><span class="cap-count">350</span><span class="cap-label">Reception</span></div>
+        <div class="cap-item"><span class="cap-count">140</span><span class="cap-label">Classroom</span></div>
+      </div>
+      <div class="feature-pills">
+        <span class="feature-pill">1,028 m²</span>
+        <span class="feature-pill">Built-in Stage</span>
+        <span class="feature-pill">Pillarless</span>
+        <span class="feature-pill">Divisible x3</span>
+        <span class="feature-pill">Ground Floor</span>
+        <span class="feature-pill">AV Technology</span>
+      </div>
+      <a href="#enquiry" class="btn-primary" style="align-self:flex-start;">Request Booking</a>
+    </div>
+  </div>
+
+  <!-- Cedar Garden -->
+  <div class="venue-detail reverse">
+    <div class="venue-detail-content dark reveal">
+      <span class="section-eyebrow">Outdoor Venue</span>
+      <h2 style="font-family:'Playfair Display',serif; font-size:1.9rem; color:var(--white); margin-bottom:0.75rem;">Cedar Garden</h2>
+      <div class="divider"></div>
+      <p style="color:rgba(255,255,255,0.75); line-height:1.8; margin-bottom:0.5rem;">
+        A magnificent outdoor venue set among lush tropical gardens, Cedar Garden
+        offers a uniquely enchanting setting for wedding ceremonies, cocktail receptions,
+        and gala dinners under the Accra sky. With up to 400 guests, it is the most
+        romantic event space in the city.
+      </p>
+      <div class="capacity-row">
+        <div class="cap-item"><span class="cap-count" style="color:var(--white);">400</span><span class="cap-label">Reception</span></div>
+        <div class="cap-item"><span class="cap-count" style="color:var(--white);">380</span><span class="cap-label">Banquet</span></div>
+        <div class="cap-item"><span class="cap-count" style="color:var(--white);">200</span><span class="cap-label">Ceremony</span></div>
+      </div>
+      <div class="feature-pills">
+        <span class="feature-pill">500 m²</span>
+        <span class="feature-pill">Outdoor</span>
+        <span class="feature-pill">Garden Setting</span>
+        <span class="feature-pill">Weddings</span>
+        <span class="feature-pill">Receptions</span>
+      </div>
+      <a href="#enquiry" class="btn-primary" style="align-self:flex-start;">Request Booking</a>
+    </div>
+    <div class="venue-detail-img">
+      <img src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=900&auto=format&fit=crop&q=80" alt="Cedar Garden outdoor venue" loading="lazy" />
+    </div>
+  </div>
+
+  <!-- Capitol + Boardrooms -->
+  <div class="venue-detail">
+    <div class="venue-detail-img">
+      <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=900&auto=format&fit=crop&q=80" alt="Capitol Meeting Room" loading="lazy" />
+    </div>
+    <div class="venue-detail-content light reveal">
+      <span class="section-eyebrow">Mid-Size Venue</span>
+      <h2 style="font-family:'Playfair Display',serif; font-size:1.9rem; margin-bottom:0.75rem;">Capitol Meeting Room</h2>
+      <div class="divider"></div>
+      <p style="color:var(--text-light); line-height:1.8; margin-bottom:0.5rem;">
+        Versatile and well-appointed, the Capitol Meeting Room accommodates up to 280
+        guests in theatre configuration. Ideal for product launches, symposiums, award
+        ceremonies, and large corporate training events.
+      </p>
+      <div class="capacity-row">
+        <div class="cap-item"><span class="cap-count">280</span><span class="cap-label">Theatre</span></div>
+        <div class="cap-item"><span class="cap-count">180</span><span class="cap-label">Banquet</span></div>
+        <div class="cap-item"><span class="cap-count">60</span><span class="cap-label">U-Shape</span></div>
+      </div>
+      <div class="feature-pills">
+        <span class="feature-pill">400 m²</span>
+        <span class="feature-pill">Full AV</span>
+        <span class="feature-pill">Natural Light</span>
+        <span class="feature-pill">Flexible Layout</span>
+      </div>
+      <a href="#enquiry" class="btn-primary" style="align-self:flex-start;">Request Booking</a>
+    </div>
+  </div>
+
+  <!-- Boardrooms Grid -->
+  <section style="background:var(--cream); padding:5rem 0;" id="boardrooms">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-eyebrow">Executive Spaces</span>
+        <h2 class="section-title">Boardrooms &amp; Meeting Rooms</h2>
+        <div class="divider divider-center"></div>
+        <p class="section-subtitle" style="margin:0 auto;">Named after legendary Kempinski properties around the world, our intimate boardrooms deliver a premium executive meeting experience.</p>
+      </div>
+      <div class="venues-grid" style="margin-top:3rem;">
+        <article class="venue-card reveal">
+          <h3 class="venue-name">Emirates Palace Boardroom</h3>
+          <p class="venue-size">55 m²</p>
+          <p class="venue-desc">Named after the iconic Abu Dhabi palace. Ideal for high-level strategic sessions, focus groups, and executive decision-making.</p>
+          <div class="venue-capacity">
+            <div class="venue-cap-item"><span class="venue-cap-count">20</span><span class="venue-cap-label">Boardroom</span></div>
+            <div class="venue-cap-item"><span class="venue-cap-count">30</span><span class="venue-cap-label">Theatre</span></div>
+            <div class="venue-cap-item"><span class="venue-cap-count">18</span><span class="venue-cap-label">U-Shape</span></div>
+          </div>
+        </article>
+        <article class="venue-card reveal reveal-delay-1">
+          <h3 class="venue-name">Çırağan Palace Boardroom</h3>
+          <p class="venue-size">55 m²</p>
+          <p class="venue-desc">Inspired by the legendary Istanbul palace, this intimate room delivers a sophisticated setting for confidential executive meetings.</p>
+          <div class="venue-capacity">
+            <div class="venue-cap-item"><span class="venue-cap-count">20</span><span class="venue-cap-label">Boardroom</span></div>
+            <div class="venue-cap-item"><span class="venue-cap-count">30</span><span class="venue-cap-label">Theatre</span></div>
+            <div class="venue-cap-item"><span class="venue-cap-count">18</span><span class="venue-cap-label">U-Shape</span></div>
+          </div>
+        </article>
+        <article class="venue-card reveal reveal-delay-2">
+          <h3 class="venue-name">Stafford Meeting Room</h3>
+          <p class="venue-size">100 m²</p>
+          <p class="venue-desc">A flexible, well-lit space easily configured for presentations, training sessions, private dinners, or creative workshops.</p>
+          <div class="venue-capacity">
+            <div class="venue-cap-item"><span class="venue-cap-count">80</span><span class="venue-cap-label">Theatre</span></div>
+            <div class="venue-cap-item"><span class="venue-cap-count">50</span><span class="venue-cap-label">Banquet</span></div>
+            <div class="venue-cap-item"><span class="venue-cap-count">30</span><span class="venue-cap-label">U-Shape</span></div>
+          </div>
+        </article>
+        <article class="venue-card reveal">
+          <h3 class="venue-name">Siam Meeting Room</h3>
+          <p class="venue-size">55 m²</p>
+          <p class="venue-desc">Named after the Kempinski's Bangkok property, this versatile room is perfect for small meetings, interviews, and media calls.</p>
+          <div class="venue-capacity">
+            <div class="venue-cap-item"><span class="venue-cap-count">20</span><span class="venue-cap-label">Boardroom</span></div>
+            <div class="venue-cap-item"><span class="venue-cap-count">30</span><span class="venue-cap-label">Theatre</span></div>
+          </div>
+        </article>
+        <article class="venue-card reveal reveal-delay-1">
+          <h3 class="venue-name">Palm Jumeirah Room</h3>
+          <p class="venue-size">65 m²</p>
+          <p class="venue-desc">An elegant mid-size room with full AV facilities, ideal for training workshops, seminars, and executive team meetings.</p>
+          <div class="venue-capacity">
+            <div class="venue-cap-item"><span class="venue-cap-count">35</span><span class="venue-cap-label">Boardroom</span></div>
+            <div class="venue-cap-item"><span class="venue-cap-count">50</span><span class="venue-cap-label">Theatre</span></div>
+          </div>
+        </article>
+        <article class="venue-card reveal reveal-delay-2">
+          <h3 class="venue-name">Executive Lounge Meeting Room</h3>
+          <p class="venue-size">25 m²</p>
+          <p class="venue-desc">Located within the Executive Lounge, this intimate space is perfect for one-on-ones, quick catch-ups, and informal business conversations.</p>
+          <div class="venue-capacity">
+            <div class="venue-cap-item"><span class="venue-cap-count">8</span><span class="venue-cap-label">Boardroom</span></div>
+            <div class="venue-cap-item"><span class="venue-cap-count">12</span><span class="venue-cap-label">Theatre</span></div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Enquiry Form -->
+  <section class="enquiry-form" id="enquiry">
+    <div class="container" style="max-width:860px;">
+      <div class="section-header reveal" style="text-align:center; margin-bottom:3rem;">
+        <span class="section-eyebrow" style="color:var(--gold-light);">Get In Touch</span>
+        <h2 class="section-title" style="color:var(--white);">Request an Event Proposal</h2>
+        <div class="divider divider-center"></div>
+        <p class="section-subtitle" style="margin:0 auto; color:rgba(255,255,255,0.65);">Tell us about your event and our dedicated events team will be in touch within 24 hours.</p>
+      </div>
+      <form class="reveal" onsubmit="event.preventDefault(); alert('Thank you! Our events team will contact you within 24 hours.');">
+        <div class="form-grid">
+          <div class="form-group">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" placeholder="Your full name" required />
+          </div>
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" placeholder="your@email.com" required />
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" placeholder="+233 ..." />
+          </div>
+          <div class="form-group">
+            <label for="company">Company / Organisation</label>
+            <input type="text" id="company" placeholder="Your organisation" />
+          </div>
+          <div class="form-group">
+            <label for="event-type">Event Type</label>
+            <select id="event-type">
+              <option value="">Select event type</option>
+              <option>Corporate Conference</option>
+              <option>Gala Dinner</option>
+              <option>Wedding Reception</option>
+              <option>Product Launch</option>
+              <option>Board Meeting</option>
+              <option>Training / Workshop</option>
+              <option>Award Ceremony</option>
+              <option>Social Event</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="guests">Expected Guests</label>
+            <select id="guests">
+              <option value="">Number of guests</option>
+              <option>1 – 20</option>
+              <option>21 – 50</option>
+              <option>51 – 100</option>
+              <option>101 – 200</option>
+              <option>201 – 400</option>
+              <option>401 – 600</option>
+              <option>601 – 850</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="event-date">Preferred Event Date</label>
+            <input type="date" id="event-date" />
+          </div>
+          <div class="form-group">
+            <label for="venue-pref">Venue Preference</label>
+            <select id="venue-pref">
+              <option value="">Select preferred venue</option>
+              <option>Adlon Grand Ballroom</option>
+              <option>Cedar Garden (Outdoor)</option>
+              <option>Capitol Meeting Room</option>
+              <option>Emirates Palace Boardroom</option>
+              <option>Çırağan Palace Boardroom</option>
+              <option>Stafford Meeting Room</option>
+              <option>Other / Not Sure</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group" style="margin-bottom:1.5rem;">
+          <label for="message">Additional Details</label>
+          <textarea id="message" placeholder="Tell us more about your event — catering requirements, special requests, AV needs..."></textarea>
+        </div>
+        <button type="submit" class="btn-primary" style="width:100%; text-align:center; padding:1.1rem;">Submit Enquiry</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-top">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-brand footer-col">
+            <div class="brand-name">Kempinski</div>
+            <span class="brand-sub">Hotel Gold Coast City · Accra</span>
+            <p>Ghana's premier five-star address in the heart of Accra.</p>
+            <div class="social-links">
+              <a href="#" class="social-link">f</a><a href="#" class="social-link">in</a><a href="#" class="social-link">𝕏</a><a href="#" class="social-link">▶</a>
+            </div>
+          </div>
+          <div class="footer-col">
+            <h3 class="footer-col-title">The Hotel</h3>
+            <ul class="footer-links">
+              <li><a href="rooms.html">Rooms &amp; Suites</a></li>
+              <li><a href="dining.html">Dining</a></li>
+              <li><a href="spa.html">Spa &amp; Fitness</a></li>
+              <li><a href="meetings.html">Meetings &amp; Events</a></li>
+              <li><a href="../index.html#offers">Special Offers</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h3 class="footer-col-title">Contact</h3>
+            <ul class="footer-links">
+              <li style="color:rgba(255,255,255,0.6);font-size:0.84rem;">Independence Avenue, Ridge<br/>Accra, Ghana</li>
+              <li><a href="tel:+233242436030">+233 242 436 030</a></li>
+              <li><a href="mailto:reservations.hotelgoldcoast@kempinski.com" style="font-size:0.78rem;">reservations.hotelgoldcoast@kempinski.com</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="footer-bottom">
+        <div class="footer-legal"><a href="#">Privacy Policy</a><a href="#">Legal Notice</a></div>
+        <p class="footer-copy">&copy; 2024 Kempinski Hotels S.A. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/main.js" defer></script>
+</body>
+</html>

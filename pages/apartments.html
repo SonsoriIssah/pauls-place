@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Apartments — Paul's Place | Dzorwulu, Accra</title>
+  <meta name="description" content="2-bedroom and 3-bedroom furnished apartments for rent and sale at Paul's Place Complex, Dzorwulu, Accra. From $1,500/month." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,700&family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/styles.css" />
+  <style>
+    .page-hero{position:relative;height:55vh;min-height:400px;overflow:hidden;display:flex;align-items:flex-end}
+    .page-hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+    .page-hero-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.65) 0%,rgba(0,0,0,0.15) 60%)}
+    .page-hero-content{position:relative;z-index:2;color:#fff;padding:3rem 2rem;max-width:1260px;margin:0 auto;width:100%}
+    .page-hero-content h1{font-family:'Playfair Display',serif;font-size:clamp(2rem,4vw,3.5rem);font-style:italic;margin-bottom:.5rem}
+    .breadcrumb{font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.65);margin-bottom:1rem}
+    .breadcrumb a{color:rgba(255,255,255,.65)}.breadcrumb span{color:var(--gold-light)}
+    .apt-detail{display:grid;grid-template-columns:1.1fr .9fr;gap:0;margin-bottom:3px}
+    .apt-detail.reverse{grid-template-columns:.9fr 1.1fr}
+    .apt-img{overflow:hidden;height:500px}.apt-img img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
+    .apt-img:hover img{transform:scale(1.03)}
+    .apt-content{padding:3.5rem 3rem;display:flex;flex-direction:column;justify-content:center}
+    .apt-content.dark{background:var(--dark)}.apt-content.dark h2,.apt-content.dark .fl{color:var(--white)}
+    .apt-content.dark p{color:rgba(255,255,255,.75)}.apt-content.cream{background:var(--cream)}
+    .spec-row{display:flex;gap:2rem;flex-wrap:wrap;margin:1.25rem 0 1rem}
+    .spec{display:flex;flex-direction:column;gap:.15rem}
+    .sl{font-size:.62rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--text-muted)}
+    .fl{font-size:.9rem;font-weight:700;color:var(--text)}
+    .price-box{display:flex;gap:2rem;align-items:center;padding:1.25rem;background:var(--cream-2);margin:1rem 0 1.5rem}
+    .apt-content.dark .price-box{background:rgba(255,255,255,.06)}
+    .price-item span:first-child{font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:700;color:var(--gold);display:block;line-height:1}
+    .price-item span:last-child{font-size:.62rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--text-muted);margin-top:.2rem;display:block}
+    .apt-content.dark .price-item span:last-child{color:rgba(255,255,255,.4)}
+    .px{width:1px;background:rgba(0,0,0,.1);align-self:stretch}
+    .apt-content.dark .px{background:rgba(255,255,255,.1)}
+    .gallery-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;margin-bottom:3px}
+    .gallery-strip img{width:100%;height:220px;object-fit:cover;transition:transform .5s ease;display:block}
+    .gallery-strip .gi{overflow:hidden}.gallery-strip .gi:hover img{transform:scale(1.04)}
+    @media(max-width:768px){.apt-detail,.apt-detail.reverse{grid-template-columns:1fr}.apt-img{height:280px}.apt-content{padding:2.5rem 1.5rem}.gallery-strip{grid-template-columns:1fr 1fr}}
+  </style>
+</head>
+<body>
+<div class="top-bar"><div class="container">
+  <div class="top-bar-left"><a href="tel:0244910599">📞 0244 910 599</a><a href="mailto:info@sheltermartgh.com">✉ info@sheltermartgh.com</a></div>
+  <div class="top-bar-right"><a href="../index.html#pricing">Pricing</a><a href="commercial.html">Commercial</a><a href="../index.html#contact">Contact</a></div>
+</div></div>
+
+<nav class="navbar" id="navbar"><div class="container">
+  <a href="../index.html" class="navbar-logo"><span class="brand-name">Paul's Place</span><span class="brand-sub">Luxury Complex · Dzorwulu, Accra</span></a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="apartments.html">Apartments</a></li>
+    <li><a href="commercial.html">Commercial</a></li>
+    <li><a href="amenities.html">Amenities</a></li>
+    <li><a href="../index.html#pricing">Pricing</a></li>
+    <li><a href="../index.html#gallery">Gallery</a></li>
+    <li><a href="../index.html#contact">Contact</a></li>
+  </ul>
+  <div class="nav-actions">
+    <a href="tel:0244910599" class="btn-signin">Call Us</a>
+    <a href="../index.html#enquiry" class="btn-book">Enquire Now</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation"><span></span><span></span><span></span></button>
+  </div>
+</div></nav>
+
+<div class="page-hero">
+  <img src="http://sheltermartgh.com/storage/two-bedroom-apartments-for-rent-at-dzorwulu-1/photo-1-2025-12-03-15-37-06.jpg" alt="Paul's Place Apartments" loading="eager" />
+  <div class="page-hero-overlay"></div>
+  <div class="page-hero-content">
+    <p class="breadcrumb"><a href="../index.html">Home</a> / <span>Apartments</span></p>
+    <h1>Residential Apartments</h1>
+    <p>Premium 2 &amp; 3-bedroom units — available to rent or buy in Dzorwulu</p>
+  </div>
+</div>
+
+<!-- intro -->
+<section style="background:var(--white);padding:4rem 0">
+  <div class="container" style="text-align:center;max-width:780px">
+    <span class="section-eyebrow">Residential Units</span>
+    <h2 class="section-title">Your New Home Awaits</h2>
+    <div class="divider divider-center"></div>
+    <p class="section-subtitle" style="margin:0 auto">Paul's Place offers 10 premium apartments across two elegant blocks in Dzorwulu. Every unit features a fully furnished open-plan kitchen, air conditioning, private balcony, walk-in closet, and premium tiled floors — with 24/7 security and a standby generator for total peace of mind.</p>
+  </div>
+</section>
+
+<!-- 2-BED STANDARD -->
+<div class="apt-detail" id="two-bed">
+  <div class="apt-img">
+    <img src="http://sheltermartgh.com/storage/two-bedroom-apartments-for-rent-at-dzorwulu-1/photo-16-2025-12-03-15-37-06.jpg" alt="2-Bedroom Standard living area" loading="lazy" />
+  </div>
+  <div class="apt-content cream reveal">
+    <span class="section-eyebrow">Residential</span>
+    <h2 style="font-family:'Playfair Display',serif;font-size:1.9rem;margin-bottom:.75rem">2-Bedroom Apartment — Standard</h2>
+    <div class="divider"></div>
+    <p style="color:var(--text-light);line-height:1.8;margin-bottom:.5rem">A beautifully finished 2-bedroom apartment offering the perfect balance of style and comfort. The open-plan living and dining area flows seamlessly into a modern kitchen, while the master bedroom features a generous walk-in closet and en-suite bathroom.</p>
+    <div class="spec-row">
+      <div class="spec"><span class="sl">Bedrooms</span><span class="fl">2</span></div>
+      <div class="spec"><span class="sl">Bathrooms</span><span class="fl">2</span></div>
+      <div class="spec"><span class="sl">Kitchen</span><span class="fl">Open-Plan</span></div>
+      <div class="spec"><span class="sl">Balcony</span><span class="fl">Yes</span></div>
+    </div>
+    <div class="price-box">
+      <div class="price-item"><span>$1,500<small style="font-size:.7rem;font-weight:400">/mo</small></span><span>Monthly Rent</span></div>
+      <div class="px"></div>
+      <div class="price-item"><span>$270,000</span><span>Purchase Price (Neg.)</span></div>
+    </div>
+    <div class="amenities-list">
+      <span class="amenity-tag">Air Conditioning</span><span class="amenity-tag">Walk-in Closet</span><span class="amenity-tag">En-Suite</span>
+      <span class="amenity-tag">Private Balcony</span><span class="amenity-tag">Appliances</span><span class="amenity-tag">Tiled Floors</span>
+      <span class="amenity-tag">Storage</span><span class="amenity-tag">Service Charge Incl.</span>
+    </div>
+    <a href="tel:0244910599" class="btn-primary" style="align-self:flex-start">📞 Enquire About This Unit</a>
+  </div>
+</div>
+
+<!-- gallery strip 2-bed -->
+<div class="gallery-strip">
+  <div class="gi"><img src="http://sheltermartgh.com/storage/two-bedroom-apartments-for-rent-at-dzorwulu-1/photo-33-2025-12-03-15-37-06.jpg" alt="2-bed view" loading="lazy" /></div>
+  <div class="gi"><img src="http://sheltermartgh.com/storage/two-bedroom-apartments-for-rent-at-dzorwulu-1/photo-15-2025-12-03-15-37-06.jpg" alt="2-bed bedroom" loading="lazy" /></div>
+  <div class="gi"><img src="http://sheltermartgh.com/storage/two-bedroom-apartments-for-rent-at-dzorwulu-1/photo-6-2025-12-03-15-37-06.jpg" alt="2-bed kitchen" loading="lazy" /></div>
+</div>
+
+<!-- 2-BED DELUXE -->
+<div class="apt-detail reverse">
+  <div class="apt-content dark reveal">
+    <span class="section-eyebrow">Residential</span>
+    <h2 style="font-family:'Playfair Display',serif;font-size:1.9rem;color:var(--white);margin-bottom:.75rem">2-Bedroom Apartment — Deluxe</h2>
+    <div class="divider"></div>
+    <p style="color:rgba(255,255,255,.75);line-height:1.8;margin-bottom:.5rem">The Deluxe configuration elevates your living experience with upgraded interior finishes, enhanced kitchen appliances, and premium furnishing throughout. Enjoy the same generous layout as the Standard unit with a heightened level of luxury.</p>
+    <div class="spec-row">
+      <div class="spec"><span class="sl" style="color:rgba(255,255,255,.45)">Bedrooms</span><span class="fl">2</span></div>
+      <div class="spec"><span class="sl" style="color:rgba(255,255,255,.45)">Bathrooms</span><span class="fl">2</span></div>
+      <div class="spec"><span class="sl" style="color:rgba(255,255,255,.45)">Finish</span><span class="fl">Premium</span></div>
+      <div class="spec"><span class="sl" style="color:rgba(255,255,255,.45)">Balcony</span><span class="fl">Yes</span></div>
+    </div>
+    <div class="price-box">
+      <div class="price-item"><span>$1,800<small style="font-size:.7rem;font-weight:400">/mo</small></span><span>Monthly Rent</span></div>
+      <div class="px"></div>
+      <div class="price-item"><span>$270,000</span><span>Purchase Price (Neg.)</span></div>
+    </div>
+    <div class="amenities-list">
+      <span class="amenity-tag">Premium Finishes</span><span class="amenity-tag">Enhanced Appliances</span><span class="amenity-tag">Air Conditioning</span>
+      <span class="amenity-tag">Walk-in Closet</span><span class="amenity-tag">Terrace Access</span><span class="amenity-tag">Service Charge Incl.</span>
+    </div>
+    <a href="tel:0244910599" class="btn-primary" style="align-self:flex-start">📞 Enquire About This Unit</a>
+  </div>
+  <div class="apt-img">
+    <img src="http://sheltermartgh.com/storage/two-bedroom-apartments-for-rent-at-dzorwulu-1/photo-32-2025-12-03-15-37-06.jpg" alt="2-Bedroom Deluxe" loading="lazy" />
+  </div>
+</div>
+
+<!-- 3-BED -->
+<div class="apt-detail" id="three-bed">
+  <div class="apt-img">
+    <img src="http://sheltermartgh.com/storage/three-bedroom-apartments-for-rent-at-dzorwulu/photo-45-2025-12-03-15-37-06.jpg" alt="3-Bedroom living room" loading="lazy" />
+  </div>
+  <div class="apt-content reveal" style="background:var(--white)">
+    <span class="section-eyebrow">Residential</span>
+    <h2 style="font-family:'Playfair Display',serif;font-size:1.9rem;margin-bottom:.75rem">3-Bedroom Apartment</h2>
+    <div class="divider"></div>
+    <p style="color:var(--text-light);line-height:1.8;margin-bottom:.5rem">Ideal for families or executives, our generous 3-bedroom apartments offer three well-proportioned bedrooms, a large open-plan living and dining area, and a fully equipped modern kitchen. With a private balcony and stunning views of Dzorwulu, this is Accra living at its finest.</p>
+    <div class="spec-row">
+      <div class="spec"><span class="sl">Bedrooms</span><span class="fl">3</span></div>
+      <div class="spec"><span class="sl">Bathrooms</span><span class="fl">3</span></div>
+      <div class="spec"><span class="sl">Layout</span><span class="fl">Open-Plan</span></div>
+      <div class="spec"><span class="sl">Balcony</span><span class="fl">Yes</span></div>
+    </div>
+    <div class="price-box">
+      <div class="price-item"><span>$2,000<small style="font-size:.7rem;font-weight:400">/mo</small></span><span>Monthly Rent</span></div>
+      <div class="px"></div>
+      <div class="price-item"><span>$370,000</span><span>Purchase Price (Neg.)</span></div>
+    </div>
+    <div class="amenities-list">
+      <span class="amenity-tag">3 Bedrooms</span><span class="amenity-tag">3 Bathrooms</span><span class="amenity-tag">Air Conditioning</span>
+      <span class="amenity-tag">Walk-in Closet</span><span class="amenity-tag">Private Balcony</span><span class="amenity-tag">Full Appliances</span>
+      <span class="amenity-tag">Tiled Floors</span><span class="amenity-tag">Service Charge Incl.</span>
+    </div>
+    <a href="tel:0244910599" class="btn-primary" style="align-self:flex-start">📞 Enquire About This Unit</a>
+  </div>
+</div>
+
+<!-- gallery strip 3-bed -->
+<div class="gallery-strip">
+  <div class="gi"><img src="http://sheltermartgh.com/storage/three-bedroom-apartments-for-rent-at-dzorwulu/photo-41-2025-12-03-15-37-06.jpg" alt="3-bed master" loading="lazy" /></div>
+  <div class="gi"><img src="http://sheltermartgh.com/storage/three-bedroom-apartments-for-rent-at-dzorwulu/photo-38-2025-12-03-15-37-06.jpg" alt="3-bed bedroom 2" loading="lazy" /></div>
+  <div class="gi"><img src="http://sheltermartgh.com/storage/three-bedroom-apartments-for-rent-at-dzorwulu/photo-12-2025-12-03-15-37-06.jpg" alt="3-bed bathroom" loading="lazy" /></div>
+</div>
+
+<footer class="footer"><div class="footer-top"><div class="container"><div class="footer-grid">
+  <div class="footer-brand footer-col">
+    <div class="brand-name">Paul's Place</div><span class="brand-sub">Luxury Complex · Dzorwulu, Accra</span>
+    <p>Premium apartments and commercial spaces in Dzorwulu, Accra.</p>
+    <div class="social-links"><a href="https://www.facebook.com/shelter.mart/" class="social-link">f</a></div>
+  </div>
+  <div class="footer-col"><h3 class="footer-col-title">Property</h3><ul class="footer-links">
+    <li><a href="apartments.html">Apartments</a></li><li><a href="commercial.html">Commercial</a></li>
+    <li><a href="amenities.html">Amenities</a></li><li><a href="../index.html#pricing">Pricing</a></li>
+  </ul></div>
+  <div class="footer-col"><h3 class="footer-col-title">Contact</h3><ul class="footer-links">
+    <li style="color:rgba(255,255,255,.6);font-size:.84rem">Dzorwulu, Accra, Ghana</li>
+    <li><a href="tel:0244910599">0244 910 599</a></li>
+    <li><a href="mailto:info@sheltermartgh.com">info@sheltermartgh.com</a></li>
+  </ul></div>
+</div></div></div>
+<div class="container"><div class="footer-bottom">
+  <div class="footer-legal"><a href="#">Privacy Policy</a><a href="https://sheltermartgh.com" target="_blank">ShelterMart Ghana</a></div>
+  <p class="footer-copy">&copy; 2024 Paul's Place Complex. Listed by ShelterMart Ghana.</p>
+</div></div></footer>
+<script src="../js/main.js" defer></script>
+</body>
+</html>

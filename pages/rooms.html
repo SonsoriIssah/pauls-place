@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rooms &amp; Suites — Kempinski Hotel Gold Coast City</title>
+  <meta name="description" content="269 elegantly appointed rooms and suites in downtown Accra. Superior, Deluxe, Executive, Family rooms and luxury suites at Kempinski Hotel Gold Coast City." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,700&family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/styles.css" />
+  <style>
+    .page-hero { position:relative; height:55vh; min-height:400px; overflow:hidden; display:flex; align-items:flex-end; }
+    .page-hero img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
+    .page-hero-overlay { position:absolute; inset:0; background:linear-gradient(to top, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.15) 60%); }
+    .page-hero-content { position:relative; z-index:2; color:#fff; padding:3rem 2rem; max-width:1260px; margin:0 auto; width:100%; }
+    .page-hero-content h1 { font-family:'Playfair Display',serif; font-size:clamp(2rem,4vw,3.5rem); font-style:italic; margin-bottom:0.5rem; }
+    .page-hero-content p { font-size:1rem; opacity:0.85; }
+    .breadcrumb { font-size:0.72rem; letter-spacing:0.1em; text-transform:uppercase; color:rgba(255,255,255,0.65); margin-bottom:1rem; }
+    .breadcrumb a { color:rgba(255,255,255,0.65); }
+    .breadcrumb a:hover { color:var(--gold-light); }
+    .breadcrumb span { color:var(--gold-light); }
+
+    .room-detail-grid { display:grid; grid-template-columns:1fr 1fr; gap:0; margin-bottom:2px; }
+    .room-detail-grid.reverse { direction:rtl; }
+    .room-detail-grid.reverse > * { direction:ltr; }
+    .room-detail-img { height:520px; overflow:hidden; }
+    .room-detail-img img { width:100%; height:100%; object-fit:cover; transition:transform 0.6s ease; }
+    .room-detail-img:hover img { transform:scale(1.03); }
+    .room-detail-content { padding:4rem 3.5rem; display:flex; flex-direction:column; justify-content:center; background:var(--cream); }
+    .room-detail-content.dark { background:var(--dark); }
+    .room-detail-content.dark h2,
+    .room-detail-content.dark .feature-label { color:var(--white); }
+    .room-detail-content.dark p { color:rgba(255,255,255,0.75); }
+    .room-detail-content.dark .room-feature { border-color:rgba(255,255,255,0.1); }
+    .room-features { display:grid; grid-template-columns:1fr 1fr; gap:0.5rem 2rem; margin:1.5rem 0 2rem; }
+    .room-feature { display:flex; flex-direction:column; gap:0.15rem; padding:0.65rem 0; border-bottom:1px solid var(--cream-2); }
+    .feature-label { font-size:0.62rem; font-weight:700; letter-spacing:0.15em; text-transform:uppercase; color:var(--text-muted); }
+    .feature-value { font-size:0.9rem; color:var(--text); font-weight:600; }
+    .amenities-list { display:flex; flex-wrap:wrap; gap:0.5rem; margin-bottom:2rem; }
+    .amenity-tag { font-size:0.68rem; font-weight:600; letter-spacing:0.08em; background:rgba(184,145,58,0.1); color:var(--gold-dark); border:1px solid var(--border); padding:0.3rem 0.75rem; }
+
+    @media (max-width:768px) {
+      .room-detail-grid { grid-template-columns:1fr; }
+      .room-detail-img { height:300px; }
+      .room-detail-content { padding:2.5rem 1.5rem; }
+      .room-detail-grid.reverse { direction:ltr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Bar -->
+  <div class="top-bar">
+    <div class="container">
+      <div class="top-bar-left">
+        <a href="tel:+233242436030">📞 +233 242 436 030</a>
+        <a href="mailto:reservations.hotelgoldcoast@kempinski.com">✉ reservations.hotelgoldcoast@kempinski.com</a>
+      </div>
+      <div class="top-bar-right">
+        <a href="../index.html#offers">Special Offers</a>
+        <a href="meetings.html">Meetings</a>
+        <a href="../index.html#contact">Contact</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Navbar -->
+  <nav class="navbar" id="navbar">
+    <div class="container">
+      <a href="../index.html" class="navbar-logo">
+        <span class="brand-name">Kempinski</span>
+        <span class="brand-sub">Hotel Gold Coast City · Accra</span>
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="rooms.html">Rooms &amp; Suites</a></li>
+        <li><a href="dining.html">Dining</a></li>
+        <li><a href="spa.html">Spa &amp; Fitness</a></li>
+        <li><a href="meetings.html">Meetings</a></li>
+        <li><a href="../index.html#offers">Offers</a></li>
+        <li><a href="../index.html#gallery">Gallery</a></li>
+        <li><a href="../index.html#contact">Contact</a></li>
+      </ul>
+      <div class="nav-actions">
+        <a href="#" class="btn-signin">Sign In</a>
+        <a href="../index.html#booking" class="btn-book">Book Now</a>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Hero -->
+  <div class="page-hero">
+    <img src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=1800&auto=format&fit=crop&q=80" alt="Rooms and Suites" loading="eager" />
+    <div class="page-hero-overlay"></div>
+    <div class="page-hero-content">
+      <p class="breadcrumb"><a href="../index.html">Home</a> / <span>Rooms &amp; Suites</span></p>
+      <h1>Rooms &amp; Suites</h1>
+      <p>269 sanctuaries of style and comfort in the heart of Accra</p>
+    </div>
+  </div>
+
+  <!-- Intro -->
+  <section style="background:var(--white); padding:4rem 0;">
+    <div class="container" style="text-align:center; max-width:780px;">
+      <span class="section-eyebrow">Accommodations</span>
+      <h2 class="section-title">Your Home in Accra</h2>
+      <div class="divider divider-center"></div>
+      <p class="section-subtitle" style="margin:0 auto;">
+        Each of our 269 rooms and suites has been thoughtfully designed to offer the
+        perfect blend of contemporary luxury and African warmth. From city-view Superior
+        Rooms to our sprawling Presidential Suite, every space invites you to unwind,
+        work, and discover the best of Ghana.
+      </p>
+    </div>
+  </section>
+
+  <!-- ROOMS -->
+  <section style="background:var(--cream); padding:2rem 0 0;" id="rooms">
+    <div class="container">
+      <div class="section-header reveal" style="text-align:left; margin-bottom:2rem;">
+        <span class="section-eyebrow">Rooms</span>
+        <h2 class="section-title" style="font-size:2rem;">Our Rooms</h2>
+      </div>
+    </div>
+
+    <!-- Superior Room -->
+    <div class="room-detail-grid">
+      <div class="room-detail-img">
+        <img src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=900&auto=format&fit=crop&q=80" alt="Superior Room" loading="lazy" />
+      </div>
+      <div class="room-detail-content reveal">
+        <span class="section-eyebrow">Rooms</span>
+        <h2 style="font-family:'Playfair Display',serif; font-size:1.9rem; margin-bottom:0.75rem;">Superior Room</h2>
+        <div class="divider"></div>
+        <p style="color:var(--text-light); line-height:1.75; margin-bottom:1rem;">
+          Style, comfort and ergonomics — we offer the perfect combination for one fine stay in Accra.
+          These 50 m² rooms feature floor-to-ceiling windows framing panoramic city views, king or
+          twin bedding, and a marble-clad en-suite bathroom with a rain shower.
+        </p>
+        <div class="room-features">
+          <div class="room-feature">
+            <span class="feature-label">Size</span>
+            <span class="feature-value">50 m² / 538 ft²</span>
+          </div>
+          <div class="room-feature">
+            <span class="feature-label">Guests</span>
+            <span class="feature-value">Up to 3</span>
+          </div>
+          <div class="room-feature">
+            <span class="feature-label">View</span>
+            <span class="feature-value">City View</span>
+          </div>
+          <div class="room-feature">
+            <span class="feature-label">Bed</span>
+            <span class="feature-value">King or Twin</span>
+          </div>
+        </div>
+        <div class="amenities-list">
+          <span class="amenity-tag">Free Wi-Fi</span>
+          <span class="amenity-tag">Minibar</span>
+          <span class="amenity-tag">Smart TV</span>
+          <span class="amenity-tag">Rain Shower</span>
+          <span class="amenity-tag">In-Room Safe</span>
+          <span class="amenity-tag">Air Conditioning</span>
+          <span class="amenity-tag">Nespresso Machine</span>
+          <span class="amenity-tag">Bathrobes &amp; Slippers</span>
+        </div>
+        <a href="../index.html#booking" class="btn-primary" style="align-self:flex-start;">Book This Room</a>
+      </div>
+    </div>
+
+    <!-- Deluxe Room -->
+    <div class="room-detail-grid reverse">
+      <div class="room-detail-img">
+        <img src="https://images.unsplash.com/photo-1611892440504-42a792e24d32?w=900&auto=format&fit=crop&q=80" alt="Deluxe Room" loading="lazy" />
+      </div>
+      <div class="room-detail-content dark reveal">
+        <span class="section-eyebrow">Rooms</span>
+        <h2 style="font-family:'Playfair Display',serif; font-size:1.9rem; color:var(--white); margin-bottom:0.75rem;">Deluxe Room</h2>
+        <div class="divider"></div>
+        <p style="color:rgba(255,255,255,0.75); line-height:1.75; margin-bottom:1rem;">
+          Discover our elegant Deluxe rooms, offering you ample space to work or enjoy tranquil
+          escapes in the city centre. These pool-view rooms offer a unique sense of serenity,
+          with the shimmering infinity pool as your backdrop. Perfect for leisure travellers
+          seeking that extra touch of calm.
+        </p>
+        <div class="room-features">
+          <div class="room-feature">
+            <span class="feature-label" style="color:rgba(255,255,255,0.45);">Size</span>
+            <span class="feature-value" style="color:var(--white);">50 m² / 538 ft²</span>
+          </div>
+          <div class="room-feature">
+            <span class="feature-label" style="color:rgba(255,255,255,0.45);">Guests</span>
+            <span class="feature-value" style="color:var(--white);">Up to 3</span>
+          </div>
+          <div class="room-feature">
+            <span class="feature-label" style="color:rgba(255,255,255,0.45);">View</span>
+            <span class="feature-value" style="color:var(--white);">Pool View</span>
+          </div>
+          <div class="room-feature">
+            <span class="feature-label" style="color:rgba(255,255,255,0.45);">Bed</span>
+            <span class="feature-value" style="color:var(--white);">King or Twin</span>
+          </div>
+        </div>
+        <div class="amenities-list">
+          <span class="amenity-tag">Pool View</span>
+          <span class="amenity-tag">Free Wi-Fi</span>
+          <span class="amenity-tag">Minibar</span>
+          <span class="amenity-tag">Smart TV</span>
+          <span class="amenity-tag">Work Desk</span>
+          <span class="amenity-tag">Nespresso Machine</span>
+        </div>
+        <a href="../index.html#booking" class="btn-primary" style="align-self:flex-start;">Book This Room</a>
+      </div>
+    </div>
+
+    <!-- Executive Room -->
+    <div class="room-detail-grid">
+      <div class="room-detail-img">
+        <img src="https://images.unsplash.com/photo-1540518614846-7eded433c457?w=900&auto=format&fit=crop&q=80" alt="Executive Room With Lounge Access" loading="lazy" />
+      </div>
+      <div class="room-detail-content reveal">
+        <span class="section-eyebrow">Rooms</span>
+        <h2 style="font-family:'Playfair Display',serif; font-size:1.9rem; margin-bottom:0.75rem;">Executive Room With Lounge Access</h2>
+        <div class="divider"></div>
+        <p style="color:var(--text-light); line-height:1.75; margin-bottom:1rem;">
+          Elevate your stay with access to our exclusive Executive Lounge and indulge in
+          complimentary all-day dining experiences. This room category is the perfect choice
+          for business travellers who require seamless connectivity, a dedicated workspace,
+          and premium lounge privileges.
+        </p>
+        <div class="room-features">
+          <div class="room-feature">
+            <span class="feature-label">Size</span>
+            <span class="feature-value">50 m² / 538 ft²</span>
+          </div>
+          <div class="room-feature">
+            <span class="feature-label">Guests</span>
+            <span class="feature-value">Up to 3</span>
+          </div>
+          <div class="room-feature">
+            <span class="feature-label">View</span>
+            <span class="feature-value">City View</span>
+          </div>
+          <div class="room-feature">
+            <span class="feature-label">Lounge</span>
+            <span class="feature-value">Executive Access</span>
+          </div>
+        </div>
+        <div class="amenities-list">
+          <span class="amenity-tag">Executive Lounge</span>
+          <span class="amenity-tag">All-Day Dining</span>
+          <span class="amenity-tag">Cocktail Hours</span>
+          <span class="amenity-tag">Pressing Service</span>
+          <span class="amenity-tag">Free Wi-Fi</span>
+          <span class="amenity-tag">Smart TV</span>
+          <span class="amenity-tag">Nespresso Machine</span>
+        </div>
+        <a href="../index.html#booking" class="btn-primary" style="align-self:flex-start;">Book This Room</a>
+      </div>
+    </div>
+
+    <!-- Family Room -->
+    <div class="room-detail-grid reverse">
+      <div class="room-detail-img">
+        <img src="https://images.unsplash.com/photo-1555854877-bab0e564b8d5?w=900&auto=format&fit=crop&q=80" alt="Family Room" loading="lazy" />
+      </div>
+      <div class="room-detail-content dark reveal">
+        <span class="section-eyebrow">Rooms</span>
+        <h2 style="font-family:'Playfair Display',serif; font-size:1.9rem; color:var(--white); margin-bottom:0.75rem;">Family Room</h2>
+        <div class="divider"></div>
+        <p style="color:rgba(255,255,255,0.75); line-height:1.75; margin-bottom:1rem;">
+          Our spacious Family Rooms consist of two interconnecting Superior Rooms, thoughtfully
+          designed for family comfort and convenience. At 100 m², they offer ample space for
+          parents and children, each with private bathroom facilities and all the modern
+          amenities you need for a memorable family stay in Accra.
+        </p>
+        <div class="room-features">
+          <div class="room-feature">
+            <span class="feature-label" style="color:rgba(255,255,255,0.45);">Size</span>
+            <span class="feature-value" style="color:var(--white);">100 m² / 1,076 ft²</span>
+          </div>
+          <div class="room-feature">
+            <span class="feature-label" style="color:rgba(255,255,255,0.45);">Guests</span>
+            <span class="feature-value" style="color:var(--white);">Up to 6</span>
+          </div>
+          <div class="room-feature">
+            <span class="feature-label" style="color:rgba(255,255,255,0.45);">View</span>
+            <span class="feature-value" style="color:var(--white);">City View</span>
+          </div>
+          <div class="room-feature">
+            <span class="feature-label" style="color:rgba(255,255,255,0.45);">Layout</span>
+            <span class="feature-value" style="color:var(--white);">Interconnecting</span>
+          </div>
+        </div>
+        <div class="amenities-list">
+          <span class="amenity-tag">Interconnecting</span>
+          <span class="amenity-tag">2 Bathrooms</span>
+          <span class="amenity-tag">Kids Amenities</span>
+          <span class="amenity-tag">Free Wi-Fi</span>
+          <span class="amenity-tag">Smart TVs</span>
+        </div>
+        <a href="../index.html#booking" class="btn-primary" style="align-self:flex-start;">Book This Room</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SUITES -->
+  <section style="background:var(--white); padding:4rem 0 0;" id="suites">
+    <div class="container">
+      <div class="section-header reveal" style="text-align:left; margin-bottom:2rem;">
+        <span class="section-eyebrow">Luxury Suites</span>
+        <h2 class="section-title" style="font-size:2rem;">Our Suites</h2>
+        <p class="section-subtitle">For guests who expect nothing less than extraordinary — our suites offer expansive living spaces, panoramic views, and personalised butler service.</p>
+      </div>
+    </div>
+
+    <!-- Junior Suite -->
+    <div class="room-detail-grid">
+      <div class="room-detail-img">
+        <img src="https://images.unsplash.com/photo-1560347876-aeef00ee58a1?w=900&auto=format&fit=crop&q=80" alt="Junior Suite" loading="lazy" />
+      </div>
+      <div class="room-detail-content reveal" style="background:var(--white);">
+        <span class="section-eyebrow">Suites</span>
+        <h2 style="font-family:'Playfair Display',serif; font-size:1.9rem; margin-bottom:0.75rem;">Junior Suite</h2>
+        <div class="divider"></div>
+        <p style="color:var(--text-light); line-height:1.75; margin-bottom:1rem;">
+          Our Junior Suites offer a generous living area alongside the bedroom, creating a
+          comfortable sanctuary with ample space to relax or entertain. With Executive Lounge
+          access included, every stay is elevated from the moment you arrive.
+        </p>
+        <div class="room-features">
+          <div class="room-feature"><span class="feature-label">Size</span><span class="feature-value">80 m²</span></div>
+          <div class="room-feature"><span class="feature-label">Guests</span><span class="feature-value">Up to 3</span></div>
+          <div class="room-feature"><span class="feature-label">View</span><span class="feature-value">City View</span></div>
+          <div class="room-feature"><span class="feature-label">Lounge</span><span class="feature-value">Executive Access</span></div>
+        </div>
+        <div class="amenities-list">
+          <span class="amenity-tag">Living Area</span>
+          <span class="amenity-tag">Executive Lounge</span>
+          <span class="amenity-tag">Butler Service</span>
+          <span class="amenity-tag">Dining Credits</span>
+          <span class="amenity-tag">Nespresso Machine</span>
+        </div>
+        <a href="../index.html#booking" class="btn-primary" style="align-self:flex-start;">Book This Suite</a>
+      </div>
+    </div>
+
+    <!-- Kempinski Suite -->
+    <div class="room-detail-grid reverse">
+      <div class="room-detail-img">
+        <img src="https://images.unsplash.com/photo-1587985064135-0366536eab42?w=900&auto=format&fit=crop&q=80" alt="Kempinski Suite" loading="lazy" />
+      </div>
+      <div class="room-detail-content dark reveal">
+        <span class="section-eyebrow">Suites</span>
+        <h2 style="font-family:'Playfair Display',serif; font-size:1.9rem; color:var(--white); margin-bottom:0.75rem;">Kempinski Suite</h2>
+        <div class="divider"></div>
+        <p style="color:rgba(255,255,255,0.75); line-height:1.75; margin-bottom:1rem;">
+          The Kempinski Suite offers panoramic city views and a beautifully appointed separate
+          living area, creating a true home-away-from-home experience. Dedicated butler service,
+          daily breakfast, and generous dining credits make every moment exceptional.
+        </p>
+        <div class="room-features">
+          <div class="room-feature"><span class="feature-label" style="color:rgba(255,255,255,0.45);">Size</span><span class="feature-value" style="color:var(--white);">120 m²</span></div>
+          <div class="room-feature"><span class="feature-label" style="color:rgba(255,255,255,0.45);">Guests</span><span class="feature-value" style="color:var(--white);">Up to 3</span></div>
+          <div class="room-feature"><span class="feature-label" style="color:rgba(255,255,255,0.45);">View</span><span class="feature-value" style="color:var(--white);">Panoramic City</span></div>
+          <div class="room-feature"><span class="feature-label" style="color:rgba(255,255,255,0.45);">Dining Credit</span><span class="feature-value" style="color:var(--white);">USD 50 / Stay</span></div>
+        </div>
+        <div class="amenities-list">
+          <span class="amenity-tag">Panoramic View</span>
+          <span class="amenity-tag">Butler Service</span>
+          <span class="amenity-tag">Daily Breakfast</span>
+          <span class="amenity-tag">USD 50 Dining Credit</span>
+          <span class="amenity-tag">Late Checkout 14:00</span>
+        </div>
+        <a href="../index.html#booking" class="btn-primary" style="align-self:flex-start;">Book This Suite</a>
+      </div>
+    </div>
+
+    <!-- Grand Suite -->
+    <div class="room-detail-grid">
+      <div class="room-detail-img">
+        <img src="https://images.unsplash.com/photo-1578683010236-d716f9a3f461?w=900&auto=format&fit=crop&q=80" alt="Grand Suite" loading="lazy" />
+      </div>
+      <div class="room-detail-content reveal" style="background:var(--cream);">
+        <span class="section-eyebrow">Suites</span>
+        <h2 style="font-family:'Playfair Display',serif; font-size:1.9rem; margin-bottom:0.75rem;">Grand Suite</h2>
+        <div class="divider"></div>
+        <p style="color:var(--text-light); line-height:1.75; margin-bottom:1rem;">
+          Our Grand Suite delivers an unrivalled level of luxury, with 180 m² of beautifully
+          curated living space and sweeping panoramic views of Accra. A separate dining area,
+          fully equipped kitchenette, and premium butler service ensure an unmatched experience.
+        </p>
+        <div class="room-features">
+          <div class="room-feature"><span class="feature-label">Size</span><span class="feature-value">180 m²</span></div>
+          <div class="room-feature"><span class="feature-label">Guests</span><span class="feature-value">Up to 4</span></div>
+          <div class="room-feature"><span class="feature-label">View</span><span class="feature-value">Panoramic</span></div>
+          <div class="room-feature"><span class="feature-label">Dining Credit</span><span class="feature-value">USD 100 / Stay</span></div>
+        </div>
+        <div class="amenities-list">
+          <span class="amenity-tag">Separate Dining Area</span>
+          <span class="amenity-tag">Kitchenette</span>
+          <span class="amenity-tag">Butler Service</span>
+          <span class="amenity-tag">USD 100 Dining Credit</span>
+          <span class="amenity-tag">Daily Breakfast</span>
+          <span class="amenity-tag">Late Checkout 14:00</span>
+        </div>
+        <a href="../index.html#booking" class="btn-primary" style="align-self:flex-start;">Book This Suite</a>
+      </div>
+    </div>
+
+    <!-- Presidential Suite -->
+    <div class="room-detail-grid reverse" style="margin-bottom:4rem;">
+      <div class="room-detail-img">
+        <img src="https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?w=900&auto=format&fit=crop&q=80" alt="Presidential Suite" loading="lazy" />
+      </div>
+      <div class="room-detail-content dark reveal">
+        <span class="section-eyebrow">Suites</span>
+        <h2 style="font-family:'Playfair Display',serif; font-size:1.9rem; color:var(--white); margin-bottom:0.75rem;">Presidential Suite</h2>
+        <div class="divider"></div>
+        <p style="color:rgba(255,255,255,0.75); line-height:1.75; margin-bottom:1rem;">
+          The pinnacle of Kempinski luxury. Our Presidential Suite spans 320 m² across the
+          upper floors, featuring a private terrace, formal dining room, dedicated home office,
+          and a bespoke wellness area. Reserved for the most discerning guests, this suite
+          redefines what it means to stay in Accra.
+        </p>
+        <div class="room-features">
+          <div class="room-feature"><span class="feature-label" style="color:rgba(255,255,255,0.45);">Size</span><span class="feature-value" style="color:var(--white);">320 m²</span></div>
+          <div class="room-feature"><span class="feature-label" style="color:rgba(255,255,255,0.45);">Guests</span><span class="feature-value" style="color:var(--white);">Up to 6</span></div>
+          <div class="room-feature"><span class="feature-label" style="color:rgba(255,255,255,0.45);">Terrace</span><span class="feature-value" style="color:var(--white);">Private Terrace</span></div>
+          <div class="room-feature"><span class="feature-label" style="color:rgba(255,255,255,0.45);">Dining Credit</span><span class="feature-value" style="color:var(--white);">USD 100 / Stay</span></div>
+        </div>
+        <div class="amenities-list">
+          <span class="amenity-tag">Private Terrace</span>
+          <span class="amenity-tag">Formal Dining Room</span>
+          <span class="amenity-tag">Home Office</span>
+          <span class="amenity-tag">24hr Butler</span>
+          <span class="amenity-tag">Daily Breakfast</span>
+          <span class="amenity-tag">Late Checkout 14:00</span>
+          <span class="amenity-tag">Airport Transfer</span>
+        </div>
+        <a href="../index.html#booking" class="btn-primary" style="align-self:flex-start;">Enquire Now</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-top">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-brand footer-col">
+            <div class="brand-name">Kempinski</div>
+            <span class="brand-sub">Hotel Gold Coast City · Accra</span>
+            <p>Ghana's premier five-star address in the heart of Accra.</p>
+            <div class="social-links">
+              <a href="#" class="social-link">f</a>
+              <a href="#" class="social-link">in</a>
+              <a href="#" class="social-link">𝕏</a>
+              <a href="#" class="social-link">▶</a>
+              <a href="#" class="social-link">Li</a>
+            </div>
+          </div>
+          <div class="footer-col">
+            <h3 class="footer-col-title">The Hotel</h3>
+            <ul class="footer-links">
+              <li><a href="../index.html#about">About Us</a></li>
+              <li><a href="rooms.html">Rooms &amp; Suites</a></li>
+              <li><a href="dining.html">Dining</a></li>
+              <li><a href="spa.html">Spa &amp; Fitness</a></li>
+              <li><a href="meetings.html">Meetings &amp; Events</a></li>
+              <li><a href="../index.html#offers">Special Offers</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h3 class="footer-col-title">Contact</h3>
+            <ul class="footer-links">
+              <li style="color:rgba(255,255,255,0.6);font-size:0.84rem;">Independence Avenue, Ridge<br/>Accra, Ghana</li>
+              <li><a href="tel:+233242436030">+233 242 436 030</a></li>
+              <li><a href="mailto:reservations.hotelgoldcoast@kempinski.com" style="font-size:0.78rem;">reservations.hotelgoldcoast@kempinski.com</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="footer-bottom">
+        <div class="footer-legal">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Cookie Policy</a>
+          <a href="#">Legal Notice</a>
+        </div>
+        <p class="footer-copy">&copy; 2024 Kempinski Hotels S.A. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/main.js" defer></script>
+</body>
+</html>

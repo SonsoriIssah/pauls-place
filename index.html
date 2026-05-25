@@ -1,0 +1,935 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Paul's Place — Luxury Apartments &amp; Commercial Spaces | Dzorwulu, Accra</title>
+  <meta name="description" content="Paul's Place Complex in Dzorwulu, Accra — premium 2 &amp; 3-bedroom apartments and commercial shop spaces for rent and sale. Modern amenities, 24/7 security, elevator access." />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,700&family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='28' font-size='28'>🏢</text></svg>" />
+
+  <style>
+    /* Paul's Place overrides */
+    .unit-price {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--gold);
+      display: block;
+      margin-bottom: 0.2rem;
+    }
+    .unit-price-label {
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+    .price-divider {
+      width: 1px;
+      background: var(--cream-2);
+      align-self: stretch;
+    }
+    .unit-prices {
+      display: flex;
+      gap: 1.5rem;
+      align-items: center;
+      padding: 1.25rem 0;
+      border-top: 1px solid var(--cream-2);
+      border-bottom: 1px solid var(--cream-2);
+      margin: 1.25rem 0 1.5rem;
+    }
+    .amenity-icon-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+    .amenity-icon-card {
+      background: var(--white);
+      padding: 1.75rem 1.25rem;
+      text-align: center;
+      border-bottom: 3px solid transparent;
+      transition: var(--transition);
+    }
+    .amenity-icon-card:hover {
+      border-bottom-color: var(--gold);
+      box-shadow: var(--shadow);
+      transform: translateY(-3px);
+    }
+    .amenity-icon-card .icon { font-size: 2rem; margin-bottom: 0.75rem; }
+    .amenity-icon-card strong { display: block; font-size: 0.82rem; font-weight: 700; color: var(--dark); margin-bottom: 0.25rem; }
+    .amenity-icon-card span { font-size: 0.75rem; color: var(--text-light); }
+    @media (max-width: 768px) { .amenity-icon-grid { grid-template-columns: repeat(2, 1fr); } }
+  </style>
+</head>
+<body>
+
+  <!-- Lightbox -->
+  <div id="lightbox" class="lightbox" role="dialog" aria-modal="true">
+    <button id="lightboxClose" class="lightbox-close" aria-label="Close">&times;</button>
+    <img id="lightboxImg" src="" alt="" />
+  </div>
+
+  <!-- ==============================  TOP BAR  ============================== -->
+  <div class="top-bar">
+    <div class="container">
+      <div class="top-bar-left">
+        <a href="tel:0244910599">📞 0244 910 599</a>
+        <a href="mailto:info@sheltermartgh.com">✉ info@sheltermartgh.com</a>
+      </div>
+      <div class="top-bar-right">
+        <a href="#pricing">Pricing</a>
+        <a href="pages/commercial.html">Commercial</a>
+        <a href="#contact">Contact</a>
+        <a href="https://www.facebook.com/shelter.mart/" target="_blank" rel="noopener">Facebook</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==============================  NAVIGATION  ============================== -->
+  <nav class="navbar" id="navbar">
+    <div class="container">
+      <a href="index.html" class="navbar-logo">
+        <span class="brand-name">Paul's Place</span>
+        <span class="brand-sub">Luxury Complex · Dzorwulu, Accra</span>
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#apartments">Apartments</a></li>
+        <li><a href="pages/commercial.html">Commercial</a></li>
+        <li><a href="#amenities">Amenities</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <div class="nav-actions">
+        <a href="tel:0244910599" class="btn-signin">Call Us</a>
+        <a href="#enquiry" class="btn-book">Enquire Now</a>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ==============================  HERO  ============================== -->
+  <header class="hero" role="banner">
+    <div class="hero-slides" aria-hidden="true">
+      <div class="hero-slide active" style="background-image:url('http://sheltermartgh.com/storage/two-bedroom-apartments-for-rent-at-dzorwulu-1/photo-1-2025-12-03-15-37-06.jpg')"></div>
+      <div class="hero-slide" style="background-image:url('http://sheltermartgh.com/storage/three-bedroom-apartments-for-rent-at-dzorwulu/photo-45-2025-12-03-15-37-06.jpg')"></div>
+      <div class="hero-slide" style="background-image:url('http://sheltermartgh.com/storage/two-bedroom-apartments-for-rent-at-dzorwulu-1/photo-33-2025-12-03-15-37-06.jpg')"></div>
+      <div class="hero-slide" style="background-image:url('http://sheltermartgh.com/storage/three-bedroom-apartments-for-rent-at-dzorwulu/photo-27-2025-12-03-15-37-06.jpg')"></div>
+    </div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <p class="hero-eyebrow">Dzorwulu, Accra · Premium Residences</p>
+      <h1 class="hero-title">Luxury Living<br />in the Heart<br />of Dzorwulu</h1>
+      <p class="hero-subtitle">Paul's Place offers beautifully finished 2 &amp; 3-bedroom apartments and prime commercial spaces in one of Accra's most sought-after neighbourhoods.</p>
+      <div class="hero-actions">
+        <a href="#apartments" class="btn-primary">View Apartments</a>
+        <a href="#enquiry" class="btn-outline-white">Schedule a Viewing</a>
+      </div>
+    </div>
+    <div class="hero-scroll-indicator" aria-hidden="true">
+      <div class="scroll-line"></div>
+      <span>Explore</span>
+    </div>
+    <div class="hero-dots">
+      <button class="hero-dot active" data-slide="0" aria-label="Slide 1"></button>
+      <button class="hero-dot" data-slide="1" aria-label="Slide 2"></button>
+      <button class="hero-dot" data-slide="2" aria-label="Slide 3"></button>
+      <button class="hero-dot" data-slide="3" aria-label="Slide 4"></button>
+    </div>
+  </header>
+
+  <!-- ==============================  QUICK ENQUIRY BAR  ============================== -->
+  <section id="enquiry-bar" class="booking-bar" aria-label="Quick enquiry">
+    <div class="container">
+      <div class="booking-field">
+        <span class="booking-label">Unit Type</span>
+        <span class="booking-value">2 or 3 Bedroom</span>
+      </div>
+      <div class="booking-field">
+        <span class="booking-label">Purpose</span>
+        <span class="booking-value">Rent or Buy</span>
+      </div>
+      <div class="booking-field">
+        <span class="booking-label">Move-In Date</span>
+        <span class="booking-value" id="checkIn">Select Date</span>
+      </div>
+      <div class="booking-field">
+        <span class="booking-label">Budget</span>
+        <span class="booking-value">Select Range</span>
+      </div>
+      <div class="booking-field">
+        <span class="booking-label">Phone / WhatsApp</span>
+        <span class="booking-value" style="color:rgba(255,255,255,0.35);">Your number</span>
+      </div>
+      <button class="booking-submit" onclick="window.location.href='tel:0244910599'">Call to Enquire</button>
+    </div>
+  </section>
+
+  <!-- ==============================  ABOUT  ============================== -->
+  <section class="about-section" id="about" aria-label="About Paul's Place">
+    <div class="container">
+      <div class="about-inner">
+        <div class="about-image-block reveal">
+          <img class="about-image-main"
+            src="http://sheltermartgh.com/storage/two-bedroom-apartments-for-rent-at-dzorwulu-1/photo-32-2025-12-03-15-37-06.jpg"
+            alt="Paul's Place interior" loading="lazy" />
+          <img class="about-image-accent"
+            src="http://sheltermartgh.com/storage/three-bedroom-apartments-for-rent-at-dzorwulu/photo-12-2025-12-03-15-37-06.jpg"
+            alt="Paul's Place bedroom" loading="lazy" />
+          <div class="about-stat-badge">
+            <span class="stat-number">10</span>
+            <span class="stat-label">Premium Units</span>
+          </div>
+        </div>
+
+        <div class="about-text reveal reveal-delay-2">
+          <span class="section-eyebrow">About Paul's Place</span>
+          <h2 class="section-title">A Premier Address in Dzorwulu, Accra</h2>
+          <div class="divider"></div>
+          <p class="section-subtitle">
+            Paul's Place Complex is a distinguished residential and commercial development
+            nestled in the prestigious Dzorwulu neighbourhood of Accra. Comprising two
+            elegant blocks rising five floors, the complex offers 10 meticulously designed
+            apartments alongside ground-floor commercial spaces — all within a secure,
+            gated environment.
+          </p>
+          <p class="section-subtitle" style="margin-top:1rem;">
+            Every unit is thoughtfully finished with modern open-plan kitchens, premium
+            tiled floors, walk-in closets, private balconies, and complete air conditioning
+            — setting a new standard for urban living in Accra.
+          </p>
+
+          <div class="about-features">
+            <div class="about-feature">
+              <div class="about-feature-icon">🏢</div>
+              <div class="about-feature-text">
+                <strong>2 Blocks · 5 Floors</strong>
+                <span>10 total premium units</span>
+              </div>
+            </div>
+            <div class="about-feature">
+              <div class="about-feature-icon">🛏</div>
+              <div class="about-feature-text">
+                <strong>2 &amp; 3-Bedroom Apts</strong>
+                <span>Furnished &amp; fully equipped</span>
+              </div>
+            </div>
+            <div class="about-feature">
+              <div class="about-feature-icon">🏪</div>
+              <div class="about-feature-text">
+                <strong>Commercial Spaces</strong>
+                <span>Single &amp; double shop units</span>
+              </div>
+            </div>
+            <div class="about-feature">
+              <div class="about-feature-icon">🔒</div>
+              <div class="about-feature-text">
+                <strong>24/7 Security</strong>
+                <span>Gated compound, CCTV</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA banner -->
+  <div class="discovery-banner">
+    <div class="container">
+      <div class="discovery-text">
+        <strong>Now Selling &amp; Renting</strong> — Both 2-bedroom and 3-bedroom units available. Prices negotiable. Contact us today for a private viewing.
+      </div>
+      <a href="tel:0244910599" class="btn-discovery">📞 Call 0244 910 599</a>
+    </div>
+  </div>
+
+  <!-- ==============================  APARTMENTS  ============================== -->
+  <section class="rooms-section" id="apartments" aria-label="Apartments">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-eyebrow">Residential Units</span>
+        <h2 class="section-title">Apartments</h2>
+        <div class="divider divider-center"></div>
+        <p class="section-subtitle">
+          Choose from our spacious 2-bedroom and 3-bedroom apartments — each finished to the
+          highest standard with modern open kitchens, quality appliances, and stunning interiors.
+          Available for both rent and outright purchase.
+        </p>
+      </div>
+
+      <div class="rooms-tabs">
+        <button class="room-tab active" data-tab="two-bed">2-Bedroom Apartments</button>
+        <button class="room-tab" data-tab="three-bed">3-Bedroom Apartments</button>
+      </div>
+
+      <div class="rooms-grid">
+        <!-- 2-BED PANEL -->
+        <div class="room-panel active" data-panel="two-bed">
+          <article class="room-card reveal">
+            <img class="room-card-image"
+              src="http://sheltermartgh.com/storage/two-bedroom-apartments-for-rent-at-dzorwulu-1/photo-16-2025-12-03-15-37-06.jpg"
+              alt="2-Bedroom Standard Living Area" loading="lazy" />
+            <div class="room-card-overlay">
+              <span class="room-card-eyebrow">2-Bed · Standard</span>
+              <h3 class="room-card-name">Living &amp; Dining Space</h3>
+              <div class="room-card-meta"><span>Open-Plan Kitchen</span><span>·</span><span>City View</span></div>
+              <a href="pages/apartments.html" class="room-card-link">View Details</a>
+            </div>
+          </article>
+
+          <article class="room-card reveal reveal-delay-1">
+            <img class="room-card-image"
+              src="http://sheltermartgh.com/storage/two-bedroom-apartments-for-rent-at-dzorwulu-1/photo-15-2025-12-03-15-37-06.jpg"
+              alt="2-Bedroom Master Bedroom" loading="lazy" />
+            <div class="room-card-overlay">
+              <span class="room-card-eyebrow">2-Bed · Standard</span>
+              <h3 class="room-card-name">Master Bedroom</h3>
+              <div class="room-card-meta"><span>Walk-in Closet</span><span>·</span><span>En-Suite</span></div>
+              <a href="pages/apartments.html" class="room-card-link">View Details</a>
+            </div>
+          </article>
+
+          <article class="room-card reveal reveal-delay-2">
+            <img class="room-card-image"
+              src="http://sheltermartgh.com/storage/two-bedroom-apartments-for-rent-at-dzorwulu-1/photo-6-2025-12-03-15-37-06.jpg"
+              alt="2-Bedroom Kitchen" loading="lazy" />
+            <div class="room-card-overlay">
+              <span class="room-card-eyebrow">2-Bed · Deluxe</span>
+              <h3 class="room-card-name">Modern Kitchen</h3>
+              <div class="room-card-meta"><span>Fully Equipped</span><span>·</span><span>Appliances Included</span></div>
+              <a href="pages/apartments.html" class="room-card-link">View Details</a>
+            </div>
+          </article>
+
+          <article class="room-card reveal reveal-delay-3">
+            <img class="room-card-image"
+              src="http://sheltermartgh.com/storage/two-bedroom-apartments-for-rent-at-dzorwulu-1/photo-21-2025-12-03-15-37-06.jpg"
+              alt="2-Bedroom Bathroom" loading="lazy" />
+            <div class="room-card-overlay">
+              <span class="room-card-eyebrow">2-Bed · Standard</span>
+              <h3 class="room-card-name">Premium Bathroom</h3>
+              <div class="room-card-meta"><span>Tiled Finish</span><span>·</span><span>Quality Fittings</span></div>
+              <a href="pages/apartments.html" class="room-card-link">View Details</a>
+            </div>
+          </article>
+        </div>
+
+        <!-- 3-BED PANEL -->
+        <div class="room-panel" data-panel="three-bed">
+          <article class="room-card reveal">
+            <img class="room-card-image"
+              src="http://sheltermartgh.com/storage/three-bedroom-apartments-for-rent-at-dzorwulu/photo-45-2025-12-03-15-37-06.jpg"
+              alt="3-Bedroom Living Room" loading="lazy" />
+            <div class="room-card-overlay">
+              <span class="room-card-eyebrow">3-Bed · Premium</span>
+              <h3 class="room-card-name">Spacious Living Room</h3>
+              <div class="room-card-meta"><span>Open Plan</span><span>·</span><span>Balcony Access</span></div>
+              <a href="pages/apartments.html" class="room-card-link">View Details</a>
+            </div>
+          </article>
+
+          <article class="room-card reveal reveal-delay-1">
+            <img class="room-card-image"
+              src="http://sheltermartgh.com/storage/three-bedroom-apartments-for-rent-at-dzorwulu/photo-41-2025-12-03-15-37-06.jpg"
+              alt="3-Bedroom Master Suite" loading="lazy" />
+            <div class="room-card-overlay">
+              <span class="room-card-eyebrow">3-Bed · Premium</span>
+              <h3 class="room-card-name">Master Suite</h3>
+              <div class="room-card-meta"><span>Walk-in Closet</span><span>·</span><span>En-Suite Bath</span></div>
+              <a href="pages/apartments.html" class="room-card-link">View Details</a>
+            </div>
+          </article>
+
+          <article class="room-card reveal reveal-delay-2">
+            <img class="room-card-image"
+              src="http://sheltermartgh.com/storage/three-bedroom-apartments-for-rent-at-dzorwulu/photo-38-2025-12-03-15-37-06.jpg"
+              alt="3-Bedroom Second Bedroom" loading="lazy" />
+            <div class="room-card-overlay">
+              <span class="room-card-eyebrow">3-Bed · Premium</span>
+              <h3 class="room-card-name">Second Bedroom</h3>
+              <div class="room-card-meta"><span>Built-in Storage</span><span>·</span><span>Air-Conditioned</span></div>
+              <a href="pages/apartments.html" class="room-card-link">View Details</a>
+            </div>
+          </article>
+
+          <article class="room-card reveal reveal-delay-3">
+            <img class="room-card-image"
+              src="http://sheltermartgh.com/storage/three-bedroom-apartments-for-rent-at-dzorwulu/photo-37-2025-12-03-15-37-06.jpg"
+              alt="3-Bedroom Dining Area" loading="lazy" />
+            <div class="room-card-overlay">
+              <span class="room-card-eyebrow">3-Bed · Premium</span>
+              <h3 class="room-card-name">Dining &amp; Kitchen</h3>
+              <div class="room-card-meta"><span>Modern Finishes</span><span>·</span><span>Premium Appliances</span></div>
+              <a href="pages/apartments.html" class="room-card-link">View Details</a>
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <div class="text-center mt-2 reveal">
+        <a href="pages/apartments.html" class="btn-outline-gold" style="display:inline-block; color:var(--gold); border:1.5px solid var(--gold); padding:0.85rem 2.5rem; font-size:0.78rem; font-weight:700; letter-spacing:0.12em; text-transform:uppercase;">
+          View All Apartment Details
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==============================  COMMERCIAL SPACES  ============================== -->
+  <section class="dining-section" id="commercial" aria-label="Commercial Spaces">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-eyebrow">Business &amp; Retail</span>
+        <h2 class="section-title">Commercial Spaces</h2>
+        <div class="divider divider-center"></div>
+        <p class="section-subtitle">
+          Prime ground and first-floor retail units in one of Accra's busiest residential
+          corridors — ideal for businesses seeking visibility, foot traffic, and a prestigious
+          Dzorwulu address.
+        </p>
+      </div>
+
+      <!-- Featured: Double Shop -->
+      <div class="dining-featured reveal">
+        <div class="dining-featured-image">
+          <img src="http://sheltermartgh.com/storage/double-shops-commercial-space-for-rent-at-dzorwulu/photo-3-2025-12-03-15-43-05.jpg"
+            alt="Double Shop Commercial Space" loading="lazy" />
+        </div>
+        <div class="dining-featured-content">
+          <span class="section-eyebrow">Featured Unit</span>
+          <h3 class="section-title">Double Shop Unit</h3>
+          <p class="section-subtitle">
+            Our double shop units offer expansive retail or office floor space, private
+            washroom facilities, and elegant frontage on the main compound. Ideal for
+            showrooms, offices, boutiques, or service businesses. Available on both
+            ground and first floors.
+          </p>
+          <div class="dining-tags">
+            <span class="dining-tag">Double Unit</span>
+            <span class="dining-tag">Private Washroom</span>
+            <span class="dining-tag">Tiled Floors</span>
+            <span class="dining-tag">Gated Compound</span>
+          </div>
+          <a href="pages/commercial.html" class="btn-outline-gold">View Commercial Units</a>
+        </div>
+      </div>
+
+      <!-- Shop Cards -->
+      <div class="dining-grid">
+        <article class="dining-card reveal">
+          <img class="dining-card-image"
+            src="http://sheltermartgh.com/storage/single-shops-commercial-space-for-rent-at-dzorwulu/photo-5-2025-12-03-15-43-05.jpg"
+            alt="Single Shop Ground Floor" loading="lazy" />
+          <div class="dining-card-body">
+            <p class="dining-card-type">Single Shop · Ground Floor</p>
+            <h3 class="dining-card-name">Single Shop — Ground Floor</h3>
+            <p class="dining-card-desc">High-visibility ground-floor retail unit with excellent foot traffic and easy access from the main compound entrance.</p>
+            <div class="dining-card-footer">
+              <span class="dining-card-dress" style="font-size:0.85rem; color:var(--gold); font-weight:700;">$750 / month</span>
+              <a href="pages/commercial.html" class="dining-card-link">Details →</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="dining-card reveal reveal-delay-1">
+          <img class="dining-card-image"
+            src="http://sheltermartgh.com/storage/single-shops-commercial-space-for-rent-at-dzorwulu/photo-1-2025-12-03-15-43-04.jpg"
+            alt="Single Shop First Floor" loading="lazy" />
+          <div class="dining-card-body">
+            <p class="dining-card-type">Single Shop · First Floor</p>
+            <h3 class="dining-card-name">Single Shop — First Floor</h3>
+            <p class="dining-card-desc">First-floor single unit ideal for service businesses, salons, or offices seeking a smart, accessible commercial space.</p>
+            <div class="dining-card-footer">
+              <span class="dining-card-dress" style="font-size:0.85rem; color:var(--gold); font-weight:700;">$650 – $750 / month</span>
+              <a href="pages/commercial.html" class="dining-card-link">Details →</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="dining-card reveal reveal-delay-2">
+          <img class="dining-card-image"
+            src="http://sheltermartgh.com/storage/double-shops-commercial-space-for-rent-at-dzorwulu/photo-2-2025-12-03-15-43-04.jpg"
+            alt="Double Shop First Floor" loading="lazy" />
+          <div class="dining-card-body">
+            <p class="dining-card-type">Double Shop · First Floor</p>
+            <h3 class="dining-card-name">Double Shop — First Floor</h3>
+            <p class="dining-card-desc">A generous double-size commercial unit on the first floor — perfect for larger retail operations or open-plan office configurations.</p>
+            <div class="dining-card-footer">
+              <span class="dining-card-dress" style="font-size:0.85rem; color:var(--gold); font-weight:700;">$1,300 – $1,400 / month</span>
+              <a href="pages/commercial.html" class="dining-card-link">Details →</a>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <div class="text-center mt-2 reveal">
+        <a href="pages/commercial.html" class="btn-outline-gold" style="display:inline-block; color:var(--gold); border:1.5px solid var(--gold); padding:0.85rem 2.5rem; font-size:0.78rem; font-weight:700; letter-spacing:0.12em; text-transform:uppercase;">
+          All Commercial Units
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==============================  AMENITIES  ============================== -->
+  <section class="spa-section" id="amenities" aria-label="Building Amenities">
+    <div class="container">
+      <div class="spa-inner">
+        <div class="spa-content reveal">
+          <span class="section-eyebrow">Building Features</span>
+          <h2 class="section-title">Every Detail<br />Thoughtfully Considered</h2>
+          <div class="divider"></div>
+          <p class="section-subtitle">
+            Paul's Place has been designed from the ground up to offer residents and
+            business owners an unmatched living and working environment. From the
+            24/7 standby generator to the secure gated compound, every amenity
+            has been chosen to deliver comfort, safety, and convenience.
+          </p>
+
+          <div class="spa-stats">
+            <div class="spa-stat">
+              <span class="spa-stat-number" data-count="2" data-suffix="">2</span>
+              <span class="spa-stat-label">Blocks</span>
+            </div>
+            <div class="spa-stat">
+              <span class="spa-stat-number" data-count="5" data-suffix="">5</span>
+              <span class="spa-stat-label">Floors</span>
+            </div>
+            <div class="spa-stat">
+              <span class="spa-stat-number" data-count="10" data-suffix="">10</span>
+              <span class="spa-stat-label">Units</span>
+            </div>
+          </div>
+
+          <div class="spa-services">
+            <div class="spa-service">Standby Generator</div>
+            <div class="spa-service">Elevator Access</div>
+            <div class="spa-service">24/7 Security</div>
+            <div class="spa-service">Ample Parking</div>
+            <div class="spa-service">Gated Compound</div>
+            <div class="spa-service">CCTV Surveillance</div>
+            <div class="spa-service">Air Conditioning</div>
+            <div class="spa-service">Private Balconies</div>
+            <div class="spa-service">Walk-in Closets</div>
+            <div class="spa-service">Modern Open Kitchen</div>
+            <div class="spa-service">Quality Appliances</div>
+            <div class="spa-service">Premium Tiled Floors</div>
+          </div>
+
+          <a href="pages/amenities.html" class="btn-outline-gold">Full Amenities List</a>
+        </div>
+
+        <div class="spa-image-block reveal reveal-delay-2">
+          <img class="spa-image-main"
+            src="http://sheltermartgh.com/storage/three-bedroom-apartments-for-rent-at-dzorwulu/photo-12-2025-12-03-15-37-06.jpg"
+            alt="Paul's Place interior" loading="lazy" />
+          <div class="spa-image-overlay">
+            <strong>Now Available</strong>
+            <span>Rent &amp; Sale</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Amenities Icon Grid -->
+  <section style="background:var(--cream); padding:5rem 0;">
+    <div class="container">
+      <div class="section-header reveal" style="margin-bottom:0;">
+        <span class="section-eyebrow">What's Included</span>
+        <h2 class="section-title">Building Amenities</h2>
+        <div class="divider divider-center"></div>
+      </div>
+      <div class="amenity-icon-grid">
+        <div class="amenity-icon-card reveal">
+          <div class="icon">⚡</div>
+          <strong>Standby Generator</strong>
+          <span>Uninterrupted power supply</span>
+        </div>
+        <div class="amenity-icon-card reveal reveal-delay-1">
+          <div class="icon">🛗</div>
+          <strong>Elevator Access</strong>
+          <span>Serving all 5 floors</span>
+        </div>
+        <div class="amenity-icon-card reveal reveal-delay-2">
+          <div class="icon">🔒</div>
+          <strong>24/7 Security</strong>
+          <span>Gated compound &amp; CCTV</span>
+        </div>
+        <div class="amenity-icon-card reveal reveal-delay-3">
+          <div class="icon">🅿</div>
+          <strong>Ample Parking</strong>
+          <span>Dedicated resident spaces</span>
+        </div>
+        <div class="amenity-icon-card reveal">
+          <div class="icon">❄</div>
+          <strong>Air Conditioning</strong>
+          <span>All rooms, fully installed</span>
+        </div>
+        <div class="amenity-icon-card reveal reveal-delay-1">
+          <div class="icon">🪟</div>
+          <strong>Private Balcony</strong>
+          <span>Every residential unit</span>
+        </div>
+        <div class="amenity-icon-card reveal reveal-delay-2">
+          <div class="icon">🍳</div>
+          <strong>Open-Plan Kitchen</strong>
+          <span>Modern furnished with appliances</span>
+        </div>
+        <div class="amenity-icon-card reveal reveal-delay-3">
+          <div class="icon">👔</div>
+          <strong>Walk-in Closet</strong>
+          <span>Master bedroom, all units</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==============================  PRICING  ============================== -->
+  <section class="offers-section" id="pricing" aria-label="Pricing">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-eyebrow">Transparent Pricing</span>
+        <h2 class="section-title">Unit Pricing</h2>
+        <div class="divider divider-center"></div>
+        <p class="section-subtitle">
+          Flexible options for every need — rent or purchase outright. Service charge
+          and 1-month deposit applicable. Prices are negotiable. Contact us for details.
+        </p>
+      </div>
+
+      <div class="offers-grid">
+        <!-- 2-Bed Standard -->
+        <article class="offer-card reveal">
+          <img class="offer-card-image"
+            src="http://sheltermartgh.com/storage/two-bedroom-apartments-for-rent-at-dzorwulu-1/photo-16-2025-12-03-15-37-06.jpg"
+            alt="2-Bedroom Standard" loading="lazy" />
+          <div class="offer-card-body">
+            <span class="offer-badge">Residential</span>
+            <h3 class="offer-card-title">2-Bedroom Apartment — Standard</h3>
+            <p class="offer-card-desc">A beautifully appointed 2-bedroom apartment with open-plan kitchen, fully tiled floors, private balcony, and access to all building amenities.</p>
+            <div class="offer-perks">
+              <div class="offer-perk">Modern open-plan kitchen</div>
+              <div class="offer-perk">Air conditioning throughout</div>
+              <div class="offer-perk">Walk-in closet (master)</div>
+              <div class="offer-perk">Private balcony</div>
+              <div class="offer-perk">Service charge included</div>
+            </div>
+            <div style="display:flex; gap:2rem; margin-bottom:1.25rem;">
+              <div>
+                <span class="unit-price">$1,500<small style="font-size:0.7rem; font-weight:400;">/mo</small></span>
+                <span class="unit-price-label">Rental</span>
+              </div>
+              <div class="price-divider"></div>
+              <div>
+                <span class="unit-price">$270,000</span>
+                <span class="unit-price-label">Purchase (Neg.)</span>
+              </div>
+            </div>
+            <a href="tel:0244910599" class="btn-primary" style="display:inline-block; font-size:0.75rem; padding:0.85rem 1.75rem;">Call to Enquire</a>
+          </div>
+        </article>
+
+        <!-- 2-Bed Deluxe -->
+        <article class="offer-card reveal reveal-delay-1">
+          <img class="offer-card-image"
+            src="http://sheltermartgh.com/storage/two-bedroom-apartments-for-rent-at-dzorwulu-1/photo-33-2025-12-03-15-37-06.jpg"
+            alt="2-Bedroom Deluxe" loading="lazy" />
+          <div class="offer-card-body">
+            <span class="offer-badge">Residential</span>
+            <h3 class="offer-card-title">2-Bedroom Apartment — Deluxe</h3>
+            <p class="offer-card-desc">Our premium 2-bedroom configuration with upgraded finishes, additional storage, and enhanced interior design throughout.</p>
+            <div class="offer-perks">
+              <div class="offer-perk">Premium interior finishes</div>
+              <div class="offer-perk">Enhanced kitchen appliances</div>
+              <div class="offer-perk">Air conditioning throughout</div>
+              <div class="offer-perk">Walk-in closet (master)</div>
+              <div class="offer-perk">Balcony &amp; terrace access</div>
+            </div>
+            <div style="display:flex; gap:2rem; margin-bottom:1.25rem;">
+              <div>
+                <span class="unit-price">$1,800<small style="font-size:0.7rem; font-weight:400;">/mo</small></span>
+                <span class="unit-price-label">Rental</span>
+              </div>
+              <div class="price-divider"></div>
+              <div>
+                <span class="unit-price">$270,000</span>
+                <span class="unit-price-label">Purchase (Neg.)</span>
+              </div>
+            </div>
+            <a href="tel:0244910599" class="btn-primary" style="display:inline-block; font-size:0.75rem; padding:0.85rem 1.75rem;">Call to Enquire</a>
+          </div>
+        </article>
+
+        <!-- 3-Bed -->
+        <article class="offer-card reveal reveal-delay-2">
+          <img class="offer-card-image"
+            src="http://sheltermartgh.com/storage/three-bedroom-apartments-for-rent-at-dzorwulu/photo-45-2025-12-03-15-37-06.jpg"
+            alt="3-Bedroom Apartment" loading="lazy" />
+          <div class="offer-card-body">
+            <span class="offer-badge">Residential</span>
+            <h3 class="offer-card-title">3-Bedroom Apartment</h3>
+            <p class="offer-card-desc">Generously proportioned 3-bedroom apartment — ideal for families or executives seeking premium residential space in Dzorwulu.</p>
+            <div class="offer-perks">
+              <div class="offer-perk">3 spacious bedrooms</div>
+              <div class="offer-perk">Open-plan living &amp; dining</div>
+              <div class="offer-perk">Modern kitchen with appliances</div>
+              <div class="offer-perk">Air conditioning throughout</div>
+              <div class="offer-perk">Balcony with views</div>
+            </div>
+            <div style="display:flex; gap:2rem; margin-bottom:1.25rem;">
+              <div>
+                <span class="unit-price">$2,000<small style="font-size:0.7rem; font-weight:400;">/mo</small></span>
+                <span class="unit-price-label">Rental</span>
+              </div>
+              <div class="price-divider"></div>
+              <div>
+                <span class="unit-price">$370,000</span>
+                <span class="unit-price-label">Purchase (Neg.)</span>
+              </div>
+            </div>
+            <a href="tel:0244910599" class="btn-primary" style="display:inline-block; font-size:0.75rem; padding:0.85rem 1.75rem;">Call to Enquire</a>
+          </div>
+        </article>
+      </div>
+
+      <!-- Commercial pricing note -->
+      <div style="background:var(--cream); padding:2rem 2.5rem; margin-top:2rem; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1.5rem;" class="reveal">
+        <div>
+          <p style="font-size:0.7rem; font-weight:700; letter-spacing:0.15em; text-transform:uppercase; color:var(--gold); margin-bottom:0.4rem;">Commercial Spaces</p>
+          <p style="font-size:1rem; font-weight:600; color:var(--dark);">Single Shop: $650–$750/mo &nbsp;|&nbsp; Double Shop: $1,300–$1,500/mo</p>
+          <p style="font-size:0.82rem; color:var(--text-light); margin-top:0.25rem;">Ground &amp; first floor units. Service charge &amp; 1-month deposit required.</p>
+        </div>
+        <a href="pages/commercial.html" style="display:inline-block; color:var(--gold); border:1.5px solid var(--gold); padding:0.85rem 1.75rem; font-size:0.75rem; font-weight:700; letter-spacing:0.12em; text-transform:uppercase;">View Commercial Units</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==============================  GALLERY  ============================== -->
+  <section class="gallery-section" id="gallery" aria-label="Photo Gallery">
+    <div class="container-wide">
+      <div class="gallery-header reveal">
+        <span class="section-eyebrow" style="color:var(--gold-light);">Photo Gallery</span>
+        <h2 class="section-title" style="color:var(--white);">Inside Paul's Place</h2>
+      </div>
+
+      <div class="gallery-grid">
+        <div class="gallery-item">
+          <img src="http://sheltermartgh.com/storage/two-bedroom-apartments-for-rent-at-dzorwulu-1/photo-1-2025-12-03-15-37-06.jpg" alt="2-Bedroom apartment" loading="lazy" />
+          <div class="gallery-overlay"><span class="gallery-icon">🔍</span></div>
+        </div>
+        <div class="gallery-item">
+          <img src="http://sheltermartgh.com/storage/three-bedroom-apartments-for-rent-at-dzorwulu/photo-45-2025-12-03-15-37-06.jpg" alt="3-Bedroom apartment" loading="lazy" />
+          <div class="gallery-overlay"><span class="gallery-icon">🔍</span></div>
+        </div>
+        <div class="gallery-item">
+          <img src="http://sheltermartgh.com/storage/two-bedroom-apartments-for-rent-at-dzorwulu-1/photo-33-2025-12-03-15-37-06.jpg" alt="Interior view" loading="lazy" />
+          <div class="gallery-overlay"><span class="gallery-icon">🔍</span></div>
+        </div>
+        <div class="gallery-item">
+          <img src="http://sheltermartgh.com/storage/three-bedroom-apartments-for-rent-at-dzorwulu/photo-27-2025-12-03-15-37-06.jpg" alt="3-Bedroom interior" loading="lazy" />
+          <div class="gallery-overlay"><span class="gallery-icon">🔍</span></div>
+        </div>
+        <div class="gallery-item">
+          <img src="http://sheltermartgh.com/storage/single-shops-commercial-space-for-rent-at-dzorwulu/photo-5-2025-12-03-15-43-05.jpg" alt="Single shop commercial" loading="lazy" />
+          <div class="gallery-overlay"><span class="gallery-icon">🔍</span></div>
+        </div>
+        <div class="gallery-item">
+          <img src="http://sheltermartgh.com/storage/double-shops-commercial-space-for-rent-at-dzorwulu/photo-3-2025-12-03-15-43-05.jpg" alt="Double shop commercial" loading="lazy" />
+          <div class="gallery-overlay"><span class="gallery-icon">🔍</span></div>
+        </div>
+        <div class="gallery-item">
+          <img src="http://sheltermartgh.com/storage/two-bedroom-apartments-for-rent-at-dzorwulu-1/photo-21-2025-12-03-15-37-06.jpg" alt="Bathroom" loading="lazy" />
+          <div class="gallery-overlay"><span class="gallery-icon">🔍</span></div>
+        </div>
+        <div class="gallery-item">
+          <img src="http://sheltermartgh.com/storage/three-bedroom-apartments-for-rent-at-dzorwulu/photo-12-2025-12-03-15-37-06.jpg" alt="3-Bedroom bedroom" loading="lazy" />
+          <div class="gallery-overlay"><span class="gallery-icon">🔍</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==============================  ENQUIRY  ============================== -->
+  <section style="background:var(--dark); padding:5rem 0;" id="enquiry" aria-label="Enquiry Form">
+    <div class="container" style="max-width:820px;">
+      <div class="section-header reveal" style="text-align:center; margin-bottom:3rem;">
+        <span class="section-eyebrow" style="color:var(--gold-light);">Get In Touch</span>
+        <h2 class="section-title" style="color:var(--white);">Schedule a Viewing</h2>
+        <div class="divider divider-center"></div>
+        <p class="section-subtitle" style="margin:0 auto; color:rgba(255,255,255,0.65);">Interested in a unit? Fill in your details and we'll get back to you within 24 hours — or call us directly on <a href="tel:0244910599" style="color:var(--gold-light);">0244 910 599</a>.</p>
+      </div>
+      <form class="reveal" onsubmit="event.preventDefault(); alert('Thank you! We will contact you within 24 hours to arrange your viewing.');">
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-bottom:1rem;">
+          <div style="display:flex; flex-direction:column; gap:0.4rem;">
+            <label style="font-size:0.65rem; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:rgba(255,255,255,0.55);">Full Name</label>
+            <input type="text" placeholder="Your name" required style="background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.12); color:#fff; padding:0.85rem 1rem; font-family:inherit; font-size:0.9rem; outline:none;" />
+          </div>
+          <div style="display:flex; flex-direction:column; gap:0.4rem;">
+            <label style="font-size:0.65rem; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:rgba(255,255,255,0.55);">Phone / WhatsApp</label>
+            <input type="tel" placeholder="0244 ..." required style="background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.12); color:#fff; padding:0.85rem 1rem; font-family:inherit; font-size:0.9rem; outline:none;" />
+          </div>
+          <div style="display:flex; flex-direction:column; gap:0.4rem;">
+            <label style="font-size:0.65rem; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:rgba(255,255,255,0.55);">Email Address</label>
+            <input type="email" placeholder="your@email.com" style="background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.12); color:#fff; padding:0.85rem 1rem; font-family:inherit; font-size:0.9rem; outline:none;" />
+          </div>
+          <div style="display:flex; flex-direction:column; gap:0.4rem;">
+            <label style="font-size:0.65rem; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:rgba(255,255,255,0.55);">Unit Interest</label>
+            <select style="background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.12); color:#fff; padding:0.85rem 1rem; font-family:inherit; font-size:0.9rem; outline:none;">
+              <option value="">Select a unit type</option>
+              <option>2-Bedroom Standard (Rent)</option>
+              <option>2-Bedroom Deluxe (Rent)</option>
+              <option>3-Bedroom (Rent)</option>
+              <option>2-Bedroom (Purchase)</option>
+              <option>3-Bedroom (Purchase)</option>
+              <option>Single Shop</option>
+              <option>Double Shop</option>
+            </select>
+          </div>
+        </div>
+        <div style="display:flex; flex-direction:column; gap:0.4rem; margin-bottom:1.5rem;">
+          <label style="font-size:0.65rem; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:rgba(255,255,255,0.55);">Message (Optional)</label>
+          <textarea placeholder="Any questions or specific requirements..." style="background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.12); color:#fff; padding:0.85rem 1rem; font-family:inherit; font-size:0.9rem; outline:none; resize:vertical; min-height:90px;"></textarea>
+        </div>
+        <button type="submit" class="btn-primary" style="width:100%; text-align:center; padding:1.1rem; font-size:0.85rem;">Submit Enquiry</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- ==============================  CONTACT  ============================== -->
+  <section class="contact-section" id="contact" aria-label="Location and Contact">
+    <div class="container">
+      <div class="contact-inner">
+        <div class="contact-info reveal">
+          <span class="section-eyebrow">Find Us</span>
+          <h2 class="section-title">Location &amp; Contact</h2>
+          <div class="divider"></div>
+          <p class="section-subtitle">Conveniently located in Dzorwulu — one of Accra's most prestigious and well-connected residential neighbourhoods.</p>
+          <div class="contact-details">
+            <div class="contact-item">
+              <div class="contact-icon">📍</div>
+              <div class="contact-item-text">
+                <strong>Address</strong>
+                <p>Dzorwulu, Accra<br />Greater Accra Region, Ghana</p>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon">📞</div>
+              <div class="contact-item-text">
+                <strong>Phone / WhatsApp</strong>
+                <a href="tel:0244910599">0244 910 599</a>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon">✉</div>
+              <div class="contact-item-text">
+                <strong>Email</strong>
+                <a href="mailto:info@sheltermartgh.com">info@sheltermartgh.com</a>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon">🏢</div>
+              <div class="contact-item-text">
+                <strong>Listed By</strong>
+                <a href="https://sheltermartgh.com/public/projects/pauls-place-complex-dzorwulu" target="_blank" rel="noopener">ShelterMart Ghana — Project #P17</a>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon">⏰</div>
+              <div class="contact-item-text">
+                <strong>Viewing Hours</strong>
+                <p>Mon–Fri: 8:00 AM – 6:00 PM<br />Sat: 9:00 AM – 4:00 PM</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="map-container reveal reveal-delay-2">
+          <iframe
+            title="Paul's Place Dzorwulu Location"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d990.77!2d-0.2067381!3d5.6083621!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xfdf9b0059abc517%3A0xd625b0a996144d42!2sPaul%27s%20Place!5e0!3m2!1sen!2sgh!4v1716000000000!5m2!1sen!2sgh"
+            allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==============================  FOOTER  ============================== -->
+  <footer class="footer" role="contentinfo">
+    <div class="footer-top">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-brand footer-col">
+            <div class="brand-name">Paul's Place</div>
+            <span class="brand-sub">Luxury Complex · Dzorwulu, Accra</span>
+            <p>A premier residential and commercial complex in the heart of Dzorwulu — designed for modern living at its finest.</p>
+            <div class="social-links">
+              <a href="https://www.facebook.com/shelter.mart/" target="_blank" rel="noopener" class="social-link" aria-label="Facebook">f</a>
+              <a href="https://sheltermartgh.com" target="_blank" rel="noopener" class="social-link" aria-label="ShelterMart">🏠</a>
+            </div>
+          </div>
+          <div class="footer-col">
+            <h3 class="footer-col-title">Property</h3>
+            <ul class="footer-links">
+              <li><a href="#about">About Paul's Place</a></li>
+              <li><a href="#apartments">Apartments</a></li>
+              <li><a href="pages/commercial.html">Commercial Spaces</a></li>
+              <li><a href="#amenities">Amenities</a></li>
+              <li><a href="#pricing">Pricing</a></li>
+              <li><a href="#gallery">Gallery</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h3 class="footer-col-title">Units</h3>
+            <ul class="footer-links">
+              <li><a href="pages/apartments.html">2-Bed Standard — $1,500/mo</a></li>
+              <li><a href="pages/apartments.html">2-Bed Deluxe — $1,800/mo</a></li>
+              <li><a href="pages/apartments.html">3-Bed — $2,000/mo</a></li>
+              <li><a href="pages/commercial.html">Single Shop — from $650/mo</a></li>
+              <li><a href="pages/commercial.html">Double Shop — from $1,300/mo</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h3 class="footer-col-title">Contact</h3>
+            <ul class="footer-links" style="gap:0.75rem;">
+              <li style="color:rgba(255,255,255,0.6); font-size:0.84rem;">Dzorwulu, Accra<br />Greater Accra Region, Ghana</li>
+              <li><a href="tel:0244910599">0244 910 599</a></li>
+              <li><a href="mailto:info@sheltermartgh.com">info@sheltermartgh.com</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h3 class="footer-col-title">Agent</h3>
+            <ul class="footer-links">
+              <li><a href="https://sheltermartgh.com" target="_blank" rel="noopener">ShelterMart Ghana</a></li>
+              <li><a href="https://sheltermartgh.com/public/projects/pauls-place-complex-dzorwulu" target="_blank" rel="noopener">Project #P17 Listing</a></li>
+              <li><a href="https://sheltermartgh.com/public/about-us" target="_blank" rel="noopener">About ShelterMart</a></li>
+              <li><a href="/contact">Contact Agent</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="footer-bottom">
+        <div class="footer-legal">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Use</a>
+          <a href="https://sheltermartgh.com" target="_blank" rel="noopener">ShelterMart Ghana</a>
+        </div>
+        <p class="footer-copy">&copy; 2024 Paul's Place Complex. Listed by ShelterMart Ghana.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js" defer></script>
+</body>
+</html>
