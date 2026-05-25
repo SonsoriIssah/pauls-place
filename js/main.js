@@ -1,15 +1,16 @@
 /* ==============================
-   KEMPINSKI HOTEL GOLD COAST CITY
-   Main JavaScript
+   Paul's Place — Main JavaScript
    ============================== */
 
 document.addEventListener('DOMContentLoaded', () => {
 
   /* ---- Navbar scroll effect ---- */
   const navbar = document.getElementById('navbar');
-  window.addEventListener('scroll', () => {
-    navbar.classList.toggle('scrolled', window.scrollY > 50);
-  });
+  if (navbar) {
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 50);
+    }, { passive: true });
+  }
 
   /* ---- Mobile nav toggle ---- */
   const navToggle = document.getElementById('navToggle');
@@ -17,14 +18,17 @@ document.addEventListener('DOMContentLoaded', () => {
   if (navToggle && navLinks) {
     navToggle.addEventListener('click', () => {
       navLinks.classList.toggle('open');
+      navToggle.setAttribute('aria-expanded', navLinks.classList.contains('open'));
       const spans = navToggle.querySelectorAll('span');
       spans[0].style.transform = navLinks.classList.contains('open') ? 'rotate(45deg) translate(5px,5px)' : '';
       spans[1].style.opacity = navLinks.classList.contains('open') ? '0' : '';
       spans[2].style.transform = navLinks.classList.contains('open') ? 'rotate(-45deg) translate(5px,-5px)' : '';
     });
-    // Close nav when link clicked
     navLinks.querySelectorAll('a').forEach(a => {
-      a.addEventListener('click', () => navLinks.classList.remove('open'));
+      a.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+        navToggle.setAttribute('aria-expanded', 'false');
+      });
     });
   }
 
@@ -42,10 +46,8 @@ document.addEventListener('DOMContentLoaded', () => {
     dots[currentSlide]?.classList.add('active');
   }
 
-  function nextSlide() { goToSlide(currentSlide + 1); }
-
   function startSlider() {
-    slideInterval = setInterval(nextSlide, 5500);
+    slideInterval = setInterval(() => goToSlide(currentSlide + 1), 5500);
   }
 
   dots.forEach((dot, i) => {
@@ -58,10 +60,61 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (slides.length > 0) startSlider();
 
+  /* ---- Hero parallax ---- */
+  const heroSlides = document.querySelector('.hero-slides');
+  if (heroSlides) {
+    window.addEventListener('scroll', () => {
+      if (window.scrollY < window.innerHeight) {
+        heroSlides.style.transform = `translateY(${window.scrollY * 0.35}px)`;
+      }
+    }, { passive: true });
+  }
+
+  /* ---- Parallax backgrounds (parallax-section banners) ---- */
+  const parallaxBgs = document.querySelectorAll('.parallax-bg');
+
+  function updateBgParallax() {
+    parallaxBgs.forEach(bg => {
+      const section = bg.closest('.parallax-section');
+      if (!section) return;
+      const rect = section.getBoundingClientRect();
+      if (rect.bottom < 0 || rect.top > window.innerHeight) return;
+      const speed = parseFloat(bg.dataset.speed || '0.3');
+      const offset = (rect.top + rect.height / 2 - window.innerHeight / 2) * speed;
+      bg.style.transform = `translateY(${offset}px)`;
+    });
+  }
+
+  /* ---- Image parallax (prop cards, about, gallery teaser) ---- */
+  const parallaxImgWraps = document.querySelectorAll('.parallax-img-wrap');
+  const isTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+
+  function updateImgParallax() {
+    if (isTouch) return;
+    parallaxImgWraps.forEach(wrap => {
+      const img = wrap.querySelector('.parallax-img');
+      if (!img) return;
+      const rect = wrap.getBoundingClientRect();
+      if (rect.bottom < 0 || rect.top > window.innerHeight) return;
+      const speed = 0.1;
+      const offset = (rect.top + rect.height / 2 - window.innerHeight / 2) * speed;
+      img.style.transform = `translateY(${offset}px)`;
+    });
+  }
+
+  function onScroll() {
+    updateBgParallax();
+    updateImgParallax();
+  }
+
+  if (parallaxBgs.length > 0 || parallaxImgWraps.length > 0) {
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  }
+
   /* ---- Room Tabs ---- */
   const tabs = document.querySelectorAll('.room-tab');
   const panels = document.querySelectorAll('.room-panel');
-
   tabs.forEach(tab => {
     tab.addEventListener('click', () => {
       const target = tab.dataset.tab;
@@ -81,8 +134,7 @@ document.addEventListener('DOMContentLoaded', () => {
         observer.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
-
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
   revealEls.forEach(el => observer.observe(el));
 
   /* ---- Gallery lightbox ---- */
@@ -90,63 +142,46 @@ document.addEventListener('DOMContentLoaded', () => {
   const lightboxImg = document.getElementById('lightboxImg');
   const lightboxClose = document.getElementById('lightboxClose');
 
-  document.querySelectorAll('.gallery-item').forEach(item => {
-    item.addEventListener('click', () => {
-      const img = item.querySelector('img');
-      if (img && lightbox && lightboxImg) {
-        lightboxImg.src = img.src;
-        lightboxImg.alt = img.alt;
-        lightbox.classList.add('open');
-        document.body.style.overflow = 'hidden';
-      }
-    });
-  });
+  function openLightbox(src, alt) {
+    if (!lightbox || !lightboxImg) return;
+    lightboxImg.src = src;
+    lightboxImg.alt = alt || '';
+    lightbox.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
 
   function closeLightbox() {
     lightbox?.classList.remove('open');
     document.body.style.overflow = '';
+    if (lightboxImg) lightboxImg.src = '';
   }
+
+  document.querySelectorAll('.gallery-item, .gallery-lb').forEach(item => {
+    item.addEventListener('click', () => {
+      const img = item.querySelector('img');
+      if (img) openLightbox(img.src, img.alt);
+    });
+  });
 
   lightboxClose?.addEventListener('click', closeLightbox);
   lightbox?.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
   document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
 
-  /* ---- Booking bar date defaults ---- */
-  const checkIn = document.getElementById('checkIn');
-  const checkOut = document.getElementById('checkOut');
-
-  if (checkIn && checkOut) {
-    const today = new Date();
-    const tomorrow = new Date(today);
-    tomorrow.setDate(tomorrow.getDate() + 1);
-    const dayAfter = new Date(today);
-    dayAfter.setDate(dayAfter.getDate() + 2);
-
-    const fmt = d => d.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
-    checkIn.textContent = fmt(tomorrow);
-    checkOut.textContent = fmt(dayAfter);
-
-    checkIn.addEventListener('click', () => {
-      const d = prompt('Enter check-in date (DD/MM/YYYY):');
-      if (d) checkIn.textContent = d;
-    });
-    checkOut.addEventListener('click', () => {
-      const d = prompt('Enter check-out date (DD/MM/YYYY):');
-      if (d) checkOut.textContent = d;
-    });
-  }
-
-  /* ---- Smooth active nav highlight ---- */
-  const sections = document.querySelectorAll('section[id]');
-  const navAnchorLinks = document.querySelectorAll('.nav-links a[href^="#"]');
-
-  window.addEventListener('scroll', () => {
-    let current = '';
-    sections.forEach(s => {
-      if (window.scrollY >= s.offsetTop - 120) current = s.id;
-    });
-    navAnchorLinks.forEach(a => {
-      a.classList.toggle('active-nav', a.getAttribute('href') === '#' + current);
+  /* ---- Gallery filter tabs ---- */
+  const filterBtns = document.querySelectorAll('.gallery-filter-btn');
+  const galleryItems = document.querySelectorAll('.gallery-lb');
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const filter = btn.dataset.filter;
+      galleryItems.forEach(item => {
+        if (filter === 'all' || item.dataset.category === filter) {
+          item.style.display = '';
+        } else {
+          item.style.display = 'none';
+        }
+      });
     });
   });
 
@@ -163,7 +198,6 @@ document.addEventListener('DOMContentLoaded', () => {
       if (current >= target) clearInterval(timer);
     }, 16);
   }
-
   const counterObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
@@ -172,7 +206,6 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   }, { threshold: 0.5 });
-
   document.querySelectorAll('[data-count]').forEach(el => counterObserver.observe(el));
 
 });

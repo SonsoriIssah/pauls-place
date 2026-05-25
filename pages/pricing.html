@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pricing — Paul's Place | Dzorwulu, Accra</title>
+  <meta name="description" content="Transparent pricing for 2-bedroom and 3-bedroom apartments and commercial spaces at Paul's Place Complex, Dzorwulu, Accra." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,700&family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/styles.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='28' font-size='28'>🏢</text></svg>" />
+  <style>
+    .price-card-img { width:100%; height:220px; object-fit:cover; display:block; }
+    .price-card-body { padding:1.75rem; }
+    .price-card-badge { display:inline-block; font-size:.6rem; font-weight:700; letter-spacing:.18em; text-transform:uppercase; background:var(--gold); color:var(--dark); padding:.3rem .7rem; margin-bottom:1rem; }
+    .price-card-title { font-family:'Playfair Display',serif; font-size:1.2rem; margin-bottom:.5rem; }
+    .price-card-desc { font-size:.86rem; color:var(--text-light); margin-bottom:1.25rem; line-height:1.65; }
+    .price-row { display:flex; gap:2rem; align-items:center; padding:1rem 0; border-top:1px solid var(--cream-2); border-bottom:1px solid var(--cream-2); margin:1rem 0 1.5rem; flex-wrap:wrap; }
+    .price-val { font-family:'Playfair Display',serif; font-size:1.55rem; font-weight:700; color:var(--gold); display:block; line-height:1; }
+    .price-label { font-size:.62rem; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:var(--text-muted); margin-top:.2rem; display:block; }
+    .price-divider { width:1px; height:40px; background:var(--cream-2); flex-shrink:0; }
+    .perk { font-size:.82rem; color:var(--text); padding:.3rem 0; border-bottom:1px solid var(--cream-2); display:flex; align-items:center; gap:.5rem; }
+    .perk::before { content:'✓'; color:var(--gold); font-weight:700; flex-shrink:0; }
+    .pricing-notes { background:var(--cream); border-left:3px solid var(--gold); padding:1.5rem 2rem; }
+    .pricing-notes h4 { font-size:.75rem; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:var(--gold); margin-bottom:.75rem; }
+    .pricing-notes ul { list-style:none; display:flex; flex-direction:column; gap:.5rem; }
+    .pricing-notes li { font-size:.86rem; color:var(--text-light); display:flex; align-items:flex-start; gap:.5rem; }
+    .pricing-notes li::before { content:'·'; color:var(--gold); font-weight:700; flex-shrink:0; margin-top:.05rem; }
+    .table-wrap { overflow-x:auto; }
+    @media(max-width:768px){ .price-cards-grid{grid-template-columns:1fr!important} }
+  </style>
+</head>
+<body>
+
+  <div class="top-bar"><div class="container">
+    <div class="top-bar-left"><a href="tel:0244910599">📞 0244 910 599</a><a href="mailto:info@sheltermartgh.com">✉ info@sheltermartgh.com</a></div>
+    <div class="top-bar-right"><a href="gallery.html">Gallery</a><a href="pricing.html">Pricing</a><a href="contact.html">Contact</a></div>
+  </div></div>
+
+  <nav class="navbar" id="navbar"><div class="container">
+    <a href="../index.html" class="navbar-logo"><span class="brand-name">Paul's Place</span><span class="brand-sub">Luxury Complex · Dzorwulu, Accra</span></a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="apartments.html">Apartments</a></li>
+      <li><a href="commercial.html">Commercial</a></li>
+      <li><a href="amenities.html">Amenities</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="pricing.html" class="nav-active">Pricing</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <a href="tel:0244910599" class="btn-signin">Call Us</a>
+      <a href="contact.html" class="btn-book">Enquire Now</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation"><span></span><span></span><span></span></button>
+    </div>
+  </div></nav>
+
+  <!-- PAGE HERO -->
+  <div class="page-hero">
+    <img src="http://sheltermartgh.com/storage/three-bedroom-apartments-for-rent-at-dzorwulu/photo-45-2025-12-03-15-37-06.jpg" alt="Pricing" loading="eager" />
+    <div class="page-hero-overlay"></div>
+    <div class="page-hero-content">
+      <p class="breadcrumb"><a href="../index.html">Home</a> / <span>Pricing</span></p>
+      <h1>Unit Pricing</h1>
+      <p>Transparent pricing for all residential and commercial units</p>
+    </div>
+  </div>
+
+  <!-- INTRO -->
+  <section style="background:var(--cream);padding:4rem 0">
+    <div class="container" style="text-align:center;max-width:720px">
+      <span class="section-eyebrow">Transparent Pricing</span>
+      <h2 class="section-title">Rent or Purchase</h2>
+      <div class="divider divider-center"></div>
+      <p class="section-subtitle" style="margin:0 auto;">All units are available for monthly rental or outright purchase. Prices are negotiable. A 1-month deposit plus service charge is applicable. Contact us to discuss further.</p>
+    </div>
+  </section>
+
+  <!-- RESIDENTIAL PRICING -->
+  <section style="background:var(--white);padding:4rem 0">
+    <div class="container">
+      <div class="section-header reveal" style="margin-bottom:3rem;">
+        <span class="section-eyebrow">Residential Units</span>
+        <h2 class="section-title">Apartment Pricing</h2>
+        <div class="divider divider-center"></div>
+      </div>
+
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;" class="price-cards-grid">
+        <!-- 2-Bed Standard -->
+        <article style="border:1px solid var(--border);overflow:hidden;" class="reveal">
+          <img class="price-card-img" src="http://sheltermartgh.com/storage/two-bedroom-apartments-for-rent-at-dzorwulu-1/photo-16-2025-12-03-15-37-06.jpg" alt="2-Bedroom Standard" loading="lazy" />
+          <div class="price-card-body">
+            <span class="price-card-badge">Residential</span>
+            <h3 class="price-card-title">2-Bedroom — Standard</h3>
+            <p class="price-card-desc">Open-plan living, modern kitchen, tiled floors, private balcony, A/C throughout, walk-in closet.</p>
+            <div class="price-row">
+              <div><span class="price-val">$1,500<small style="font-size:.7rem;font-weight:400">/mo</small></span><span class="price-label">Monthly Rent</span></div>
+              <div class="price-divider"></div>
+              <div><span class="price-val">$270,000</span><span class="price-label">Purchase Price</span></div>
+            </div>
+            <div class="perk">Open-plan kitchen with appliances</div>
+            <div class="perk">Air conditioning throughout</div>
+            <div class="perk">Walk-in closet (master bedroom)</div>
+            <div class="perk">Private balcony with views</div>
+            <div class="perk">Service charge included</div>
+            <div style="margin-top:1.5rem;">
+              <a href="tel:0244910599" class="btn-primary" style="display:inline-block;font-size:.75rem;padding:.85rem 1.75rem;">Call to Enquire</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- 2-Bed Deluxe -->
+        <article style="border:1px solid var(--border);overflow:hidden;" class="reveal reveal-delay-1">
+          <img class="price-card-img" src="http://sheltermartgh.com/storage/two-bedroom-apartments-for-rent-at-dzorwulu-1/photo-33-2025-12-03-15-37-06.jpg" alt="2-Bedroom Deluxe" loading="lazy" />
+          <div class="price-card-body">
+            <span class="price-card-badge">Residential</span>
+            <h3 class="price-card-title">2-Bedroom — Deluxe</h3>
+            <p class="price-card-desc">Premium configuration with upgraded finishes, enhanced kitchen appliances, and enhanced interior design.</p>
+            <div class="price-row">
+              <div><span class="price-val">$1,800<small style="font-size:.7rem;font-weight:400">/mo</small></span><span class="price-label">Monthly Rent</span></div>
+              <div class="price-divider"></div>
+              <div><span class="price-val">$270,000</span><span class="price-label">Purchase Price</span></div>
+            </div>
+            <div class="perk">Premium interior finishes</div>
+            <div class="perk">Enhanced kitchen appliances</div>
+            <div class="perk">Air conditioning throughout</div>
+            <div class="perk">Walk-in closet (master bedroom)</div>
+            <div class="perk">Balcony &amp; terrace access</div>
+            <div style="margin-top:1.5rem;">
+              <a href="tel:0244910599" class="btn-primary" style="display:inline-block;font-size:.75rem;padding:.85rem 1.75rem;">Call to Enquire</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- 3-Bed -->
+        <article style="border:1px solid var(--border);overflow:hidden;" class="reveal reveal-delay-2">
+          <img class="price-card-img" src="http://sheltermartgh.com/storage/three-bedroom-apartments-for-rent-at-dzorwulu/photo-45-2025-12-03-15-37-06.jpg" alt="3-Bedroom" loading="lazy" />
+          <div class="price-card-body">
+            <span class="price-card-badge">Residential</span>
+            <h3 class="price-card-title">3-Bedroom Apartment</h3>
+            <p class="price-card-desc">Generously proportioned for families or executives — spacious open-plan living with balcony views.</p>
+            <div class="price-row">
+              <div><span class="price-val">$2,000<small style="font-size:.7rem;font-weight:400">/mo</small></span><span class="price-label">Monthly Rent</span></div>
+              <div class="price-divider"></div>
+              <div><span class="price-val">$370,000</span><span class="price-label">Purchase Price</span></div>
+            </div>
+            <div class="perk">3 spacious bedrooms</div>
+            <div class="perk">Open-plan living &amp; dining</div>
+            <div class="perk">Modern kitchen with appliances</div>
+            <div class="perk">Air conditioning throughout</div>
+            <div class="perk">Balcony with panoramic views</div>
+            <div style="margin-top:1.5rem;">
+              <a href="tel:0244910599" class="btn-primary" style="display:inline-block;font-size:.75rem;padding:.85rem 1.75rem;">Call to Enquire</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMMERCIAL PRICING -->
+  <section style="background:var(--cream);padding:4rem 0">
+    <div class="container">
+      <div class="section-header reveal" style="margin-bottom:3rem;">
+        <span class="section-eyebrow">Business &amp; Retail</span>
+        <h2 class="section-title">Commercial Pricing</h2>
+        <div class="divider divider-center"></div>
+        <p class="section-subtitle" style="margin:0 auto;">Ground and first-floor retail units — ideal for shops, offices, salons, or service businesses.</p>
+      </div>
+
+      <div class="table-wrap reveal">
+        <table class="pricing-table">
+          <thead>
+            <tr>
+              <th>Unit Type</th>
+              <th>Floor</th>
+              <th>Monthly Rent</th>
+              <th>Description</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="unit-cell">Single Shop</td>
+              <td>Ground Floor</td>
+              <td class="price-cell">$750 / month</td>
+              <td>High-visibility ground-floor unit. Excellent foot traffic, tiled floors, easy compound access.</td>
+              <td><a href="contact.html" class="btn-outline-gold" style="padding:.55rem 1.1rem;font-size:.68rem;white-space:nowrap;">Enquire</a></td>
+            </tr>
+            <tr>
+              <td class="unit-cell">Single Shop</td>
+              <td>First Floor</td>
+              <td class="price-cell">$650 – $750 / month</td>
+              <td>First-floor single unit — ideal for service businesses, salons, or offices.</td>
+              <td><a href="contact.html" class="btn-outline-gold" style="padding:.55rem 1.1rem;font-size:.68rem;white-space:nowrap;">Enquire</a></td>
+            </tr>
+            <tr>
+              <td class="unit-cell">Double Shop</td>
+              <td>Ground Floor</td>
+              <td class="price-cell">$1,500 / month</td>
+              <td>Expansive double-size ground unit with private washroom and premium frontage. Ideal for showrooms.</td>
+              <td><a href="contact.html" class="btn-outline-gold" style="padding:.55rem 1.1rem;font-size:.68rem;white-space:nowrap;">Enquire</a></td>
+            </tr>
+            <tr>
+              <td class="unit-cell">Double Shop</td>
+              <td>First Floor</td>
+              <td class="price-cell">$1,300 – $1,400 / month</td>
+              <td>Large open-plan first-floor double unit — perfect for retail, open offices, or boutiques.</td>
+              <td><a href="contact.html" class="btn-outline-gold" style="padding:.55rem 1.1rem;font-size:.68rem;white-space:nowrap;">Enquire</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- NOTES -->
+  <section style="background:var(--white);padding:3rem 0">
+    <div class="container" style="max-width:860px">
+      <div class="pricing-notes reveal">
+        <h4>Pricing Notes &amp; Terms</h4>
+        <ul>
+          <li>All prices quoted in US Dollars (USD). GHS equivalent available on request.</li>
+          <li>Monthly rental requires 1-month refundable deposit plus service charge.</li>
+          <li>Purchase prices are negotiable — contact us for a private discussion.</li>
+          <li>Viewing hours: Mon–Fri 8:00 AM – 6:00 PM · Sat 9:00 AM – 4:00 PM.</li>
+          <li>Listed and managed by ShelterMart Ghana — Licensed Real Estate Agents.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <div class="discovery-banner">
+    <div class="container">
+      <div class="discovery-text">
+        <strong>Ready to proceed?</strong> — Call us directly or send an enquiry and we'll respond within 24 hours.
+      </div>
+      <a href="contact.html" class="btn-discovery">Contact Us</a>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer" role="contentinfo">
+    <div class="footer-top"><div class="container">
+      <div class="footer-grid footer-grid-4">
+        <div class="footer-brand footer-col">
+          <div class="brand-name">Paul's Place</div>
+          <span class="brand-sub">Luxury Complex · Dzorwulu, Accra</span>
+          <p>A premier residential and commercial complex in the heart of Dzorwulu.</p>
+          <div class="social-links">
+            <a href="https://www.facebook.com/shelter.mart/" target="_blank" rel="noopener" class="social-link">f</a>
+            <a href="https://sheltermartgh.com" target="_blank" rel="noopener" class="social-link">🏠</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h3 class="footer-col-title">Pages</h3>
+          <ul class="footer-links">
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="apartments.html">Apartments</a></li>
+            <li><a href="commercial.html">Commercial</a></li>
+            <li><a href="amenities.html">Amenities</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="pricing.html">Pricing</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3 class="footer-col-title">Units</h3>
+          <ul class="footer-links">
+            <li><a href="apartments.html">2-Bed Standard — $1,500/mo</a></li>
+            <li><a href="apartments.html">2-Bed Deluxe — $1,800/mo</a></li>
+            <li><a href="apartments.html">3-Bed — $2,000/mo</a></li>
+            <li><a href="commercial.html">Single Shop — from $650/mo</a></li>
+            <li><a href="commercial.html">Double Shop — from $1,300/mo</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3 class="footer-col-title">Contact</h3>
+          <ul class="footer-links">
+            <li style="color:rgba(255,255,255,0.6);font-size:0.84rem;">Dzorwulu, Accra, Ghana</li>
+            <li><a href="tel:0244910599">0244 910 599</a></li>
+            <li><a href="mailto:info@sheltermartgh.com">info@sheltermartgh.com</a></li>
+            <li><a href="contact.html">Enquiry Form</a></li>
+          </ul>
+        </div>
+      </div>
+    </div></div>
+    <div class="container"><div class="footer-bottom">
+      <div class="footer-legal">
+        <a href="#">Privacy Policy</a>
+        <a href="https://sheltermartgh.com" target="_blank" rel="noopener">ShelterMart Ghana</a>
+      </div>
+      <p class="footer-copy">&copy; 2025 Paul's Place Complex. Listed by ShelterMart Ghana.</p>
+    </div></div>
+  </footer>
+
+  <script src="../js/main.js" defer></script>
+</body>
+</html>
