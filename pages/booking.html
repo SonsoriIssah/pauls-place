@@ -748,6 +748,180 @@
       .confirm-ref-box { flex-direction: column; gap: 0.5rem; text-align: center; padding: 1.25rem; }
       .step-heading { font-size: 1.4rem; }
     }
+
+    /* ========== ENHANCED CONFIRMATION SCREEN ========== */
+
+    /* Header */
+    .conf-header { text-align: center; padding: 0 0 2rem; }
+
+    /* Reference bar */
+    .conf-ref-bar {
+      background: var(--dark);
+      padding: 1.25rem 1.75rem;
+      margin-bottom: 2rem;
+    }
+    .conf-ref-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .conf-ref-label {
+      font-size: .58rem; font-weight: 700; letter-spacing: .18em;
+      text-transform: uppercase; color: rgba(255,255,255,.45);
+      margin-bottom: .15rem;
+    }
+    .conf-ref-number {
+      font-family: 'Playfair Display', serif; font-size: 1.5rem;
+      font-weight: 700; color: var(--gold); letter-spacing: .05em;
+    }
+    .conf-ref-actions { display: flex; gap: .5rem; }
+    .conf-ref-btn {
+      font-size: .66rem; font-weight: 700; letter-spacing: .08em;
+      text-transform: uppercase; color: rgba(255,255,255,.55);
+      background: none; border: 1px solid rgba(255,255,255,.2);
+      padding: .4rem 1rem; cursor: pointer; font-family: inherit;
+      transition: all .2s ease;
+    }
+    .conf-ref-btn:hover { color: var(--gold); border-color: var(--gold); }
+
+    /* Email sent notice */
+    .conf-email-notice {
+      display: flex; align-items: center; gap: .6rem;
+      background: #f0fdf4; border: 1px solid #bbf7d0;
+      padding: .65rem 1.1rem; margin-bottom: 2rem;
+      font-size: .8rem; color: #166534;
+    }
+    .conf-email-notice span { font-size: 1rem; }
+
+    /* Main 2-col grid */
+    .conf-main-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+      margin-bottom: 1.5rem;
+    }
+    .conf-col { display: flex; flex-direction: column; gap: 1.25rem; }
+
+    /* Section cards */
+    .conf-section {
+      background: #f9f6f0;
+      border: 1px solid #ede6d8;
+      padding: 1.5rem;
+    }
+    .conf-section-title {
+      font-size: .6rem; font-weight: 700; letter-spacing: .16em;
+      text-transform: uppercase; color: var(--gold);
+      margin-bottom: 1.1rem; padding-bottom: .65rem;
+      border-bottom: 1px solid #ede6d8;
+    }
+
+    /* Unit thumbnail row */
+    .conf-unit-header {
+      display: flex; gap: .85rem; align-items: center;
+      margin-bottom: 1rem; padding-bottom: 1rem;
+      border-bottom: 1px solid #ede6d8;
+    }
+    .conf-unit-thumb { width: 76px; height: 56px; object-fit: cover; flex-shrink: 0; }
+    .conf-unit-badge {
+      font-size: .56rem; font-weight: 700; letter-spacing: .15em;
+      text-transform: uppercase; color: var(--gold); margin-bottom: .2rem;
+    }
+    .conf-unit-heading {
+      font-family: 'Playfair Display', serif; font-size: .95rem;
+      color: var(--dark); line-height: 1.25;
+    }
+
+    /* Data rows */
+    .conf-rows { display: flex; flex-direction: column; }
+    .conf-row {
+      display: flex; justify-content: space-between; align-items: flex-start;
+      padding: .48rem 0; border-bottom: 1px solid #ede6d8;
+      font-size: .82rem; gap: .75rem;
+    }
+    .conf-row:last-child { border-bottom: none; }
+    .crl { color: var(--text-muted); flex-shrink: 0; min-width: 90px; }
+    .crv { font-weight: 600; color: var(--dark); text-align: right; line-height: 1.4; }
+    .crv.gold {
+      color: var(--gold); font-family: 'Playfair Display', serif;
+      font-size: 1.05rem; font-weight: 700;
+    }
+    .crv a { color: var(--gold); text-decoration: none; }
+
+    /* Total row highlight */
+    .conf-total-row {
+      background: rgba(184,145,58,.07);
+      margin: .25rem -.25rem 0;
+      padding: .55rem .25rem !important;
+      border-radius: 1px;
+    }
+    .conf-total-row .crl { font-weight: 700; color: var(--dark); }
+
+    /* Property photo */
+    .conf-prop-img { width: 100%; height: 128px; object-fit: cover; display: block; margin-bottom: .9rem; }
+
+    /* CTA row */
+    .conf-cta-row {
+      display: flex; gap: .75rem; flex-wrap: wrap;
+      justify-content: center; margin: 2rem 0;
+    }
+    .conf-cta-btn {
+      font-family: inherit; font-size: .72rem; font-weight: 700;
+      letter-spacing: .1em; text-transform: uppercase;
+      padding: .85rem 1.6rem; cursor: pointer; border: none;
+      text-decoration: none; display: inline-flex;
+      align-items: center; gap: .45rem; transition: all .2s ease;
+      white-space: nowrap;
+    }
+    .conf-cta-primary { background: var(--gold); color: var(--dark); }
+    .conf-cta-primary:hover { background: #a07a28; color: #fff; }
+    .conf-cta-wa { background: #25d366; color: #fff; }
+    .conf-cta-wa:hover { background: #1ebe5b; }
+    .conf-cta-call { background: var(--dark); color: #fff; }
+    .conf-cta-call:hover { background: #000; }
+    .conf-cta-ghost {
+      background: none; color: var(--text-muted);
+      border: 1.5px solid #e0d9cc;
+    }
+    .conf-cta-ghost:hover { border-color: var(--dark); color: var(--dark); }
+
+    /* Policy */
+    .conf-policy {
+      background: #f9f6f0;
+      border: 1px solid #ede6d8;
+      border-left: 4px solid var(--gold);
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+    }
+    .conf-policy-title {
+      font-size: .68rem; font-weight: 700; letter-spacing: .13em;
+      text-transform: uppercase; color: var(--dark); margin-bottom: 1.1rem;
+    }
+    .conf-policy-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .conf-policy-item strong {
+      font-size: .78rem; color: var(--dark); display: block; margin-bottom: .3rem;
+    }
+    .conf-policy-item p { font-size: .78rem; color: var(--text-light); line-height: 1.6; margin: 0; }
+
+    /* Print / Download */
+    @media print {
+      .booking-stepper, .step-nav, .conf-cta-row,
+      .conf-ref-actions, .top-bar, .navbar, .footer,
+      .booking-step:not(.active) { display: none !important; }
+      .booking-shell { background: #fff !important; padding: 0 !important; }
+      .booking-card { box-shadow: none !important; padding: .5rem !important; max-width: 100% !important; }
+      .quick-book-bar { display: none !important; }
+    }
+
+    /* Responsive adjustments for conf screen */
+    @media (max-width: 768px) {
+      .conf-main-grid { grid-template-columns: 1fr; }
+      .conf-policy-grid { grid-template-columns: 1fr; }
+      .conf-cta-row { flex-direction: column; align-items: stretch; }
+      .conf-cta-btn { justify-content: center; }
+      .conf-ref-inner { flex-direction: column; align-items: flex-start; }
+    }
   </style>
 </head>
 <body>
@@ -1081,51 +1255,167 @@
 
         <!-- ======================== STEP 4: CONFIRMED ======================== -->
         <div class="booking-step" id="step-4">
-          <div class="confirmation-wrap">
+
+          <!-- ── Header ── -->
+          <div class="conf-header">
             <div class="confirm-icon">✓</div>
-            <h2 class="confirm-title">Booking Request Received</h2>
-            <p class="confirm-sub">Thank you, <strong id="conf-name">—</strong>! Your booking request has been submitted. We'll contact you within 24 hours to arrange your viewing.</p>
+            <h2 class="confirm-title">Booking Request Confirmed</h2>
+            <p class="confirm-sub">
+              Thank you, <strong id="conf-name">—</strong>! Your booking request has been
+              successfully submitted. Our team will reach out within 24 hours to arrange your viewing.
+            </p>
+          </div>
 
-            <div class="confirm-ref-box">
+          <!-- ── Booking Reference Bar ── -->
+          <div class="conf-ref-bar">
+            <div class="conf-ref-inner">
               <div>
-                <div class="confirm-ref-label">Booking Reference</div>
-                <div class="confirm-ref-number" id="conf-ref">PP-2025-0000</div>
+                <div class="conf-ref-label">Booking Reference</div>
+                <div class="conf-ref-number" id="conf-ref">PP-2026-0000</div>
               </div>
-              <button class="confirm-ref-copy" id="copyRefBtn" onclick="copyRef()">Copy</button>
-            </div>
-
-            <!-- What happens next -->
-            <p style="font-size:0.65rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;">What Happens Next</p>
-            <div class="next-steps">
-              <div class="ns-item">
-                <span class="ns-num">01</span>
-                <p class="ns-title">Request Reviewed</p>
-                <p class="ns-desc">Our team reviews your booking request and unit availability.</p>
+              <div class="conf-ref-actions">
+                <button class="conf-ref-btn" id="copyRefBtn" onclick="copyRef()">📋 Copy Ref</button>
+                <button class="conf-ref-btn" onclick="window.print()">⬇ Save PDF</button>
               </div>
-              <div class="ns-item">
-                <span class="ns-num">02</span>
-                <p class="ns-title">We Contact You</p>
-                <p class="ns-desc">We'll call or WhatsApp you within 24 hours to confirm.</p>
-              </div>
-              <div class="ns-item">
-                <span class="ns-num">03</span>
-                <p class="ns-title">Viewing Arranged</p>
-                <p class="ns-desc">A private in-person viewing is scheduled at your convenience.</p>
-              </div>
-              <div class="ns-item">
-                <span class="ns-num">04</span>
-                <p class="ns-title">Move In</p>
-                <p class="ns-desc">Paperwork is completed and you get the keys to your new unit.</p>
-              </div>
-            </div>
-
-            <div class="confirm-actions">
-              <a href="tel:0244910599" class="btn-primary" style="display:inline-block;">📞 Call Us Now</a>
-              <a href="../index.html" class="btn-back" style="display:inline-block;text-decoration:none;padding:0.9rem 1.75rem;">Back to Home</a>
-              <a href="apartments.html" style="display:inline-block;text-decoration:none;font-size:0.75rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold);border:1.5px solid var(--gold);padding:0.9rem 1.75rem;transition:all .2s;">View Apartments</a>
             </div>
           </div>
-        </div>
+
+          <!-- ── Email sent notice ── -->
+          <div class="conf-email-notice" id="conf-email-notice" style="display:none;">
+            <span>✉️</span>
+            <span>A confirmation summary has been sent to <strong id="conf-notice-email"></strong></span>
+          </div>
+
+          <!-- ── Main 2-col grid ── -->
+          <div class="conf-main-grid">
+
+            <!-- LEFT COL: Stay summary + Price summary -->
+            <div class="conf-col">
+
+              <!-- Stay Summary -->
+              <div class="conf-section">
+                <p class="conf-section-title">Stay Summary</p>
+                <div class="conf-unit-header">
+                  <img id="conf-unit-thumb" src="" alt="" class="conf-unit-thumb" />
+                  <div>
+                    <div class="conf-unit-badge" id="conf-unit-badge">Residential</div>
+                    <div class="conf-unit-heading" id="conf-unit-heading">—</div>
+                  </div>
+                </div>
+                <div class="conf-rows">
+                  <div class="conf-row"><span class="crl">Enquiry Type</span><span class="crv" id="cs-purpose">—</span></div>
+                  <div class="conf-row"><span class="crl">Move-in Date</span><span class="crv" id="cs-movein">—</span></div>
+                  <div class="conf-row" id="cs-dur-row"><span class="crl">Lease Duration</span><span class="crv" id="cs-duration">—</span></div>
+                  <div class="conf-row" id="cs-end-row"><span class="crl">Lease End Date</span><span class="crv" id="cs-end">—</span></div>
+                  <div class="conf-row"><span class="crl">Viewing Scheduled</span><span class="crv" id="cs-viewing">—</span></div>
+                </div>
+              </div>
+
+              <!-- Price Summary -->
+              <div class="conf-section">
+                <p class="conf-section-title">Price Summary</p>
+                <div class="conf-rows">
+                  <div class="conf-row" id="cs-monthly-row"><span class="crl">Monthly Rent</span><span class="crv gold" id="cs-monthly">—</span></div>
+                  <div class="conf-row" id="cs-period-row"><span class="crl">Lease Period</span><span class="crv" id="cs-period">—</span></div>
+                  <div class="conf-row conf-total-row" id="cs-total-row"><span class="crl" id="cs-total-lbl">Estimated Total</span><span class="crv gold" id="cs-total">—</span></div>
+                  <div class="conf-row"><span class="crl">Payment</span><span class="crv">To be arranged</span></div>
+                  <div class="conf-row"><span class="crl">Deposit</span><span class="crv">1 month advance required</span></div>
+                </div>
+              </div>
+
+            </div><!-- /LEFT -->
+
+            <!-- RIGHT COL: Property details + Guest details -->
+            <div class="conf-col">
+
+              <!-- Property Details -->
+              <div class="conf-section">
+                <p class="conf-section-title">Property Details</p>
+                <img id="conf-prop-img" class="conf-prop-img"
+                  src="http://sheltermartgh.com/storage/two-bedroom-apartments-for-rent-at-dzorwulu-1/photo-1-2025-12-03-15-37-06.jpg"
+                  alt="Paul's Place Complex" />
+                <div class="conf-rows">
+                  <div class="conf-row"><span class="crl">Property</span><span class="crv">Paul's Place Complex</span></div>
+                  <div class="conf-row"><span class="crl">Address</span><span class="crv">Dzorwulu, Accra, Ghana</span></div>
+                  <div class="conf-row"><span class="crl">Phone</span><span class="crv"><a href="tel:0244910599">0244 910 599</a></span></div>
+                  <div class="conf-row"><span class="crl">Email</span><span class="crv" style="font-size:.78rem;"><a href="mailto:info@sheltermartgh.com">info@sheltermartgh.com</a></span></div>
+                  <div class="conf-row"><span class="crl">Managed by</span><span class="crv">ShelterMart Ghana</span></div>
+                </div>
+              </div>
+
+              <!-- Guest Details -->
+              <div class="conf-section">
+                <p class="conf-section-title">Guest Details</p>
+                <div class="conf-rows">
+                  <div class="conf-row"><span class="crl">Name</span><span class="crv" id="cs-name">—</span></div>
+                  <div class="conf-row"><span class="crl">Phone</span><span class="crv" id="cs-phone">—</span></div>
+                  <div class="conf-row" id="cs-email-row"><span class="crl">Email</span><span class="crv" id="cs-email" style="font-size:.78rem;">—</span></div>
+                  <div class="conf-row" id="cs-nat-row"><span class="crl">Nationality</span><span class="crv" id="cs-nat">—</span></div>
+                  <div class="conf-row" id="cs-note-row" style="display:none;"><span class="crl">Note</span><span class="crv" id="cs-note" style="font-weight:400;font-size:.8rem;">—</span></div>
+                </div>
+              </div>
+
+            </div><!-- /RIGHT -->
+
+          </div><!-- /.conf-main-grid -->
+
+          <!-- ── CTA Buttons ── -->
+          <div class="conf-cta-row">
+            <button class="conf-cta-btn conf-cta-primary" onclick="window.print()">⬇ Download Summary</button>
+            <a href="https://wa.me/233244910599" target="_blank" rel="noopener" class="conf-cta-btn conf-cta-wa">💬 WhatsApp Us</a>
+            <a href="tel:0244910599" class="conf-cta-btn conf-cta-call">📞 Call Us Now</a>
+            <a href="../index.html" class="conf-cta-btn conf-cta-ghost">← Back to Home</a>
+          </div>
+
+          <!-- ── Cancellation & Modification Policy ── -->
+          <div class="conf-policy">
+            <p class="conf-policy-title">📋 Cancellation &amp; Modification Policy</p>
+            <div class="conf-policy-grid">
+              <div class="conf-policy-item">
+                <strong>Booking Status</strong>
+                <p>This is a booking <em>request</em>, not a confirmed tenancy. No legal commitment is made until a formal tenancy agreement is signed by both parties.</p>
+              </div>
+              <div class="conf-policy-item">
+                <strong>Free Cancellation</strong>
+                <p>You may withdraw your booking request at any time before signing the agreement — call or WhatsApp us and we'll cancel at no charge.</p>
+              </div>
+              <div class="conf-policy-item">
+                <strong>Modifications</strong>
+                <p>To change your preferred unit type or viewing date, contact us directly. All changes are subject to unit availability at the time of request.</p>
+              </div>
+              <div class="conf-policy-item">
+                <strong>Deposit Terms</strong>
+                <p>A refundable 1-month deposit plus service charge is payable upon signing. Prices are indicative and subject to final negotiation.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- ── What Happens Next ── -->
+          <p style="font-size:.64rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;text-align:center;">What Happens Next</p>
+          <div class="next-steps" style="margin-bottom:0;">
+            <div class="ns-item">
+              <span class="ns-num">01</span>
+              <p class="ns-title">Request Reviewed</p>
+              <p class="ns-desc">Our team checks your request and confirms unit availability.</p>
+            </div>
+            <div class="ns-item">
+              <span class="ns-num">02</span>
+              <p class="ns-title">We Contact You</p>
+              <p class="ns-desc">We'll call or WhatsApp within 24 hours to confirm details.</p>
+            </div>
+            <div class="ns-item">
+              <span class="ns-num">03</span>
+              <p class="ns-title">Viewing Arranged</p>
+              <p class="ns-desc">A private in-person showing is scheduled at your convenience.</p>
+            </div>
+            <div class="ns-item">
+              <span class="ns-num">04</span>
+              <p class="ns-title">Move In</p>
+              <p class="ns-desc">Paperwork is signed, deposit settled, and you get the keys.</p>
+            </div>
+          </div>
+
+        </div><!-- /#step-4 -->
 
       </div><!-- /.booking-card -->
     </div>
@@ -1424,13 +1714,137 @@
       document.getElementById('err-step3').classList.remove('visible');
     }
 
-    /* ---- Generate reference number ---- */
+    /* ---- Generate reference number & populate confirmation screen ---- */
     function generateRef() {
       const year = new Date().getFullYear();
       const rand = String(Math.floor(1000 + Math.random() * 9000));
       state.ref = `PP-${year}-${rand}`;
+
+      /* ── Header ── */
       document.getElementById('conf-ref').textContent = state.ref;
       document.getElementById('conf-name').textContent = state.guestName;
+
+      /* ── Email notice (show only if email was provided) ── */
+      const noticeBox = document.getElementById('conf-email-notice');
+      if (state.guestEmail) {
+        document.getElementById('conf-notice-email').textContent = state.guestEmail;
+        noticeBox.style.display = 'flex';
+      } else {
+        noticeBox.style.display = 'none';
+      }
+
+      /* ── Unit thumbnail ── */
+      const thumb = document.getElementById('conf-unit-thumb');
+      thumb.src = state.unitImg;
+      thumb.alt = state.unitName;
+      document.getElementById('conf-unit-badge').textContent =
+        state.unitType === 'commercial' ? 'Commercial' : 'Residential';
+      document.getElementById('conf-unit-heading').textContent = state.unitName;
+
+      /* ── Property photo: use unit image ── */
+      document.getElementById('conf-prop-img').src = state.unitImg;
+
+      /* ── Purpose ── */
+      document.getElementById('cs-purpose').textContent =
+        state.purpose === 'rent' ? 'Rental' : 'Purchase';
+
+      /* ── Move-in ── */
+      const fmtDate = (iso, opts) =>
+        iso ? new Date(iso + 'T00:00:00').toLocaleDateString('en-GB', opts) : '—';
+      const longDate = { day: 'numeric', month: 'long', year: 'numeric' };
+      document.getElementById('cs-movein').textContent =
+        state.moveIn ? fmtDate(state.moveIn, longDate) : 'Flexible';
+
+      /* ── Duration & lease end ── */
+      const durRow = document.getElementById('cs-dur-row');
+      const endRow = document.getElementById('cs-end-row');
+      if (state.purpose === 'rent') {
+        durRow.style.display = '';
+        const durSel = document.getElementById('leaseDuration');
+        document.getElementById('cs-duration').textContent =
+          durSel.options[durSel.selectedIndex]?.text || '—';
+        if (state.duration !== '0' && state.moveIn) {
+          endRow.style.display = '';
+          const end = new Date(state.moveIn + 'T00:00:00');
+          end.setFullYear(end.getFullYear() + parseInt(state.duration, 10));
+          document.getElementById('cs-end').textContent =
+            end.toLocaleDateString('en-GB', longDate);
+        } else {
+          endRow.style.display = 'none';
+        }
+      } else {
+        durRow.style.display = 'none';
+        endRow.style.display = 'none';
+      }
+
+      /* ── Viewing ── */
+      const vd = state.viewDate
+        ? fmtDate(state.viewDate, { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' })
+        : '—';
+      document.getElementById('cs-viewing').textContent =
+        state.viewTime ? `${vd} · ${state.viewTime}` : vd;
+
+      /* ── Price ── */
+      const monthlyRow  = document.getElementById('cs-monthly-row');
+      const periodRow   = document.getElementById('cs-period-row');
+      const totalRow    = document.getElementById('cs-total-row');
+
+      if (state.purpose === 'rent') {
+        monthlyRow.style.display = '';
+        document.getElementById('cs-monthly').textContent =
+          `$${state.rentPrice.toLocaleString()} / month`;
+        if (state.duration !== '0') {
+          periodRow.style.display = '';
+          const months = parseInt(state.duration, 10) * 12;
+          document.getElementById('cs-period').textContent = `${months} months`;
+          totalRow.style.display = '';
+          document.getElementById('cs-total-lbl').textContent = 'Estimated Total';
+          document.getElementById('cs-total').textContent =
+            `$${(state.rentPrice * months).toLocaleString()}`;
+        } else {
+          periodRow.style.display = 'none';
+          totalRow.style.display = 'none';
+        }
+      } else {
+        monthlyRow.style.display = 'none';
+        periodRow.style.display = 'none';
+        if (state.buyPrice) {
+          totalRow.style.display = '';
+          document.getElementById('cs-total-lbl').textContent = 'Purchase Price';
+          document.getElementById('cs-total').textContent =
+            `$${state.buyPrice.toLocaleString()}`;
+        } else {
+          totalRow.style.display = 'none';
+        }
+      }
+
+      /* ── Guest details ── */
+      document.getElementById('cs-name').textContent  = state.guestName;
+      document.getElementById('cs-phone').textContent = state.guestPhone;
+
+      const emailRow = document.getElementById('cs-email-row');
+      if (state.guestEmail) {
+        emailRow.style.display = '';
+        document.getElementById('cs-email').textContent = state.guestEmail;
+      } else {
+        emailRow.style.display = 'none';
+      }
+
+      const natRow = document.getElementById('cs-nat-row');
+      if (state.guestNat) {
+        natRow.style.display = '';
+        document.getElementById('cs-nat').textContent = state.guestNat;
+      } else {
+        natRow.style.display = 'none';
+      }
+
+      const noteRow = document.getElementById('cs-note-row');
+      if (state.message) {
+        noteRow.style.display = '';
+        document.getElementById('cs-note').textContent = state.message;
+      } else {
+        noteRow.style.display = 'none';
+      }
     }
 
     /* ---- Copy reference ---- */
