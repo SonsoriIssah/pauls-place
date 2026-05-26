@@ -1,5 +1,5 @@
-/* ==============================
-   Paul's Place — Main JavaScript
+﻿/* ==============================
+   Paul's Place - Main JavaScript
    ============================== */
 
 document.addEventListener('DOMContentLoaded', () => {

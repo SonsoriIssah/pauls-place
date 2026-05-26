@@ -1,4 +1,4 @@
-/* ==============================
+﻿/* ==============================
    PAUL'S PLACE COMPLEX
    Main Stylesheet
    ============================== */
@@ -544,6 +544,7 @@ section { padding: 6rem 0; }
   justify-content: center;
   flex-shrink: 0;
   font-size: 1rem;
+  color: var(--dark);
 }
 
 .about-feature-text strong {
@@ -1452,7 +1453,7 @@ section { padding: 6rem 0; }
 }
 
 /* ==============================
-   RESPONSIVE — COMPREHENSIVE
+   RESPONSIVE - COMPREHENSIVE
    ============================== */
 
 /* Prevent ALL horizontal overflow globally */
@@ -1511,7 +1512,7 @@ img, video, iframe { max-width: 100%; }
   .container { padding: 0 1.25rem; }
   .container-wide { padding: 0 1.25rem; }
 
-  /* Top bar — hide on mobile */
+  /* Top bar - hide on mobile */
   .top-bar { display: none; }
 
   /* Navbar */
@@ -1922,6 +1923,7 @@ img, video, iframe { max-width: 100%; }
   font-size: 2rem;
   display: block;
   margin-bottom: 0.85rem;
+  color: var(--gold);
 }
 
 .amenity-icon-item strong {
@@ -2163,7 +2165,7 @@ img, video, iframe { max-width: 100%; }
 .footer-grid-4 { grid-template-columns: 1.5fr 1fr 1fr 1fr !important; }
 
 /* ==============================
-   RESPONSIVE — NEW COMPONENTS
+   RESPONSIVE - NEW COMPONENTS
    ============================== */
 @media (max-width: 1100px) {
   .stat-item { padding: 0.6rem 1.75rem; }
@@ -2221,3 +2223,4 @@ img, video, iframe { max-width: 100%; }
   .footer-grid-4 { grid-template-columns: 1fr !important; }
   .parallax-content { padding: 2rem 1.25rem; }
 }
+
