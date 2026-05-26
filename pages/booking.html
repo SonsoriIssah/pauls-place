@@ -1,0 +1,1522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Book a Unit — Paul's Place | Dzorwulu, Accra</title>
+  <meta name="description" content="Book your apartment or commercial space at Paul's Place Complex, Dzorwulu, Accra." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,700&family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/styles.css" />
+
+  <style>
+    /* ---- Booking layout ---- */
+    .booking-shell {
+      background: #f4f0e8;
+      min-height: 100vh;
+      padding: 3rem 0 5rem;
+    }
+
+    /* ---- Stepper ---- */
+    .booking-stepper {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 3rem;
+      gap: 0;
+      padding: 0 1rem;
+    }
+
+    .bk-step {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .bk-step-circle {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: 2px solid #d0c8bb;
+      background: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: #aaa;
+      transition: all 0.4s ease;
+      position: relative;
+    }
+
+    .bk-step.active .bk-step-circle {
+      background: var(--gold);
+      border-color: var(--gold);
+      color: var(--dark);
+      box-shadow: 0 0 0 5px rgba(184,145,58,0.18);
+    }
+
+    .bk-step.done .bk-step-circle {
+      background: var(--dark);
+      border-color: var(--dark);
+      color: #fff;
+    }
+
+    .bk-step.done .bk-step-circle::after {
+      content: '✓';
+      font-size: 0.9rem;
+    }
+
+    .bk-step.done .bk-step-num { display: none; }
+
+    .bk-step-label {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #aaa;
+      white-space: nowrap;
+      transition: color 0.4s ease;
+    }
+
+    .bk-step.active .bk-step-label { color: var(--gold); }
+    .bk-step.done .bk-step-label { color: var(--dark); }
+
+    .bk-step-line {
+      flex: 1;
+      height: 2px;
+      background: #d0c8bb;
+      max-width: 80px;
+      margin-bottom: 1.5rem;
+      transition: background 0.4s ease;
+    }
+
+    .bk-step-line.done { background: var(--dark); }
+
+    /* ---- Booking card ---- */
+    .booking-card {
+      background: #fff;
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 3rem;
+      box-shadow: 0 4px 32px rgba(0,0,0,0.08);
+    }
+
+    .booking-step { display: none; }
+    .booking-step.active { display: block; }
+
+    .step-heading {
+      margin-bottom: 0.4rem;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.75rem;
+      color: var(--dark);
+    }
+
+    .step-sub {
+      font-size: 0.88rem;
+      color: var(--text-light);
+      margin-bottom: 2.5rem;
+    }
+
+    /* ---- Unit Cards ---- */
+    .unit-cards-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .unit-card {
+      border: 2px solid #e8e2d8;
+      overflow: hidden;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      position: relative;
+    }
+
+    .unit-card:hover {
+      border-color: var(--gold);
+      box-shadow: 0 4px 16px rgba(184,145,58,0.15);
+      transform: translateY(-2px);
+    }
+
+    .unit-card.selected {
+      border-color: var(--gold);
+      box-shadow: 0 4px 20px rgba(184,145,58,0.25);
+    }
+
+    .unit-card-check {
+      position: absolute;
+      top: 0.75rem;
+      right: 0.75rem;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: var(--gold);
+      color: var(--dark);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.7rem;
+      font-weight: 700;
+      z-index: 2;
+    }
+
+    .unit-card.selected .unit-card-check { display: flex; }
+
+    .unit-card-img {
+      width: 100%;
+      height: 140px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .unit-card-body { padding: 1rem; }
+
+    .unit-card-type {
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.3rem;
+    }
+
+    .unit-card-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 0.95rem;
+      color: var(--dark);
+      margin-bottom: 0.25rem;
+      line-height: 1.3;
+    }
+
+    .unit-card-desc {
+      font-size: 0.75rem;
+      color: var(--text-light);
+      line-height: 1.5;
+      margin-bottom: 0.75rem;
+    }
+
+    .unit-card-price {
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--dark);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 0.6rem;
+      border-top: 1px solid #f0ebe0;
+    }
+
+    .unit-card-price .rent { color: var(--gold); }
+
+    /* Commercial row */
+    .unit-cards-row2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    /* ---- Purpose & Preferences ---- */
+    .preferences-row {
+      display: grid;
+      grid-template-columns: auto 1fr 1fr;
+      gap: 1.5rem;
+      align-items: end;
+      padding: 1.5rem;
+      background: #f9f6f0;
+      border: 1px solid #ede6d8;
+      margin-bottom: 1.5rem;
+    }
+
+    .pref-group { display: flex; flex-direction: column; gap: 0.4rem; }
+
+    .pref-label {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    .purpose-toggle {
+      display: flex;
+      border: 2px solid #e8e2d8;
+      overflow: hidden;
+      background: #fff;
+      height: 44px;
+    }
+
+    .purpose-btn {
+      flex: 1;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      background: none;
+      border: none;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      font-family: inherit;
+      padding: 0 1rem;
+    }
+
+    .purpose-btn.active {
+      background: var(--gold);
+      color: var(--dark);
+    }
+
+    .pref-select, .pref-input {
+      height: 44px;
+      border: 2px solid #e8e2d8;
+      background: #fff;
+      padding: 0 1rem;
+      font-family: inherit;
+      font-size: 0.88rem;
+      color: var(--dark);
+      outline: none;
+      width: 100%;
+      transition: border-color 0.2s ease;
+      appearance: none;
+    }
+
+    .pref-select:focus, .pref-input:focus { border-color: var(--gold); }
+
+    .select-wrap { position: relative; }
+    .select-wrap::after {
+      content: '▾';
+      position: absolute;
+      right: 1rem;
+      top: 50%;
+      transform: translateY(-50%);
+      pointer-events: none;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    /* ---- Price Summary Bar ---- */
+    .price-summary-bar {
+      background: var(--dark);
+      padding: 1rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-bottom: 2rem;
+      min-height: 60px;
+      transition: all 0.3s ease;
+    }
+
+    .psb-left { display: flex; gap: 2rem; flex-wrap: wrap; }
+
+    .psb-item { display: flex; flex-direction: column; gap: 0.15rem; }
+
+    .psb-label {
+      font-size: 0.58rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.45);
+    }
+
+    .psb-value {
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: rgba(255,255,255,0.9);
+    }
+
+    .psb-price {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--gold);
+    }
+
+    .psb-empty {
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.4);
+      font-style: italic;
+    }
+
+    /* ---- Step navigation ---- */
+    .step-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 2rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid #ede6d8;
+    }
+
+    .btn-back {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      background: none;
+      border: 2px solid #e8e2d8;
+      padding: 0.8rem 1.75rem;
+      cursor: pointer;
+      font-family: inherit;
+      transition: all 0.2s ease;
+    }
+
+    .btn-back:hover { border-color: var(--dark); color: var(--dark); }
+
+    .btn-next {
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--dark);
+      background: var(--gold);
+      border: none;
+      padding: 0.9rem 2.5rem;
+      cursor: pointer;
+      font-family: inherit;
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .btn-next:hover { background: var(--gold-dark); color: #fff; }
+    .btn-next:disabled { background: #e8e2d8; color: #bbb; cursor: not-allowed; }
+
+    /* ---- Step 2: Details form ---- */
+    .details-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+    }
+
+    .field-group { display: flex; flex-direction: column; gap: 0.4rem; }
+    .field-group.full { grid-column: span 2; }
+
+    .field-label {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    .field-label .req { color: var(--gold); }
+
+    .field-input, .field-select, .field-textarea {
+      border: 2px solid #e8e2d8;
+      background: #fff;
+      padding: 0.75rem 1rem;
+      font-family: inherit;
+      font-size: 0.9rem;
+      color: var(--dark);
+      outline: none;
+      width: 100%;
+      transition: border-color 0.2s ease;
+    }
+
+    .field-input:focus, .field-select:focus, .field-textarea:focus { border-color: var(--gold); }
+    .field-input.error, .field-select.error { border-color: #e53e3e; }
+    .field-error { font-size: 0.72rem; color: #e53e3e; margin-top: 0.2rem; display: none; }
+    .field-error.visible { display: block; }
+
+    .field-textarea { resize: vertical; min-height: 80px; }
+
+    /* ---- Step 3: Review ---- */
+    .review-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .review-card {
+      background: #f9f6f0;
+      border: 1px solid #ede6d8;
+      padding: 1.75rem;
+    }
+
+    .review-card-title {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.25rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid #ede6d8;
+    }
+
+    .review-unit-img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+      display: block;
+      margin-bottom: 1rem;
+    }
+
+    .review-unit-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem;
+      margin-bottom: 1rem;
+    }
+
+    .review-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.5rem 0;
+      border-bottom: 1px solid #ede6d8;
+      font-size: 0.85rem;
+    }
+
+    .review-row:last-child { border-bottom: none; }
+    .review-row .rl { color: var(--text-muted); }
+    .review-row .rv { font-weight: 600; color: var(--dark); text-align: right; }
+    .review-row .rv.gold { color: var(--gold); font-family: 'Playfair Display', serif; font-size: 1.05rem; }
+
+    .review-detail-row {
+      display: flex;
+      gap: 0.75rem;
+      align-items: flex-start;
+      padding: 0.6rem 0;
+      border-bottom: 1px solid #ede6d8;
+      font-size: 0.85rem;
+    }
+
+    .review-detail-row:last-child { border-bottom: none; }
+    .rdl { color: var(--text-muted); min-width: 70px; font-size: 0.78rem; }
+    .rdv { color: var(--dark); font-weight: 600; }
+
+    .terms-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      padding: 1.25rem;
+      background: #f9f6f0;
+      border: 1px solid #ede6d8;
+      margin-bottom: 0.5rem;
+    }
+
+    .terms-row input[type="checkbox"] {
+      width: 18px;
+      height: 18px;
+      accent-color: var(--gold);
+      flex-shrink: 0;
+      margin-top: 2px;
+      cursor: pointer;
+    }
+
+    .terms-row label {
+      font-size: 0.82rem;
+      color: var(--text-light);
+      line-height: 1.55;
+      cursor: pointer;
+    }
+
+    .terms-row label a { color: var(--gold); }
+
+    /* ---- Step 4: Confirmation ---- */
+    .confirmation-wrap {
+      text-align: center;
+      padding: 1rem 0;
+    }
+
+    .confirm-icon {
+      width: 80px;
+      height: 80px;
+      background: var(--gold);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      margin: 0 auto 1.75rem;
+      animation: popIn 0.5s cubic-bezier(0.175,0.885,0.32,1.275) forwards;
+    }
+
+    @keyframes popIn {
+      from { transform: scale(0); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+
+    .confirm-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      color: var(--dark);
+      margin-bottom: 0.5rem;
+    }
+
+    .confirm-sub {
+      font-size: 0.95rem;
+      color: var(--text-light);
+      margin-bottom: 2rem;
+      max-width: 460px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.65;
+    }
+
+    .confirm-ref-box {
+      display: inline-flex;
+      align-items: center;
+      gap: 1rem;
+      background: var(--dark);
+      padding: 1rem 2rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .confirm-ref-label {
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.5);
+    }
+
+    .confirm-ref-number {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--gold);
+      letter-spacing: 0.05em;
+    }
+
+    .confirm-ref-copy {
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.5);
+      background: none;
+      border: 1px solid rgba(255,255,255,0.2);
+      padding: 0.35rem 0.75rem;
+      cursor: pointer;
+      font-family: inherit;
+      transition: all 0.2s ease;
+    }
+
+    .confirm-ref-copy:hover { color: var(--gold-light); border-color: var(--gold); }
+
+    /* Next steps timeline */
+    .next-steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      margin: 2rem 0 2.5rem;
+      text-align: left;
+      border: 1px solid #ede6d8;
+      overflow: hidden;
+    }
+
+    .ns-item {
+      padding: 1.5rem;
+      border-right: 1px solid #ede6d8;
+      position: relative;
+    }
+
+    .ns-item:last-child { border-right: none; }
+
+    .ns-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      font-weight: 700;
+      color: #e8e2d8;
+      display: block;
+      line-height: 1;
+      margin-bottom: 0.5rem;
+    }
+
+    .ns-title {
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 0.3rem;
+    }
+
+    .ns-desc {
+      font-size: 0.75rem;
+      color: var(--text-light);
+      line-height: 1.5;
+    }
+
+    .confirm-actions {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    /* ---- Booking summary sidebar (visible on step 2+) ---- */
+    .booking-aside {
+      background: var(--dark);
+      color: #fff;
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+      display: none;
+    }
+
+    .booking-aside.visible { display: block; }
+
+    .aside-unit {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+      margin-bottom: 1rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .aside-unit-img {
+      width: 64px;
+      height: 48px;
+      object-fit: cover;
+      flex-shrink: 0;
+    }
+
+    .aside-unit-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 0.95rem;
+      color: #fff;
+    }
+
+    .aside-unit-price {
+      font-size: 0.78rem;
+      color: var(--gold-light);
+    }
+
+    .aside-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.78rem;
+      padding: 0.3rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .aside-row .al { color: rgba(255,255,255,0.5); }
+    .aside-row .av { color: rgba(255,255,255,0.85); font-weight: 600; }
+
+    /* ---- Validation ---- */
+    .error-banner {
+      background: #fff5f5;
+      border: 1px solid #feb2b2;
+      color: #c53030;
+      padding: 0.85rem 1.25rem;
+      font-size: 0.85rem;
+      margin-bottom: 1rem;
+      display: none;
+    }
+
+    .error-banner.visible { display: block; }
+
+    /* ---- Responsive ---- */
+    @media (max-width: 768px) {
+      .booking-card { padding: 1.75rem 1.25rem; }
+      .unit-cards-grid { grid-template-columns: 1fr 1fr; }
+      .unit-cards-row2 { grid-template-columns: 1fr; }
+      .preferences-row { grid-template-columns: 1fr 1fr; gap: 1rem; }
+      .preferences-row .pref-group:first-child { grid-column: span 2; }
+      .details-grid { grid-template-columns: 1fr; }
+      .field-group.full { grid-column: span 1; }
+      .review-grid { grid-template-columns: 1fr; }
+      .next-steps { grid-template-columns: 1fr 1fr; }
+      .ns-item:nth-child(2) { border-right: none; }
+      .ns-item:nth-child(odd) { border-right: 1px solid #ede6d8; }
+      .ns-item { border-bottom: 1px solid #ede6d8; }
+      .bk-step-line { max-width: 32px; }
+      .bk-step-label { font-size: 0.6rem; }
+      .psb-left { gap: 1rem; }
+    }
+
+    @media (max-width: 480px) {
+      .booking-shell { padding: 1.5rem 0 4rem; }
+      .booking-stepper { gap: 0; margin-bottom: 2rem; }
+      .bk-step-label { display: none; }
+      .bk-step-circle { width: 34px; height: 34px; font-size: 0.75rem; }
+      .bk-step-line { max-width: 20px; }
+      .unit-cards-grid { grid-template-columns: 1fr; }
+      .next-steps { grid-template-columns: 1fr; }
+      .ns-item { border-right: none !important; }
+      .confirm-ref-box { flex-direction: column; gap: 0.5rem; text-align: center; padding: 1.25rem; }
+      .step-heading { font-size: 1.4rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TOP BAR -->
+  <div class="top-bar"><div class="container">
+    <div class="top-bar-left"><a href="tel:0244910599">📞 0244 910 599</a><a href="mailto:info@sheltermartgh.com">✉ info@sheltermartgh.com</a></div>
+    <div class="top-bar-right"><a href="gallery.html">Gallery</a><a href="pricing.html">Pricing</a><a href="contact.html">Contact</a></div>
+  </div></div>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar"><div class="container">
+    <a href="../index.html" class="navbar-logo"><span class="brand-name">Paul's Place</span><span class="brand-sub">Luxury Complex · Dzorwulu, Accra</span></a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="apartments.html">Apartments</a></li>
+      <li><a href="commercial.html">Commercial</a></li>
+      <li><a href="amenities.html">Amenities</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <a href="tel:0244910599" class="btn-signin">Call Us</a>
+      <a href="booking.html" class="btn-book nav-active">Book Now</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation"><span></span><span></span><span></span></button>
+    </div>
+  </div></nav>
+
+  <!-- BOOKING SHELL -->
+  <div class="booking-shell">
+    <div class="container" style="max-width:1020px;">
+
+      <!-- Page title -->
+      <div style="text-align:center; margin-bottom:2.5rem;">
+        <span class="section-eyebrow">Paul's Place Complex</span>
+        <h1 style="font-family:'Playfair Display',serif; font-size:clamp(1.8rem,3vw,2.5rem); margin-bottom:0.4rem;">Book Your Unit</h1>
+        <p style="font-size:0.88rem; color:var(--text-light);">Complete the form below and our team will confirm within 24 hours.</p>
+      </div>
+
+      <!-- STEPPER -->
+      <div class="booking-stepper">
+        <div class="bk-step active" id="bk-s1">
+          <div class="bk-step-circle"><span class="bk-step-num">1</span></div>
+          <span class="bk-step-label">Select Unit</span>
+        </div>
+        <div class="bk-step-line" id="bk-l1"></div>
+        <div class="bk-step" id="bk-s2">
+          <div class="bk-step-circle"><span class="bk-step-num">2</span></div>
+          <span class="bk-step-label">Your Details</span>
+        </div>
+        <div class="bk-step-line" id="bk-l2"></div>
+        <div class="bk-step" id="bk-s3">
+          <div class="bk-step-circle"><span class="bk-step-num">3</span></div>
+          <span class="bk-step-label">Review</span>
+        </div>
+        <div class="bk-step-line" id="bk-l3"></div>
+        <div class="bk-step" id="bk-s4">
+          <div class="bk-step-circle"><span class="bk-step-num">4</span></div>
+          <span class="bk-step-label">Confirmed</span>
+        </div>
+      </div>
+
+      <!-- BOOKING CARD -->
+      <div class="booking-card">
+
+        <!-- ======================== STEP 1: SELECT UNIT ======================== -->
+        <div class="booking-step active" id="step-1">
+          <h2 class="step-heading">Choose Your Unit</h2>
+          <p class="step-sub">Select the unit type you're interested in, then set your preferences below.</p>
+
+          <!-- Residential units -->
+          <p class="pref-label" style="margin-bottom:0.75rem;">Residential Apartments</p>
+          <div class="unit-cards-grid">
+
+            <div class="unit-card" data-unit="apt-2bed-std" data-rent="1500" data-buy="270000" data-type="residential" data-img="http://sheltermartgh.com/storage/two-bedroom-apartments-for-rent-at-dzorwulu-1/photo-16-2025-12-03-15-37-06.jpg">
+              <div class="unit-card-check">✓</div>
+              <img class="unit-card-img" src="http://sheltermartgh.com/storage/two-bedroom-apartments-for-rent-at-dzorwulu-1/photo-16-2025-12-03-15-37-06.jpg" alt="2-Bedroom Standard" loading="lazy" />
+              <div class="unit-card-body">
+                <p class="unit-card-type">Apartment</p>
+                <h3 class="unit-card-name">2-Bedroom Standard</h3>
+                <p class="unit-card-desc">Open-plan kitchen · Walk-in closet · Private balcony</p>
+                <div class="unit-card-price">
+                  <span class="rent">$1,500<small>/mo</small></span>
+                  <span style="font-size:0.72rem;color:var(--text-muted);">or $270k</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="unit-card" data-unit="apt-2bed-dlx" data-rent="1800" data-buy="270000" data-type="residential" data-img="http://sheltermartgh.com/storage/two-bedroom-apartments-for-rent-at-dzorwulu-1/photo-33-2025-12-03-15-37-06.jpg">
+              <div class="unit-card-check">✓</div>
+              <img class="unit-card-img" src="http://sheltermartgh.com/storage/two-bedroom-apartments-for-rent-at-dzorwulu-1/photo-33-2025-12-03-15-37-06.jpg" alt="2-Bedroom Deluxe" loading="lazy" />
+              <div class="unit-card-body">
+                <p class="unit-card-type">Apartment</p>
+                <h3 class="unit-card-name">2-Bedroom Deluxe</h3>
+                <p class="unit-card-desc">Premium finishes · Enhanced kitchen · Upgraded interior</p>
+                <div class="unit-card-price">
+                  <span class="rent">$1,800<small>/mo</small></span>
+                  <span style="font-size:0.72rem;color:var(--text-muted);">or $270k</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="unit-card" data-unit="apt-3bed" data-rent="2000" data-buy="370000" data-type="residential" data-img="http://sheltermartgh.com/storage/three-bedroom-apartments-for-rent-at-dzorwulu/photo-45-2025-12-03-15-37-06.jpg">
+              <div class="unit-card-check">✓</div>
+              <img class="unit-card-img" src="http://sheltermartgh.com/storage/three-bedroom-apartments-for-rent-at-dzorwulu/photo-45-2025-12-03-15-37-06.jpg" alt="3-Bedroom Premium" loading="lazy" />
+              <div class="unit-card-body">
+                <p class="unit-card-type">Apartment</p>
+                <h3 class="unit-card-name">3-Bedroom Premium</h3>
+                <p class="unit-card-desc">Spacious layout · Full balcony · Ideal for families</p>
+                <div class="unit-card-price">
+                  <span class="rent">$2,000<small>/mo</small></span>
+                  <span style="font-size:0.72rem;color:var(--text-muted);">or $370k</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Commercial units -->
+          <p class="pref-label" style="margin-bottom:0.75rem;">Commercial Spaces</p>
+          <div class="unit-cards-row2">
+            <div class="unit-card" data-unit="shop-single" data-rent="700" data-buy="" data-type="commercial" data-img="http://sheltermartgh.com/storage/single-shops-commercial-space-for-rent-at-dzorwulu/photo-5-2025-12-03-15-43-05.jpg">
+              <div class="unit-card-check">✓</div>
+              <img class="unit-card-img" src="http://sheltermartgh.com/storage/single-shops-commercial-space-for-rent-at-dzorwulu/photo-5-2025-12-03-15-43-05.jpg" alt="Single Shop" loading="lazy" />
+              <div class="unit-card-body">
+                <p class="unit-card-type">Commercial</p>
+                <h3 class="unit-card-name">Single Shop Unit</h3>
+                <p class="unit-card-desc">Ground or first floor · Tiled floors · High-visibility</p>
+                <div class="unit-card-price">
+                  <span class="rent">$650 – $750<small>/mo</small></span>
+                  <span style="font-size:0.72rem;color:var(--text-muted);">Rent only</span>
+                </div>
+              </div>
+            </div>
+            <div class="unit-card" data-unit="shop-double" data-rent="1400" data-buy="" data-type="commercial" data-img="http://sheltermartgh.com/storage/double-shops-commercial-space-for-rent-at-dzorwulu/photo-3-2025-12-03-15-43-05.jpg">
+              <div class="unit-card-check">✓</div>
+              <img class="unit-card-img" src="http://sheltermartgh.com/storage/double-shops-commercial-space-for-rent-at-dzorwulu/photo-3-2025-12-03-15-43-05.jpg" alt="Double Shop" loading="lazy" />
+              <div class="unit-card-body">
+                <p class="unit-card-type">Commercial</p>
+                <h3 class="unit-card-name">Double Shop Unit</h3>
+                <p class="unit-card-desc">Spacious double · Private washroom · Gated compound</p>
+                <div class="unit-card-price">
+                  <span class="rent">$1,300 – $1,500<small>/mo</small></span>
+                  <span style="font-size:0.72rem;color:var(--text-muted);">Rent only</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Preferences row -->
+          <div class="preferences-row">
+            <div class="pref-group">
+              <span class="pref-label">Enquiry Type</span>
+              <div class="purpose-toggle">
+                <button class="purpose-btn active" data-purpose="rent">Rent</button>
+                <button class="purpose-btn" data-purpose="buy">Buy</button>
+              </div>
+            </div>
+            <div class="pref-group" id="pref-movein">
+              <span class="pref-label">Move-in Date</span>
+              <input class="pref-input" type="date" id="moveInDate" />
+            </div>
+            <div class="pref-group" id="pref-duration">
+              <span class="pref-label">Lease Duration</span>
+              <div class="select-wrap">
+                <select class="pref-select" id="leaseDuration">
+                  <option value="1">1 Year</option>
+                  <option value="2">2 Years</option>
+                  <option value="3">3 Years</option>
+                  <option value="0">Negotiable</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <!-- Price summary bar -->
+          <div class="price-summary-bar" id="priceSummaryBar">
+            <span class="psb-empty" id="psb-empty">← Select a unit above to see pricing</span>
+            <div class="psb-left" id="psb-data" style="display:none;">
+              <div class="psb-item">
+                <span class="psb-label">Unit</span>
+                <span class="psb-value" id="psb-unit">—</span>
+              </div>
+              <div class="psb-item">
+                <span class="psb-label">Type</span>
+                <span class="psb-value" id="psb-purpose">Rent</span>
+              </div>
+              <div class="psb-item" id="psb-duration-item">
+                <span class="psb-label">Duration</span>
+                <span class="psb-value" id="psb-dur">1 Year</span>
+              </div>
+            </div>
+            <div id="psb-price-block" style="display:none;">
+              <span class="psb-label">Estimated Total</span>
+              <div class="psb-price" id="psb-total">—</div>
+            </div>
+          </div>
+
+          <div class="error-banner" id="err-step1">Please select a unit before continuing.</div>
+
+          <div class="step-nav" style="justify-content:flex-end;">
+            <button class="btn-next" id="btn-next-1">Continue to Details <span>→</span></button>
+          </div>
+        </div>
+
+
+        <!-- ======================== STEP 2: YOUR DETAILS ======================== -->
+        <div class="booking-step" id="step-2">
+          <!-- Mini booking summary -->
+          <div class="booking-aside" id="aside-2"></div>
+
+          <h2 class="step-heading">Your Details</h2>
+          <p class="step-sub">We'll use these to confirm your booking request and arrange a viewing.</p>
+
+          <div class="details-grid">
+            <div class="field-group">
+              <label class="field-label">Full Name <span class="req">*</span></label>
+              <input class="field-input" type="text" id="d-name" placeholder="Your full name" autocomplete="name" />
+              <span class="field-error" id="err-name">Please enter your name.</span>
+            </div>
+            <div class="field-group">
+              <label class="field-label">Phone / WhatsApp <span class="req">*</span></label>
+              <input class="field-input" type="tel" id="d-phone" placeholder="0244 ..." autocomplete="tel" />
+              <span class="field-error" id="err-phone">Please enter a valid phone number.</span>
+            </div>
+            <div class="field-group">
+              <label class="field-label">Email Address</label>
+              <input class="field-input" type="email" id="d-email" placeholder="your@email.com" autocomplete="email" />
+              <span class="field-error" id="err-email">Please enter a valid email address.</span>
+            </div>
+            <div class="field-group">
+              <label class="field-label">Nationality</label>
+              <div class="select-wrap">
+                <select class="field-select" id="d-nationality">
+                  <option value="">Select nationality</option>
+                  <option>Ghanaian</option>
+                  <option>Nigerian</option>
+                  <option>British</option>
+                  <option>American</option>
+                  <option>Lebanese</option>
+                  <option>Chinese</option>
+                  <option>Indian</option>
+                  <option>South African</option>
+                  <option>Other</option>
+                </select>
+              </div>
+            </div>
+            <div class="field-group">
+              <label class="field-label">Preferred Viewing Date <span class="req">*</span></label>
+              <input class="field-input" type="date" id="d-viewdate" />
+              <span class="field-error" id="err-viewdate">Please choose a preferred viewing date.</span>
+            </div>
+            <div class="field-group">
+              <label class="field-label">Preferred Viewing Time</label>
+              <div class="select-wrap">
+                <select class="field-select" id="d-viewtime">
+                  <option value="">Any time</option>
+                  <option>Morning (8:00 – 12:00)</option>
+                  <option>Afternoon (12:00 – 16:00)</option>
+                  <option>Late Afternoon (16:00 – 18:00)</option>
+                  <option>Saturday Morning (9:00 – 13:00)</option>
+                </select>
+              </div>
+            </div>
+            <div class="field-group full">
+              <label class="field-label">Message / Special Requirements</label>
+              <textarea class="field-textarea" id="d-message" placeholder="Any questions or specific requirements about the unit..."></textarea>
+            </div>
+          </div>
+
+          <div class="error-banner" id="err-step2">Please fill in the required fields.</div>
+
+          <div class="step-nav">
+            <button class="btn-back" id="btn-back-2">← Back</button>
+            <button class="btn-next" id="btn-next-2">Review Booking <span>→</span></button>
+          </div>
+        </div>
+
+
+        <!-- ======================== STEP 3: REVIEW ======================== -->
+        <div class="booking-step" id="step-3">
+          <h2 class="step-heading">Review Your Booking</h2>
+          <p class="step-sub">Please check all details below before confirming your booking request.</p>
+
+          <div class="review-grid">
+            <!-- Unit summary -->
+            <div class="review-card">
+              <p class="review-card-title">Unit &amp; Preferences</p>
+              <img class="review-unit-img" id="rv-img" src="" alt="" />
+              <h3 class="review-unit-name" id="rv-unit-name">—</h3>
+              <div class="review-row"><span class="rl">Enquiry Type</span><span class="rv" id="rv-purpose">—</span></div>
+              <div class="review-row"><span class="rl">Move-in Date</span><span class="rv" id="rv-movein">—</span></div>
+              <div class="review-row" id="rv-dur-row"><span class="rl">Lease Duration</span><span class="rv" id="rv-duration">—</span></div>
+              <div class="review-row"><span class="rl">Unit Price</span><span class="rv gold" id="rv-price">—</span></div>
+              <div class="review-row" id="rv-total-row"><span class="rl">Est. Total</span><span class="rv" id="rv-total">—</span></div>
+            </div>
+
+            <!-- Personal details -->
+            <div>
+              <div class="review-card" style="margin-bottom:1rem;">
+                <p class="review-card-title">Your Details</p>
+                <div class="review-detail-row"><span class="rdl">Name</span><span class="rdv" id="rv-name">—</span></div>
+                <div class="review-detail-row"><span class="rdl">Phone</span><span class="rdv" id="rv-phone">—</span></div>
+                <div class="review-detail-row"><span class="rdl">Email</span><span class="rdv" id="rv-email">—</span></div>
+                <div class="review-detail-row"><span class="rdl">Nationality</span><span class="rdv" id="rv-nat">—</span></div>
+              </div>
+              <div class="review-card">
+                <p class="review-card-title">Viewing Preference</p>
+                <div class="review-detail-row"><span class="rdl">Date</span><span class="rdv" id="rv-vdate">—</span></div>
+                <div class="review-detail-row"><span class="rdl">Time</span><span class="rdv" id="rv-vtime">—</span></div>
+                <div class="review-detail-row" id="rv-msg-row" style="display:none;"><span class="rdl">Note</span><span class="rdv" id="rv-msg" style="font-size:0.8rem;font-weight:400;"></span></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="terms-row">
+            <input type="checkbox" id="termsCheck" />
+            <label for="termsCheck">
+              I confirm that the details above are correct. I understand this is a booking <em>request</em> — not a confirmed tenancy — and that the Paul's Place team will contact me within 24 hours to arrange a formal viewing and discuss next steps. Prices quoted are indicative and subject to negotiation.
+            </label>
+          </div>
+
+          <div class="error-banner" id="err-step3">Please accept the terms to continue.</div>
+
+          <div class="step-nav">
+            <button class="btn-back" id="btn-back-3">← Back</button>
+            <button class="btn-next" id="btn-next-3">Confirm Booking Request <span>→</span></button>
+          </div>
+        </div>
+
+
+        <!-- ======================== STEP 4: CONFIRMED ======================== -->
+        <div class="booking-step" id="step-4">
+          <div class="confirmation-wrap">
+            <div class="confirm-icon">✓</div>
+            <h2 class="confirm-title">Booking Request Received</h2>
+            <p class="confirm-sub">Thank you, <strong id="conf-name">—</strong>! Your booking request has been submitted. We'll contact you within 24 hours to arrange your viewing.</p>
+
+            <div class="confirm-ref-box">
+              <div>
+                <div class="confirm-ref-label">Booking Reference</div>
+                <div class="confirm-ref-number" id="conf-ref">PP-2025-0000</div>
+              </div>
+              <button class="confirm-ref-copy" id="copyRefBtn" onclick="copyRef()">Copy</button>
+            </div>
+
+            <!-- What happens next -->
+            <p style="font-size:0.65rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;">What Happens Next</p>
+            <div class="next-steps">
+              <div class="ns-item">
+                <span class="ns-num">01</span>
+                <p class="ns-title">Request Reviewed</p>
+                <p class="ns-desc">Our team reviews your booking request and unit availability.</p>
+              </div>
+              <div class="ns-item">
+                <span class="ns-num">02</span>
+                <p class="ns-title">We Contact You</p>
+                <p class="ns-desc">We'll call or WhatsApp you within 24 hours to confirm.</p>
+              </div>
+              <div class="ns-item">
+                <span class="ns-num">03</span>
+                <p class="ns-title">Viewing Arranged</p>
+                <p class="ns-desc">A private in-person viewing is scheduled at your convenience.</p>
+              </div>
+              <div class="ns-item">
+                <span class="ns-num">04</span>
+                <p class="ns-title">Move In</p>
+                <p class="ns-desc">Paperwork is completed and you get the keys to your new unit.</p>
+              </div>
+            </div>
+
+            <div class="confirm-actions">
+              <a href="tel:0244910599" class="btn-primary" style="display:inline-block;">📞 Call Us Now</a>
+              <a href="../index.html" class="btn-back" style="display:inline-block;text-decoration:none;padding:0.9rem 1.75rem;">Back to Home</a>
+              <a href="apartments.html" style="display:inline-block;text-decoration:none;font-size:0.75rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold);border:1.5px solid var(--gold);padding:0.9rem 1.75rem;transition:all .2s;">View Apartments</a>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /.booking-card -->
+    </div>
+  </div><!-- /.booking-shell -->
+
+  <!-- FOOTER -->
+  <footer class="footer" role="contentinfo">
+    <div class="footer-top"><div class="container">
+      <div class="footer-grid footer-grid-4">
+        <div class="footer-brand footer-col">
+          <div class="brand-name">Paul's Place</div>
+          <span class="brand-sub">Luxury Complex · Dzorwulu, Accra</span>
+          <p>A premier residential and commercial complex in the heart of Dzorwulu.</p>
+        </div>
+        <div class="footer-col">
+          <h3 class="footer-col-title">Pages</h3>
+          <ul class="footer-links">
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="apartments.html">Apartments</a></li>
+            <li><a href="commercial.html">Commercial</a></li>
+            <li><a href="pricing.html">Pricing</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3 class="footer-col-title">Units</h3>
+          <ul class="footer-links">
+            <li><a href="apartments.html">2-Bed — from $1,500/mo</a></li>
+            <li><a href="apartments.html">3-Bed — $2,000/mo</a></li>
+            <li><a href="commercial.html">Shops — from $650/mo</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3 class="footer-col-title">Contact</h3>
+          <ul class="footer-links">
+            <li style="color:rgba(255,255,255,.6);font-size:.84rem;">Dzorwulu, Accra, Ghana</li>
+            <li><a href="tel:0244910599">0244 910 599</a></li>
+            <li><a href="mailto:info@sheltermartgh.com">info@sheltermartgh.com</a></li>
+          </ul>
+        </div>
+      </div>
+    </div></div>
+    <div class="container"><div class="footer-bottom">
+      <div class="footer-legal">
+        <a href="https://sheltermartgh.com" target="_blank" rel="noopener">ShelterMart Ghana</a>
+      </div>
+      <p class="footer-copy">&copy; 2025 Paul's Place Complex.</p>
+    </div></div>
+  </footer>
+
+  <script src="../js/main.js" defer></script>
+  <script>
+  /* ==============================
+     BOOKING FLOW LOGIC
+     ============================== */
+  (function () {
+
+    /* ---- State ---- */
+    const state = {
+      unit: null,         // selected unit card element
+      unitName: '',
+      unitImg: '',
+      unitType: '',
+      rentPrice: 0,
+      buyPrice: 0,
+      purpose: 'rent',    // 'rent' | 'buy'
+      moveIn: '',
+      duration: '1',
+      guestName: '',
+      guestPhone: '',
+      guestEmail: '',
+      guestNat: '',
+      viewDate: '',
+      viewTime: '',
+      message: '',
+      ref: '',
+    };
+
+    let currentStep = 1;
+
+    /* ---- Set tomorrow as default move-in + view dates ---- */
+    const tomorrow = new Date(); tomorrow.setDate(tomorrow.getDate() + 1);
+    const nextWeek = new Date(); nextWeek.setDate(nextWeek.getDate() + 7);
+    const fmt = d => d.toISOString().split('T')[0];
+    document.getElementById('moveInDate').value = fmt(tomorrow);
+    document.getElementById('moveInDate').min = fmt(tomorrow);
+    document.getElementById('d-viewdate').value = fmt(nextWeek);
+    document.getElementById('d-viewdate').min = fmt(tomorrow);
+
+    /* ---- Unit card selection ---- */
+    document.querySelectorAll('.unit-card').forEach(card => {
+      card.addEventListener('click', () => {
+        document.querySelectorAll('.unit-card').forEach(c => c.classList.remove('selected'));
+        card.classList.add('selected');
+        state.unit = card;
+        state.unitName = card.querySelector('.unit-card-name').textContent;
+        state.unitImg = card.dataset.img;
+        state.unitType = card.dataset.type;
+        state.rentPrice = parseInt(card.dataset.rent, 10) || 0;
+        state.buyPrice = parseInt(card.dataset.buy, 10) || 0;
+        if (state.unitType === 'commercial') {
+          setPurpose('rent');
+          document.querySelectorAll('.purpose-btn').forEach(b => {
+            b.disabled = b.dataset.purpose === 'buy';
+            b.style.opacity = b.dataset.purpose === 'buy' ? '0.35' : '';
+          });
+        } else {
+          document.querySelectorAll('.purpose-btn').forEach(b => {
+            b.disabled = false; b.style.opacity = '';
+          });
+        }
+        updatePriceSummary();
+        document.getElementById('err-step1').classList.remove('visible');
+      });
+    });
+
+    /* ---- Purpose toggle ---- */
+    document.querySelectorAll('.purpose-btn').forEach(btn => {
+      btn.addEventListener('click', () => setPurpose(btn.dataset.purpose));
+    });
+
+    function setPurpose(p) {
+      state.purpose = p;
+      document.querySelectorAll('.purpose-btn').forEach(b => {
+        b.classList.toggle('active', b.dataset.purpose === p);
+      });
+      const isRent = p === 'rent';
+      document.getElementById('pref-duration').style.display = isRent ? '' : 'none';
+      updatePriceSummary();
+    }
+
+    /* ---- Duration change ---- */
+    document.getElementById('leaseDuration').addEventListener('change', e => {
+      state.duration = e.target.value;
+      updatePriceSummary();
+    });
+
+    /* ---- Move-in date ---- */
+    document.getElementById('moveInDate').addEventListener('change', e => {
+      state.moveIn = e.target.value;
+    });
+
+    /* ---- Price summary bar ---- */
+    function updatePriceSummary() {
+      if (!state.unit) return;
+      const empty = document.getElementById('psb-empty');
+      const data = document.getElementById('psb-data');
+      const priceBlock = document.getElementById('psb-price-block');
+
+      empty.style.display = 'none';
+      data.style.display = 'flex';
+      priceBlock.style.display = 'block';
+
+      document.getElementById('psb-unit').textContent = state.unitName;
+      document.getElementById('psb-purpose').textContent = state.purpose === 'rent' ? 'Rental' : 'Purchase';
+
+      const durLabel = document.getElementById('leaseDuration');
+      const durText = durLabel.options[durLabel.selectedIndex]?.text || '';
+      document.getElementById('psb-dur').textContent = durText;
+
+      const durItem = document.getElementById('psb-duration-item');
+      durItem.style.display = state.purpose === 'rent' ? '' : 'none';
+
+      let total = '';
+      if (state.purpose === 'rent') {
+        const months = state.duration === '0' ? null : parseInt(state.duration, 10) * 12;
+        const monthly = state.rentPrice;
+        if (months) {
+          total = `$${(monthly * months).toLocaleString()} (${state.duration}yr)`;
+        } else {
+          total = `$${monthly.toLocaleString()} / month`;
+        }
+      } else {
+        total = state.buyPrice ? `$${state.buyPrice.toLocaleString()}` : 'Rent only';
+      }
+
+      document.getElementById('psb-total').textContent = total;
+    }
+
+    /* ---- Step navigation ---- */
+    document.getElementById('btn-next-1').addEventListener('click', () => {
+      if (!state.unit) {
+        document.getElementById('err-step1').classList.add('visible');
+        return;
+      }
+      state.moveIn = document.getElementById('moveInDate').value;
+      state.duration = document.getElementById('leaseDuration').value;
+      goToStep(2);
+    });
+
+    document.getElementById('btn-back-2').addEventListener('click', () => goToStep(1));
+    document.getElementById('btn-next-2').addEventListener('click', () => {
+      if (!validateStep2()) return;
+      populateReview();
+      goToStep(3);
+    });
+
+    document.getElementById('btn-back-3').addEventListener('click', () => goToStep(2));
+    document.getElementById('btn-next-3').addEventListener('click', () => {
+      if (!document.getElementById('termsCheck').checked) {
+        document.getElementById('err-step3').classList.add('visible');
+        return;
+      }
+      generateRef();
+      goToStep(4);
+    });
+
+    /* ---- Validate step 2 ---- */
+    function validateStep2() {
+      let ok = true;
+      state.guestName = document.getElementById('d-name').value.trim();
+      state.guestPhone = document.getElementById('d-phone').value.trim();
+      state.guestEmail = document.getElementById('d-email').value.trim();
+      state.guestNat = document.getElementById('d-nationality').value;
+      state.viewDate = document.getElementById('d-viewdate').value;
+      state.viewTime = document.getElementById('d-viewtime').value;
+      state.message = document.getElementById('d-message').value.trim();
+
+      const show = (id, show) => document.getElementById(id).classList.toggle('visible', show);
+      const mark = (id, err) => document.getElementById(id).classList.toggle('error', err);
+
+      const nameOk = state.guestName.length > 1;
+      show('err-name', !nameOk); mark('d-name', !nameOk); if (!nameOk) ok = false;
+
+      const phoneOk = state.guestPhone.length >= 7;
+      show('err-phone', !phoneOk); mark('d-phone', !phoneOk); if (!phoneOk) ok = false;
+
+      if (state.guestEmail) {
+        const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(state.guestEmail);
+        show('err-email', !emailOk); mark('d-email', !emailOk); if (!emailOk) ok = false;
+      }
+
+      const dateOk = !!state.viewDate;
+      show('err-viewdate', !dateOk); mark('d-viewdate', !dateOk); if (!dateOk) ok = false;
+
+      if (!ok) document.getElementById('err-step2').classList.add('visible');
+      else document.getElementById('err-step2').classList.remove('visible');
+
+      return ok;
+    }
+
+    /* ---- Populate review screen ---- */
+    function populateReview() {
+      // Unit
+      const img = document.getElementById('rv-img');
+      img.src = state.unitImg;
+      img.alt = state.unitName;
+      document.getElementById('rv-unit-name').textContent = state.unitName;
+      document.getElementById('rv-purpose').textContent = state.purpose === 'rent' ? 'Rental' : 'Purchase';
+
+      // Move-in
+      const miDate = state.moveIn ? new Date(state.moveIn + 'T00:00:00').toLocaleDateString('en-GB', {day:'numeric',month:'long',year:'numeric'}) : 'Not specified';
+      document.getElementById('rv-movein').textContent = miDate;
+
+      // Duration
+      const durRow = document.getElementById('rv-dur-row');
+      if (state.purpose === 'rent') {
+        durRow.style.display = '';
+        const durSel = document.getElementById('leaseDuration');
+        document.getElementById('rv-duration').textContent = durSel.options[durSel.selectedIndex]?.text || '—';
+      } else {
+        durRow.style.display = 'none';
+      }
+
+      // Price
+      if (state.purpose === 'rent') {
+        document.getElementById('rv-price').textContent = `$${state.rentPrice.toLocaleString()} / month`;
+        const months = state.duration === '0' ? null : parseInt(state.duration,10) * 12;
+        document.getElementById('rv-total').textContent = months ? `$${(state.rentPrice * months).toLocaleString()}` : 'Negotiable';
+        document.getElementById('rv-total-row').style.display = '';
+      } else {
+        document.getElementById('rv-price').textContent = state.buyPrice ? `$${state.buyPrice.toLocaleString()}` : 'Rent only';
+        document.getElementById('rv-total-row').style.display = 'none';
+      }
+
+      // Guest
+      document.getElementById('rv-name').textContent = state.guestName;
+      document.getElementById('rv-phone').textContent = state.guestPhone;
+      document.getElementById('rv-email').textContent = state.guestEmail || 'Not provided';
+      document.getElementById('rv-nat').textContent = state.guestNat || 'Not specified';
+
+      // Viewing
+      const vDate = state.viewDate ? new Date(state.viewDate + 'T00:00:00').toLocaleDateString('en-GB', {weekday:'long',day:'numeric',month:'long'}) : '—';
+      document.getElementById('rv-vdate').textContent = vDate;
+      document.getElementById('rv-vtime').textContent = state.viewTime || 'Any time';
+
+      const msgRow = document.getElementById('rv-msg-row');
+      if (state.message) {
+        msgRow.style.display = '';
+        document.getElementById('rv-msg').textContent = state.message;
+      } else {
+        msgRow.style.display = 'none';
+      }
+
+      document.getElementById('termsCheck').checked = false;
+      document.getElementById('err-step3').classList.remove('visible');
+    }
+
+    /* ---- Generate reference number ---- */
+    function generateRef() {
+      const year = new Date().getFullYear();
+      const rand = String(Math.floor(1000 + Math.random() * 9000));
+      state.ref = `PP-${year}-${rand}`;
+      document.getElementById('conf-ref').textContent = state.ref;
+      document.getElementById('conf-name').textContent = state.guestName;
+    }
+
+    /* ---- Copy reference ---- */
+    window.copyRef = function () {
+      navigator.clipboard.writeText(state.ref).then(() => {
+        const btn = document.getElementById('copyRefBtn');
+        btn.textContent = 'Copied!';
+        setTimeout(() => btn.textContent = 'Copy', 2000);
+      }).catch(() => {
+        prompt('Your booking reference:', state.ref);
+      });
+    };
+
+    /* ---- Populate sidebar on step 2 ---- */
+    function populateAside() {
+      const aside = document.getElementById('aside-2');
+      if (!state.unit) return;
+      const priceLabel = state.purpose === 'rent' ? `$${state.rentPrice.toLocaleString()}/mo` : `$${state.buyPrice.toLocaleString()}`;
+      aside.innerHTML = `
+        <div class="aside-unit">
+          <img class="aside-unit-img" src="${state.unitImg}" alt="${state.unitName}" />
+          <div>
+            <div class="aside-unit-name">${state.unitName}</div>
+            <div class="aside-unit-price">${priceLabel}</div>
+          </div>
+        </div>
+        <div class="aside-row"><span class="al">Type</span><span class="av">${state.purpose === 'rent' ? 'Rental' : 'Purchase'}</span></div>
+        ${state.purpose === 'rent' ? `<div class="aside-row"><span class="al">Duration</span><span class="av">${document.getElementById('leaseDuration').options[document.getElementById('leaseDuration').selectedIndex]?.text}</span></div>` : ''}
+        <div class="aside-row"><span class="al">Move-in</span><span class="av">${state.moveIn || 'Flexible'}</span></div>
+      `;
+      aside.classList.add('visible');
+    }
+
+    /* ---- Go to step ---- */
+    function goToStep(n) {
+      document.querySelectorAll('.booking-step').forEach(s => s.classList.remove('active'));
+      document.getElementById(`step-${n}`).classList.add('active');
+
+      // Update stepper indicators
+      for (let i = 1; i <= 4; i++) {
+        const stepEl = document.getElementById(`bk-s${i}`);
+        const lineEl = document.getElementById(`bk-l${i}`);
+        if (i < n) { stepEl.classList.add('done'); stepEl.classList.remove('active'); }
+        else if (i === n) { stepEl.classList.add('active'); stepEl.classList.remove('done'); }
+        else { stepEl.classList.remove('active', 'done'); }
+        if (lineEl) lineEl.classList.toggle('done', i < n);
+      }
+
+      if (n === 2) populateAside();
+
+      currentStep = n;
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // ---- URL param pre-selection ----
+    const params = new URLSearchParams(window.location.search);
+
+    // Pre-select unit
+    const preUnit = params.get('unit');
+    if (preUnit) {
+      const card = document.querySelector(`.unit-card[data-unit="${preUnit}"]`);
+      if (card) {
+        // slight delay so DOM is ready
+        setTimeout(() => card.click(), 0);
+      }
+    }
+
+    // Pre-set purpose (rent | buy)
+    const prePurpose = params.get('purpose');
+    if (prePurpose === 'buy' || prePurpose === 'rent') {
+      setTimeout(() => setPurpose(prePurpose), 10);
+    }
+
+    // Pre-set move-in date
+    const preMoveIn = params.get('movein');
+    if (preMoveIn) {
+      const mi = document.getElementById('moveInDate');
+      // only apply if the date is in the future
+      const today = new Date().toISOString().split('T')[0];
+      if (preMoveIn >= today) {
+        mi.value = preMoveIn;
+        state.moveIn = preMoveIn;
+      }
+    }
+
+  })();
+  </script>
+</body>
+</html>

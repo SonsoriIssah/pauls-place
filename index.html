@@ -53,7 +53,7 @@
       </ul>
       <div class="nav-actions">
         <a href="tel:0244910599" class="btn-signin">Call Us</a>
-        <a href="pages/contact.html" class="btn-book">Enquire Now</a>
+        <a href="pages/booking.html" class="btn-book">Book Now</a>
         <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
           <span></span><span></span><span></span>
         </button>
@@ -76,7 +76,7 @@
       <p class="hero-subtitle">Beautifully finished 2 &amp; 3-bedroom apartments and prime commercial spaces — in one of Accra's most sought-after neighbourhoods.</p>
       <div class="hero-actions">
         <a href="pages/apartments.html" class="btn-primary">View Apartments</a>
-        <a href="pages/contact.html" class="btn-outline-white">Schedule a Viewing</a>
+        <a href="pages/booking.html" class="btn-outline-white">Book a Viewing</a>
       </div>
     </div>
     <div class="hero-scroll-indicator" aria-hidden="true">
@@ -122,6 +122,94 @@
       </div>
     </div>
   </div>
+
+  <!-- QUICK BOOKING BAR -->
+  <div class="quick-book-bar" role="search" aria-label="Quick unit booking">
+    <div class="container">
+      <div class="qbb-inner">
+        <div class="qbb-field">
+          <label class="qbb-label" for="qbb-unit">Unit Type</label>
+          <div class="qbb-select-wrap">
+            <select id="qbb-unit" class="qbb-select">
+              <option value="">Any unit</option>
+              <option value="apt-2bed-std">2-Bed Standard — $1,500/mo</option>
+              <option value="apt-2bed-dlx">2-Bed Deluxe — $1,800/mo</option>
+              <option value="apt-3bed">3-Bed Premium — $2,000/mo</option>
+              <option value="shop-single">Single Shop — from $650/mo</option>
+              <option value="shop-double">Double Shop — from $1,300/mo</option>
+            </select>
+          </div>
+        </div>
+        <div class="qbb-divider" aria-hidden="true"></div>
+        <div class="qbb-field">
+          <label class="qbb-label" for="qbb-date">Move-in Date</label>
+          <input type="date" id="qbb-date" class="qbb-date" />
+        </div>
+        <div class="qbb-divider" aria-hidden="true"></div>
+        <div class="qbb-field">
+          <span class="qbb-label">Enquiry Type</span>
+          <div class="qbb-toggle" role="group" aria-label="Enquiry type">
+            <button class="qbb-btn active" data-val="rent" type="button">Rent</button>
+            <button class="qbb-btn" data-val="buy" type="button">Buy</button>
+          </div>
+        </div>
+        <button class="qbb-cta" id="qbb-go" type="button">Book a Viewing <span aria-hidden="true">→</span></button>
+      </div>
+    </div>
+  </div>
+  <style>
+    .quick-book-bar{background:var(--dark);border-top:3px solid var(--gold);}
+    .qbb-inner{display:flex;align-items:stretch;min-height:78px;}
+    .qbb-field{display:flex;flex-direction:column;justify-content:center;gap:.3rem;padding:1rem 1.75rem;flex:1;min-width:0;}
+    .qbb-label{font-size:.58rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.45);}
+    .qbb-select-wrap{position:relative;}
+    .qbb-select-wrap::after{content:'▾';position:absolute;right:0;top:50%;transform:translateY(-50%);color:rgba(255,255,255,.35);pointer-events:none;font-size:.75rem;}
+    .qbb-select,.qbb-date{background:none;border:none;color:#fff;font-family:inherit;font-size:.9rem;font-weight:600;outline:none;cursor:pointer;width:100%;appearance:none;-webkit-appearance:none;}
+    .qbb-select option{background:#1c1c1c;color:#fff;}
+    .qbb-date{color-scheme:dark;}
+    .qbb-toggle{display:flex;gap:.5rem;}
+    .qbb-btn{font-family:inherit;font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:.38rem .9rem;border:1.5px solid rgba(255,255,255,.2);background:none;color:rgba(255,255,255,.5);cursor:pointer;transition:all .2s ease;}
+    .qbb-btn.active{background:var(--gold);border-color:var(--gold);color:var(--dark);}
+    .qbb-btn:hover:not(.active){border-color:rgba(255,255,255,.5);color:rgba(255,255,255,.8);}
+    .qbb-divider{width:1px;background:rgba(255,255,255,.08);align-self:stretch;flex-shrink:0;}
+    .qbb-cta{background:var(--gold);color:var(--dark);border:none;font-family:inherit;font-size:.78rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:0 2.5rem;cursor:pointer;transition:all .2s ease;white-space:nowrap;flex-shrink:0;display:flex;align-items:center;gap:.5rem;}
+    .qbb-cta:hover{background:var(--gold-dark,#a07a28);color:#fff;}
+    @media(max-width:768px){
+      .qbb-inner{flex-wrap:wrap;padding:1.25rem 1.25rem 0;}
+      .qbb-field{padding:.5rem 0;flex:1 1 calc(50% - .5rem);}
+      .qbb-divider{display:none;}
+      .qbb-cta{width:100%;justify-content:center;padding:1rem;margin-top:.75rem;}
+      .quick-book-bar .container{padding-bottom:1.25rem;}
+    }
+    @media(max-width:480px){
+      .qbb-field{flex:1 1 100%;}
+    }
+  </style>
+  <script>
+  (function(){
+    var tomorrow=new Date();tomorrow.setDate(tomorrow.getDate()+1);
+    var iso=tomorrow.toISOString().split('T')[0];
+    var d=document.getElementById('qbb-date');
+    if(d){d.value=iso;d.min=iso;}
+    var purpose='rent';
+    document.querySelectorAll('.qbb-btn').forEach(function(btn){
+      btn.addEventListener('click',function(){
+        document.querySelectorAll('.qbb-btn').forEach(function(b){b.classList.remove('active');});
+        btn.classList.add('active');
+        purpose=btn.dataset.val;
+      });
+    });
+    document.getElementById('qbb-go').addEventListener('click',function(){
+      var unit=document.getElementById('qbb-unit').value;
+      var date=document.getElementById('qbb-date').value;
+      var p=new URLSearchParams();
+      if(unit)p.set('unit',unit);
+      if(date)p.set('movein',date);
+      p.set('purpose',purpose);
+      window.location.href='pages/booking.html'+(p.toString()?'?'+p.toString():'');
+    });
+  })();
+  </script>
 
   <!-- ABOUT -->
   <section class="about-section" id="about" aria-label="About Paul's Place">
@@ -380,8 +468,8 @@
       <h2 class="parallax-title">Make Paul's Place Home</h2>
       <p class="parallax-sub" style="max-width:500px;margin-left:auto;margin-right:auto;">Explore our transparent pricing or get in touch to arrange a private viewing at a time that suits you.</p>
       <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-top:2rem;">
-        <a href="pages/pricing.html" class="btn-primary">View Pricing</a>
-        <a href="pages/contact.html" class="btn-outline-white">Contact Us</a>
+        <a href="pages/booking.html" class="btn-primary">Book a Viewing →</a>
+        <a href="pages/pricing.html" class="btn-outline-white">View Pricing</a>
       </div>
     </div>
   </div>
